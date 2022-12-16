@@ -1,4 +1,3 @@
-
 auto.waitFor();//mode = "fast"
 var delay_time = 3000;
 device.wakeUpIfNeeded();
@@ -17,7 +16,6 @@ var meiri = TTXS_PRO_CONFIG.get("meiri", true);
 var meizhou = TTXS_PRO_CONFIG.get("meizhou", 0);
 var zhuanxiang = TTXS_PRO_CONFIG.get("zhuanxiang", 0);
 var tiaozhan = TTXS_PRO_CONFIG.get("tiaozhan", true);
-var sanren = TTXS_PRO_CONFIG.get("sanren", true);
 var ocr_choice = TTXS_PRO_CONFIG.get("ocr_choice", 0);
 var ocr_maxtime = TTXS_PRO_CONFIG.get("ocr_maxtime", "5000");
 var duizhan_mode = TTXS_PRO_CONFIG.get("duizhan_mode", 0);
@@ -33,12 +31,9 @@ var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
 
-let MLKitOCR = $plugins.load('org.autojs.autojspro.plugin.mlkit.ocr');
-let ocr = new MLKitOCR();
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
-
-  let list = JSON.parse(JSON.stringify(ocr.detect(img).toArray(3))); // 识别文字，并得到results
+  let list = JSON.parse(JSON.stringify(gmlkit.ocr(img,"zh").toArray(3))); // 识别文字，并得到results
   let eps = 30; // 坐标误差
   for (
       var i = 0; i < list.length; i++ // 选择排序对上下排序,复杂度O(N²)但一般list的长度较短只需几十次运算
@@ -125,7 +120,7 @@ var storage = storages.create('songgedodo');
 // 脚本版本号
 var last_version = "V10.11";
 var engine_version = "V11.0";
-var newest_version = "V11.1";
+var newest_version = "V11.0";
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
   let gengxin_rows = ["最新版本强国APP不支持多人对战，切勿更新！",
@@ -866,57 +861,6 @@ function do_tiaozhan() {
     // 没答错总数加1
     total += 1;
   }
-}
-
-
-/********太空三人行*********/
-function do_sanren() {
-  entry_jinfen_project("三人");
-  fSet("title", "太空三人行…");
-  fClear();
-  fInfo("开始用户须知弹窗检测");
-  var user_thread = threads.start(function() {
-    //在新线程执行的代码
-    className("android.widget.Button").text("不同意").waitFor();
-    fInfo("检测到用户须知弹窗");
-    sleep(1000);
-    var btn = className("android.widget.Button").text("同意").findOne();
-    btn.click();
-    fInfo("已同意");
-  });
-  sleep(1000);
-  for (var i = 0; i < 2; i++) {
-      sleep(1000);
-      textStartsWith("网络").findOne().parent().child(1).child(0).click();
-      sleep(1000);
-      while (!text("开始").exists());
-      while (!text("继续挑战").exists()) {
-          sleep(2000);
-          // 等待选项加载
-          className("android.widget.RadioButton").depth(32).clickable(true).waitFor();
-          // 随机选择
-          try {
-              var options = className("android.widget.RadioButton").depth(32).find();
-              var select = random(0, options.length - 1);
-              className("android.widget.RadioButton").depth(32).findOnce(select).click();
-          } catch (error) {
-          }
-          while (!textMatches(/第\d题/).exists() && !text("继续挑战").exists() && !text("开始").exists());
-      }
-      if (i < 1) {
-          sleep(1000);
-          while (!click("继续挑战"));
-          sleep(1000);
-      }
-  }
-  user_thread.isAlive() && (user_thread.interrupt(), fInfo("终止用户须知弹窗检测"));
-  sleep(2000);
-  back();
-  sleep(1000);
-  back();
-  text("登录").waitFor();
-  ran_sleep();
-  return true;
 }
 
 /********双人、四人赛*********/
@@ -1926,6 +1870,16 @@ function upload_wrong_exec(endstr) {
   let question = que_txt.replace(/\s/g, "");
   if (endstr) {ans_txt += endstr;}
   fError("错题:" + question + ans_txt);
+  //dati_tiku.unshift([question, ans_txt, null, null, null]);
+  for (let ti of dati_tiku) {
+    if (ti[0] == question) {
+      console.info("题库已有此题");
+      if (ti[1] == ans_txt) {
+        console.info("并且答案一样，已跳过");
+        return false
+      }
+    }
+  }
   dati_tiku.push([question, ans_txt, null, null, null]);
 }
 
@@ -1957,12 +1911,7 @@ function get_ans_by_tiku(que_txt) {
 function get_tiku_by_http(link) {
   // 通过gitee的原始数据保存题库
   if (!link) {link = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json.txt"}
-  let req = http.get(link, {
-    headers: {
-      "Accept-Language": "zh-cn,zh;q=0.5",
-      "User-Agent": random(0, 17),
-    },
-  });
+  let req = http.get(link);
   log(req.statusCode);
   // 更新题库时若获取不到，则文件名+1
   if (req.statusCode != 200) {
@@ -2162,8 +2111,8 @@ function ocr_test() {
 
 // pushplus推送
 function send_pushplus(token, sign_list) {
-  "old" == jifen_flag ? (zongfen = text("成长总积分").findOne().parent().child(3).text()) : "new" == jifen_flag && (zongfen = text("成长总积分").findOne().parent().child(1).text());
   jinri = jifen_list.parent().child(1).text().match(/\d+/g)[0];
+  zongfen = text("成长总积分").findOne().parent().child(3).text();
   let style_str = '<style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}\
 .item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}\
 .item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>';
@@ -2172,16 +2121,14 @@ function send_pushplus(token, sign_list) {
   	if (sign == "ocr_false") { content_str = '由于ocr过慢，已跳过多人对战'+content_str; }
   }
   for (let option of jifen_list.children()) {
-    if ("old" == jifen_flag)
-      var title = option.child(0).child(0).text(),
-      score = option.child(2).text().match(/\d+/g)[0],
-      total = option.child(2).text().match(/\d+/g)[1];
-    else
-      "new" == jifen_flag &&
-      ((title = option.child(0).text()),
-        (score = option.child(3).child(0).text()),
-        (total = option.child(3).child(2).text().match(/\d+/g)[0]));
-    "专项答题" == title && (total = 10);
+    let title = option.child(0).child(0).text();
+    if (title == "专项答题") {
+      var score = option.child(2).text().match(/\d+/g)[0];
+      var total = 10;
+    } else {
+      var score = option.child(2).text().match(/\d+/g)[0];
+      var total = option.child(2).text().match(/\d+/g)[1];
+    }
     let percent = (Number(score)/Number(total)*100).toFixed() + '%';
     let detail = title+": "+score+"/"+total;
     content_str += '<div class="item"><div class="bar"><div style="width: '+percent+';"></div></div><span>'+detail+'</span></div>';
@@ -2190,7 +2137,7 @@ function send_pushplus(token, sign_list) {
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
     title: "天天向上："+name,
-    content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
+    content: content_str,
     template: "markdown",
   });
   if (r.body.json()["code"] == 200) {fInfo("推送成功");}
@@ -2289,7 +2236,7 @@ function login(username, pwd) {
 
 function refind_jifen() {
   className("android.webkit.WebView").scrollable().findOne().scrollForward();
-  var a = className("android.widget.ListView").rowCount(15).findOne();
+  var a = className("android.widget.ListView").rowCount(14).findOne();
   21 == a.depth() ? (jifen_flag = "old", fInfo("检测为旧版界面")) : 23 == a.depth() && (jifen_flag = "new", fInfo("检测为新版界面"));
   return a
 }
@@ -2470,30 +2417,19 @@ function xxqg(userinfo) {
     btn.click();
     fInfo("已取消消息通知");
   });
-  fInfo("等待’");
-  // if (userinfo) {
-  //   var [username, pwd, token] = userinfo;
-  //   login(username, pwd);
-  // }
-  fInfo("获取用户信息");
-  sleep(5000);
+  if (userinfo) {
+    var [username, pwd, token] = userinfo;
+    login(username, pwd);
+  }
   /********获取用户姓名并读取本地数据*********/
-  setScreenMetrics(1080, 1920);
-  fInfo("点击‘我的’");
-  click(990, 145);
-  press(990, 145, 1);
-  fInfo("点击我的");
-  // name = id("my_display_name").findOne(1000).text();
+  text("我的").findOne().click();
+  // name = id("my_display_name").findOne().text();
   // storage_user = storages.create('songgedodo:'+name);
   // fSet("username", name);
   // back();
-  //ran_sleep();
-  if (meizhou == 1) {meizhou_dao = false;}
-  else if (meizhou == 0) {meizhou_dao = true;}
-  if (zhuanxiang == 1) {zhuanxiang_dao = false;}
-  else if (zhuanxiang == 0) {zhuanxiang_dao = true;}
-  if (dingyue == 1) {dingyue_dao = false;}
-  else if (dingyue == 2) {dingyue_dao = true;}
+  // ran_sleep();
+  sleep(5000);
+  /********获取用户姓名并读取本地数据*********/
   sleep(2500);
   setScreenMetrics(1080, 1920);
   fInfo("点击‘学习积分’");
@@ -2502,6 +2438,20 @@ function xxqg(userinfo) {
   //id("comm_head_xuexi_score").findOne().click();
   //text("积分规则").waitFor();
   fInfo("获取‘学习积分’");
+  if (meizhou == 1) {meizhou_dao = false;}
+  else if (meizhou == 0) {meizhou_dao = true;}
+  if (zhuanxiang == 1) {zhuanxiang_dao = false;}
+  else if (zhuanxiang == 0) {zhuanxiang_dao = true;}
+  if (dingyue == 1) {dingyue_dao = false;}
+  else if (dingyue == 2) {dingyue_dao = true;}
+  // id("comm_head_xuexi_score").findOne().click();
+  sleep(5000);
+  /********获取用户姓名并读取本地数据*********/
+  setScreenMetrics(1080, 1920);
+  fInfo("点击‘我的’");
+  click(990, 145);
+  press(990, 145, 1);
+  fInfo("点击我的");
   // jifen_list = refind_jifen();
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
@@ -2522,7 +2472,6 @@ function xxqg(userinfo) {
   2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text()) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list =
       refind_jifen());
   true == tiaozhan && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["挑战"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["挑战"]).child(4).text()) && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list = refind_jifen());
-  true == sanren && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["三人"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["三人"]).child(4).text()) && (toastLog("太空三人行开始"), do_sanren(), jifen_list = refind_jifen());
   if (ocr_test()) {
       if (true == siren && ("old" == jifen_flag && 3 >= parseInt(jifen_list.child(jifen_map["四人"]).child(2).text().match(/\d+/)[0]) || "new" == jifen_flag && 3 >= parseInt(jifen_list.child(jifen_map["四人"]).child(3).child(0).text()))) {
           toastLog("四人赛开始");
@@ -2606,8 +2555,8 @@ function main(userinfo){
 /*******************主程序部分*******************/
 /********定义全局变量*********/
 var jifen_list, meizhou_dao, zhuanxiang_dao, dingyue_dao, storage_user, name, jinri, zongfen;
-var jifen_map = {"评论":11,"视频":2,"文章":1,"每日":4,"每周":14,"专项":5,"挑战":6,"四人":7,"三人":8,"双人":9,
-                "订阅":10,"本地":12},
+var jifen_map = {"评论":10,"视频":2,"文章":1,"每日":4,"每周":13,"专项":5,"挑战":6,"四人":7,"双人":8,
+                "订阅":9,"本地":11},
     jifen_flag = "old";
 // 分割账号
 var noverify_thread = noverify();
@@ -2617,7 +2566,7 @@ if (zhanghao) {
     let userinfo = zh.split(/:|：/);
     zhanghao_list.push(userinfo);
   };
-  // if (zhanghao_list.length > 3) {zhanghao_list.length = 3;}
+  if (zhanghao_list.length > 3) {zhanghao_list.length = 3;}
   //console.verbose(zhanghao_list);
   for (let userinfo of zhanghao_list) {
     console.verbose(userinfo);
