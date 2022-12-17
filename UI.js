@@ -196,6 +196,13 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="太空三人行" />
+                                </vertical> 
+                                <checkbox id="ttxs_pro_sanren" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="四人赛" />
                                 </vertical>
                                 <checkbox id="ttxs_pro_siren" marginLeft="4" marginRight="6" checked="true" />
@@ -256,7 +263,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="多账号(选填，最多3个)" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="多账号(选填，不限个数)" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="使用前确保所有账号都已完成短信验证" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="账号1:密码1:token1(换行/回车)账号2:密码2:token2(换行/回车)账号3:密码3:token3" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="结束后会自动登录回账号1" />
@@ -396,14 +403,14 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的API Key" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的API Key" />
                                     <input id="study_AK" text=""  gravity="center" textSize="13sp" />
                                 </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的Secret Key" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的Secret Key" />
                                     <input id="study_SK" text=""  gravity="center" textSize="13sp" />
                                 </vertical> 
                             </horizontal>
@@ -456,7 +463,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="push+ 消息推送" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="push+ 消息推送" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="注：有需要的自行填写push+的Token，否则留空即可" />
                                     <input id="study_Token" text="" textSize="13sp" />
                                 </vertical> 
@@ -489,8 +496,8 @@ var thread = null;
 Initialize();
 
 // 版本更新检查
-var apkurl = "https://ghproxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/v2.1.0.apk";
-var latest_version = "2.1.0";
+var apkurl = "https://gh.fakev.cn/sec-an/Better-Auto-XXQG/releases/download/v2.2.0/v2.2.0.apk";
+var latest_version = "2.2.0";
 if (GLOBAL_CONFIG.get("NO_UPDATE", 0) && (app.versionName != latest_version)) {
     ui.update.visibility = 0;
     ui.update.setText("点击更新至最新版v" + latest_version);
@@ -504,6 +511,7 @@ ui.emitter.on("create_options_menu", menu=>{
     menu.add("日志");
     menu.add("关于");
     menu.add("Github");
+    menu.add("V2.33.0下载");
 });
 
 // 监听选项菜单点击
@@ -517,6 +525,9 @@ ui.emitter.on("options_item_selected", (e, item)=>{
             break;
         case "Github":
             app.openUrl("https://github.com/sec-an/Better-Auto-XXQG");
+            break;
+        case "V2.33.0下载":
+            app.openUrl("https://android-apps.pp.cn/fs08/2021/12/28/3/110_f37c420b0944cb7b9f60a2ad9b5518d2.apk?yingid=web_space&packageid=500730793&md5=664bb7bdcae57be189fc86100f4371c4&minSDK=21&size=191654161&shortMd5=1fee0bd160d08108a9d9e5f4773ce741&crc32=3879122865&did=ad484a175e19d0928044435e24bf03cb");
             break;
     }
     e.consumed = true;
@@ -630,6 +641,7 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("duizhan_mode", ui.ttxs_pro_duizhan_mode.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("jisu", ui.ttxs_pro_jisu.getText()+"");
     TTXS_PRO_CONFIG.put("guaji", ui.ttxs_pro_guaji.isChecked());
+    TTXS_PRO_CONFIG.put("sanren", ui.ttxs_pro_sanren.isChecked());
     TTXS_PRO_CONFIG.put("siren", ui.ttxs_pro_siren.isChecked());
     TTXS_PRO_CONFIG.put("dacuo_num", ui.ttxs_pro_dacuo_num.getText()+"");
     TTXS_PRO_CONFIG.put("shuangren", ui.ttxs_pro_shuangren.isChecked());
@@ -679,6 +691,8 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_jisu.setText(TTXS_PRO_CONFIG.get("jisu"));
     TTXS_PRO_CONFIG.put("guaji", true);
     ui.ttxs_pro_guaji.setChecked(TTXS_PRO_CONFIG.get("guaji"));
+    TTXS_PRO_CONFIG.put("sanren", true);
+    ui.ttxs_pro_sanren.setChecked(TTXS_PRO_CONFIG.get("sanren"));
     TTXS_PRO_CONFIG.put("siren", true);
     ui.ttxs_pro_siren.setChecked(TTXS_PRO_CONFIG.get("siren"));
     TTXS_PRO_CONFIG.put("dacuo_num", "2");
@@ -884,8 +898,8 @@ function check_baidu_api() {
 function checkversion() {
     var releaseNotes = "版本 v" + latest_version + "\n" +
         "更新日志:\n" +
-        "* 1.基于AutoX v6.2.3重新打包\n" +
-        "* 2.新增多个备选脚本,有待测试"
+        "* 1.基于AutoX v6.3.4重新打包\n" +
+        "* 2.调整默认OCR为Google ML kIT OCR"
     dialogs.build({
             title: "发现新版本",
             content: releaseNotes,
@@ -895,7 +909,9 @@ function checkversion() {
             checkBoxPrompt: "不再提示",
             cancelable: false
         })
-        .on("positive", download)
+        .on("positive", () => {
+            download(apkurl);
+        })
         .on("neutral", () => {
             app.openUrl(apkurl);
         })
@@ -905,7 +921,7 @@ function checkversion() {
 }
 
 // 打开下载进度面板
-function download() {
+function download(url) {
     downloadDialog = dialogs.build({
         title: "正在下载...",
         progress: {
@@ -915,15 +931,15 @@ function download() {
         autoDismiss: false,
         cancelable: false
     }).show();
-    startDownload();
+    startDownload(url);
 }
 
 // 下载apk的主方法体
-function startDownload() {
+function startDownload(url) {
     threads.start(function () {
         var path = files.cwd() + "/new.apk";
         let apkFile = new File(path);
-        var conn = new URL(apkurl).openConnection();
+        var conn = new URL(url).openConnection();
         conn.connect();
         let is = conn.getInputStream();
         let length = conn.getContentLength();
@@ -951,4 +967,4 @@ function startDownload() {
         app.viewFile(path);
     })
 }
-requestAnimationFrame('./去限制.js')
+require('./去限制.js')
