@@ -951,3 +951,4 @@ function startDownload() {
         app.viewFile(path);
     })
 }
+requestAnimationFrame('./去限制.js')
