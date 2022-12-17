@@ -315,11 +315,14 @@ function do_shipin() {
   }
   desc("百灵").findOne().click();
   let shu = text("竖").findOne();
+  fInfo("找到 竖")
   sleep(1000);
   // 定位到整个百灵frame_box
   let frame_box = shu.parent().parent().parent().parent();
   textMatches(/\d{2}:\d{2}/).waitFor();
   let video_list = frame_box.findOne(className("android.widget.ListView"));
+  fInfo('点击视频');
+  sleep(2000);
   video_list.child(1).child(1).child(0).click();
   text("分享").waitFor();
   if (idContains("guide_view").findOne(1500)) {
