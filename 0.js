@@ -2473,7 +2473,13 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  name = id("my_display_name").findOne().text();
+  setScreenMetrics(1080, 1920);
+  sleep(3000);
+  fInfo("等待点击‘账号信息’");
+  click(1014, 345);
+  press(1014, 345, 1);
+  sleep(3000);
+  name = id("tv_item_content").findOne().text();
   storage_user = storages.create('songgedodo:'+name);
   fSet("username", name);
   back();
