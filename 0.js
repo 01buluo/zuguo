@@ -2,21 +2,6 @@
 auto.waitFor();//mode = "fast"
 var delay_time = 3000;
 device.wakeUpIfNeeded();
-function init去限制() {
-  importClass(com.stardust.autojs.core.accessibility.AccessibilityBridge.WindowFilter);
-  let bridge = runtime.accessibilityBridge;
-  let bridgeField = runtime.getClass().getDeclaredField("accessibilityBridge");
-  let configField = bridgeField.getType().getDeclaredField("mConfig");
-  configField.setAccessible(true);
-  configField.set(bridge, configField.getType().newInstance());
-  bridge.setWindowFilter(new JavaAdapter(AccessibilityBridge$WindowFilter, {
-      filter: function(info) {
-          return true;
-      }
-  }));
-}
-init去限制();
-
 
 // 读取自定义配置
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
@@ -1088,13 +1073,13 @@ function do_duizhan1(renshu) {
       // 为了适配OCR插件改为下面这句
       console.time('题目识别');
       
-    // if (ocr_choice == 0) {
-         var que_txt = google_ocr_api(que_img).replace(/[^\u4e00-\u9fa5\d]|\d{1,2}\./g, "");
-    // } else if (ocr_choice == 1) {
-    //    var que_txt = paddle_ocr_api(que_img).replace(/[^\u4e00-\u9fa5\d]|\d{1,2}\./g, "");
-    // } else {
-    //    var que_txt = ocr.recognizeText(que_img).replace(/[^\u4e00-\u9fa5\d]|\d{1,2}\./g, "");
-    // }
+    if (ocr_choice == 0) {
+        var que_txt = google_ocr_api(que_img).replace(/[^\u4e00-\u9fa5\d]|\d{1,2}\./g, "");
+    } else if (ocr_choice == 1) {
+        var que_txt = paddle_ocr_api(que_img).replace(/[^\u4e00-\u9fa5\d]|\d{1,2}\./g, "");
+    } else {
+        var que_txt = ocr.recognizeText(que_img).replace(/[^\u4e00-\u9fa5\d]|\d{1,2}\./g, "");
+    }
       console.timeEnd('题目识别');
       if (!que_txt) {
         images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '.png','png',50);
@@ -2100,7 +2085,7 @@ function close_video() {
 
 // 屏幕宽高、方向初始化
 function init_wh() {
-  fInfo("屏幕方向检测-修");
+  fInfo("屏幕方向检测");
   log(device.width + "*" + device.height);
   var device_w = depth(0).findOne().bounds().width();
   var device_h = depth(0).findOne().bounds().height();
@@ -2487,16 +2472,11 @@ function xxqg(userinfo) {
     login(username, pwd);
   }
   /********获取用户姓名并读取本地数据*********/
- // text("我的").findOne().click();
-  sleep(2500);
-  setScreenMetrics(1080, 1920);
-  fInfo("点击‘我的’");
-  click(990, 145);
-  press(990, 145, 1);
-  // name = id("my_display_name").findOne().text();
-  // storage_user = storages.create('songgedodo:'+name);
-  // fSet("username", name);
-  // back();
+  text("我的").findOne().click();
+  name = id("my_display_name").findOne().text();
+  storage_user = storages.create('songgedodo:'+name);
+  fSet("username", name);
+  back();
   ran_sleep();
   if (meizhou == 1) {meizhou_dao = false;}
   else if (meizhou == 0) {meizhou_dao = true;}
@@ -2504,14 +2484,13 @@ function xxqg(userinfo) {
   else if (zhuanxiang == 0) {zhuanxiang_dao = true;}
   if (dingyue == 1) {dingyue_dao = false;}
   else if (dingyue == 2) {dingyue_dao = true;}
-  sleep(5000);
-  //setScreenMetrics(1080, 1920);
+  //id("comm_head_xuexi_score").findOne().click();
+  sleep(7000);
+  setScreenMetrics(1080, 1920);
  
-  fInfo("点击‘学习积分’");
+  fInfo("等待点击‘学习积分’");
   click(245, 875);
   press(245, 875, 1);
- // fInfo("点击我的");
- // id("comm_head_xuexi_score").findOne().click();
   text("积分规则").waitFor();
   fInfo("达到积分规则");
   jifen_list = refind_jifen();
