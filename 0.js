@@ -2100,7 +2100,7 @@ function close_video() {
 
 // 屏幕宽高、方向初始化
 function init_wh() {
-  fInfo("屏幕方向检测");
+  fInfo("屏幕方向检测-修");
   log(device.width + "*" + device.height);
   var device_w = depth(0).findOne().bounds().width();
   var device_h = depth(0).findOne().bounds().height();
