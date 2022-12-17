@@ -321,9 +321,10 @@ function do_shipin() {
   let frame_box = shu.parent().parent().parent().parent();
   textMatches(/\d{2}:\d{2}/).waitFor();
   let video_list = frame_box.findOne(className("android.widget.ListView"));
+  className('android.widget.FrameLayout').clickable(true).depth(22).findOnce(1).click();
   fInfo('点击视频');
   sleep(2000);
-  video_list.child(1).child(1).child(0).click();
+ // video_list.child(1).child(1).child(0).click();
   text("分享").waitFor();
   if (idContains("guide_view").findOne(1500)) {
     fInfo("检测到引导遮罩");
