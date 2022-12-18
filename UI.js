@@ -9,7 +9,7 @@ importClass(android.graphics.Color);
 ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro";
 ui.副标题 = "让各位从疫情走出来专心于工作";
-ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.新增网络验证系统\n3.不同情况选择设置和对应脚本运行\n4.此模板仅供内部测试交流！\n5.试用期过后，请赞助获取卡密";
+ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.新增网络验证系统\n3.不同情况选择设置和对应脚本运行\n4.此模板仅供内部测试交流！\n5.试用期过后，请赞助获取卡密。\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等";
 const PJYSDK = (function(){
     function PJYSDK(app_key, app_secret){
         http.__okhttp__.setMaxRetries(0);
