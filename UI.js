@@ -562,13 +562,14 @@ const PJYSDK = (function(){
             self._heartbeat_ret = self.TrialHeartbeat();
             if (self._heartbeat_ret.code != 0) {
                 self.event.emit("heartbeat_failed", self._heartbeat_ret);
+              //  vip = 1;
             }
         }, this._heartbeat_gap, this);
 
         this._heartbeat_task.setInterval((self) => {
             if (self.GetTimeRemaining() == 0) {
                 self.event.emit("heartbeat_failed", {"code": 10407, "message": "试用已到期！"});
-            }
+            }else vip = 1;
         }, 1000, this);
     }
     PJYSDK.prototype.TrialLogout = function() {  // 试用退出登录，没有http请求，只是清理本地记录
@@ -1124,13 +1125,13 @@ ui.layout(
                     </horizontal>
                     <horizontal>
                         <button id='denglu' text='登陆' layout_weight='1'></button>
-                        <button id='获取剩余时长' text='获取剩余时长' layout_weight='1'></button>
+                        <button id='获取剩余时长' text='获取剩余时长\试用' layout_weight='1'></button>
                     </horizontal>
                     <horizontal>
                     <vertical>
                     {/* 脚本公告配置区域 */}
                    <vertical>
-                   <text gravity='center' text='公告' w='1' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
+                   <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
                    <text padding='10dp' text='{{ui.公告}}'></text>
                    </vertical>
                </vertical>
@@ -1219,6 +1220,7 @@ ui.denglu.on('click', () => {
 });
 ui.获取剩余时长.click(function(){
     console.log('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
+    if(pjysdk.GetTimeRemaining() > 100 )vip = 1;
     toast('当前卡密使用剩余时长:' + pjysdk.GetTimeRemaining() + '秒');
 })
 ui.pjyLoginFun = function () {
