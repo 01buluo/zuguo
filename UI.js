@@ -1124,7 +1124,7 @@ ui.layout(
                         <input id='bh_kami' w='*'></input>
                     </horizontal>
                     <horizontal>
-                        <button id='denglu' text='登陆' layout_weight='1'></button>
+                        <button id='denglu' text='登陆\试用' layout_weight='1'></button>
                         <button id='获取剩余时长' text='获取剩余时长\试用' layout_weight='1'></button>
                     </horizontal>
                     <horizontal>
