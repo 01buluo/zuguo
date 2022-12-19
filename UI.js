@@ -1367,7 +1367,7 @@ ui.start.click(function () {
     threads.start(function () {
         let url = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
        if (vip == 1)
-        execution = engines.execScript("强国助手", http.get(url).body.string());
+        execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
     });
