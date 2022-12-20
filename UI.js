@@ -5,11 +5,11 @@ importClass(java.net.URL);
 importClass(java.io.File);
 importClass(java.io.FileOutputStream);
 importClass(android.graphics.Color);
-
+console.clear();
 ui.主题颜色 = "#FFC0CB";
-ui.标题 = "学习四合一测试版pro";
+ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
 ui.副标题 = "让各位从疫情走出来专心于工作";
-ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.新增网络验证系统\n3.不同情况选择设置和对应脚本运行\n4.此模板仅供内部测试交流！\n5.试用期过后，请赞助获取卡密（Q群758116397）。\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等";
+ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.新增网络验证系统\n3.不同情况选择设置和对应脚本运行\n4.此模板仅供内部测试交流！\n5.试用期过后，请赞助获取卡密（Q群758116397，加群获得最新apk和资料）。\n6.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等";
 const PJYSDK = (function(){
     function PJYSDK(app_key, app_secret){
         http.__okhttp__.setMaxRetries(0);
@@ -661,7 +661,7 @@ ui.layout(
                                         <text text="脚本选择" textColor="#222222" textSize="16sp" maxLines="1" />
                                         <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="14sp" maxLines="1" />
                                     </vertical>
-                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="root去除截图权限版|天天向上pro|天天向上|Study改" />
+                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="root等去截图权限版|天天向上pro|天天向上|Study改" />
                                 </horizontal>
                             </card>
                             <card w="*" h="70" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
@@ -1406,7 +1406,7 @@ ui.ttxs_pro_save.click(function () {
     toastLog("学习测试pro配置保存成功！");
 });
 
-// 重置天天向上pro脚本设置
+// 重置学习测试四合一pro脚本设置
 ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("watchdog", "1800");
     ui.ttxs_pro_watchdog.setText(TTXS_PRO_CONFIG.get("watchdog"));
