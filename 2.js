@@ -67,7 +67,7 @@ if (storage.get(engine_version, true)) {
 }
 var w = fInit();
 // console.show();
-fInfo("天天向上"+newest_version+"脚本初始化");
+fInfo("学习测试四合一pro"+newest_version+"脚本初始化");
 fInfo("版本号检测："+ app.versionCode);
 // 初始化宽高
 var [device_w, device_h] = init_wh();
@@ -112,7 +112,7 @@ catch (e) {
   dati_tiku = get_tiku_by_ct('https://webapi.ctfile.com/get_file_url.php?uid=35157972&fid=555754562&file_chk=94c3c662ba28f583d2128a1eb9d78af4&app=0&acheck=2&rd=0.14725283060014105');
 }
 // 设置资源保存路径
-files.createWithDirs("/sdcard/天天向上/");
+files.createWithDirs("/sdcard/学习测试四合一pro/");
 // fInfo("运行前重置学习APP");
 // exit_app("学习强国");
 // sleep(1500);
@@ -952,9 +952,9 @@ function do_duizhan1(renshu) {
       var que_txt = ocr_rslt_to_txt(results).replace(/[^\u4e00-\u9fa5\d]|^\d{1,2}\.?/g, "");
       console.timeEnd("题目识别");
       if (!que_txt) {
-        images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '.png','png',50)
-        images.save(que_img, '/sdcard/天天向上/' + renshu + '-' + num + '-q.png','png',50);
-        fError("未识别出题目，图片保存至‘/sdcard/天天向上/’");
+        images.save(img, '/sdcard/学习测试四合一pro/' + renshu + '-' + num + '.png','png',50)
+        images.save(que_img, '/sdcard/学习测试四合一pro/' + renshu + '-' + num + '-q.png','png',50);
+        fError("未识别出题目，图片保存至‘/sdcard/学习测试四合一pro/’");
         console.error("大概率无障碍服务失效"+ auto.service);
         console.error("题目框体范围：", que_x, que_y, que_w, que_h);
         img.recycle();
@@ -1044,8 +1044,8 @@ function do_duizhan1(renshu) {
     //allx_txt = ocr.recognizeText(img);
     console.timeEnd("选项识别");
     if (!allx_txt) {
-      images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '-a.png','png',50);
-      log("识别不出选项文本，图片保存至‘/sdcard/天天向上/’");
+      images.save(img, '/sdcard/学习测试四合一pro/' + renshu + '-' + num + '-a.png','png',50);
+      log("识别不出选项文本，图片保存至‘/sdcard/学习测试四合一pro/’");
       err_flag = false;
       sleep(200);
       continue;
@@ -1995,7 +1995,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">天天向上</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip">学习测试四合一pro</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -2009,7 +2009,7 @@ function fInit() {
   );
   ui.run(function() {
     w.title.setFocusable(true);
-    w.version.setText("天天向上"+newest_version);
+    w.version.setText("学习测试四合一pro"+newest_version);
   });
   w.setSize(720, -2);
   w.setPosition(10, 10);
