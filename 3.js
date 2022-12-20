@@ -174,9 +174,9 @@ function get_baidu_token() { // 百度ocr
 }
 
 function get_paddle_ocr() {
-    console.info("你选择了助手内置文字识别PaddleOCR");
+    console.info("你选择了学习测试四合一pro助手内置文字识别PaddleOCR");
     if (app.versionName < "1.1.0") {
-        console.error("请更新助手软件！！！，脚本结束");
+        console.error("请更新学习测试四合一pro助手软件！！！，脚本结束");
         if (noverify_thread.isAlive()) {
             noverify_thread.interrupt();
         }
@@ -826,7 +826,7 @@ function start_app() {
         // return;
     }
     while (!desc("工作").exists()) {
-        console.log("正在等待加载出主页，如果一直加载此信息，请检测是否在主界面，或者无障碍服务可能出现BUG，请停止运行助手软件并重新给无障碍服务");
+        console.log("正在等待加载出主页，如果一直加载此信息，请检测是否在主界面，或者无障碍服务可能出现BUG，请停止运行学习测试四合一pro助手软件并重新给无障碍服务");
         if (textContains("取消").exists() && textContains("立即升级").exists()) {
             //toast('1');
             text("取消").click();
@@ -2793,7 +2793,7 @@ function rand_mode() {
     }
     end = new Date().getTime();
     console.log("运行结束,共耗时" + (parseInt(end - start)) / 1000 + "秒");
-    console.log("3s后自动关闭悬浮窗，查看日志请到助手软件主页并返回一次即可查看");
+    console.log("3s后自动关闭悬浮窗，查看日志请到学习测试四合一pro助手软件主页并返回一次即可查看");
     desc("工作").click();
     delay(3);
     console.hide();
