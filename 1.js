@@ -131,9 +131,9 @@ if (storage.get(engine_version, true)) {
   if (!is_show) {storage.put(engine_version, false);}
 }
 var w = fInit();
-// console.setTitle("天天向上");
+// console.setTitle("学习测试四合一pro");
 // console.show();
-fInfo("天天向上Pro"+newest_version+"脚本初始化");
+fInfo("学习测试四合一pro"+newest_version+"脚本初始化");
 // 初始化宽高
 var [device_w, device_h] = init_wh();
 // log("fina:", device_w, device_h);
@@ -198,7 +198,7 @@ catch (e) {
   dati_tiku = get_tiku_by_ct('https://webapi.ctfile.com/get_file_url.php?uid=35157972&fid=555754562&file_chk=94c3c662ba28f583d2128a1eb9d78af4&app=0&acheck=2&rd=0.14725283060014105');
 }
 // 设置资源保存路径
-files.createWithDirs("/sdcard/天天向上/");
+files.createWithDirs("/sdcard/学习测试四合一pro/");
 // 调整音量
 if (yl_on) {
   fInfo("设置媒体音量");
@@ -1081,9 +1081,9 @@ function do_duizhan1(renshu) {
     }
       console.timeEnd('题目识别');
       if (!que_txt) {
-        images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '.png','png',50);
-        images.save(que_img, '/sdcard/天天向上/' + renshu + '-' + num + '-q.png','png',50);
-        fError("未识别出题目，图片保存至‘/sdcard/天天向上/’");
+        images.save(img, '/sdcard/学习测试四合一pro/' + renshu + '-' + num + '.png','png',50);
+        images.save(que_img, '/sdcard/学习测试四合一pro/' + renshu + '-' + num + '-q.png','png',50);
+        fError("未识别出题目，图片保存至‘/sdcard/学习测试四合一pro/’");
         console.error("大概率无障碍服务失效"+ auto.service);
         console.error("题目框体范围：", que_x, que_y, que_w, que_h);
         img.recycle();
@@ -1203,8 +1203,8 @@ function do_duizhan1(renshu) {
     console.timeEnd("选项识别");
     // log(allx_txt);
     if (!allx_txt) {
-      images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '-a.png','png',50);
-      log("识别不出选项文本，图片保存至‘/sdcard/天天向上/’");
+      images.save(img, '/sdcard/学习测试四合一pro/' + renshu + '-' + num + '-a.png','png',50);
+      log("识别不出选项文本，图片保存至‘/sdcard/学习测试四合一pro/’");
       err_flag = false;
       sleep(200);
       continue;
@@ -2094,7 +2094,7 @@ function init_wh() {
     sleep(10000);
   }
   else if (device.width == 0 || device.height == 0) {
-    fError("识别不出设备宽高，建议重启强国助手后重新运行脚本");
+    fError("识别不出设备宽高，建议重启学习测试四合一pro后重新运行脚本");
     sleep(10000);
   }
   return [device_w, device_h]
@@ -2140,7 +2140,7 @@ function ocr_test() {
     fInfo("OCR识别结束:"+test_time+"ms");
     if (test_time>test_limit) {
       fError("OCR识别过慢(>"+test_limit+"ms)，已跳过多人对战，可在配置中设置跳过阈值");
-      fError("如偶然变慢，可能为无障碍服务抽风，建议重启强国助手后重试");
+      fError("如偶然变慢，可能为无障碍服务抽风，建议重启学习测试四合一pro后重试");
       sleep(3000);
       return false
     } else {
@@ -2185,7 +2185,7 @@ function send_pushplus(token, sign_list) {
   content_str += '</div>'+style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
-    title: "天天向上："+name,
+    title: "学习测试四合一pro："+name,
     content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
     template: "markdown",
   });
@@ -2205,7 +2205,7 @@ function send_email(email) {
   let content = "用户" + name + "已完成：" + zongfen;
   var data=app.intent({action: "SENDTO"});
   data.setData(app.parseUri("mailto:"+e_addr));
-  data.putExtra(Intent.EXTRA_SUBJECT, "天天向上："+name);
+  data.putExtra(Intent.EXTRA_SUBJECT, "学习测试四合一pro："+name);
   data.putExtra(Intent.EXTRA_TEXT, content);
   app.startActivity(data);
   return true;
@@ -2363,7 +2363,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">天天向上+</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip">学习测试四合一pro+</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -2377,7 +2377,7 @@ function fInit() {
   );
   ui.run(function() {
     //w.title.setFocusable(true);
-    w.version.setText("天天向上+"+newest_version);
+    w.version.setText("学习测试四合一pro+"+newest_version);
   });
   w.setSize(720, -2);
   w.setPosition(10, 10);
