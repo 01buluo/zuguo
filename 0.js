@@ -2100,7 +2100,7 @@ function init_wh() {
     sleep(10000);
   }
   else if (device.width == 0 || device.height == 0) {
-    fError("识别不出设备宽高，建议重启强国助手后重新运行脚本");
+    fError("识别不出设备宽高，建议重启学习测试四合一pro后重新运行脚本");
     sleep(10000);
   }
   return [device_w, device_h]
@@ -2146,7 +2146,7 @@ function ocr_test() {
     fInfo("OCR识别结束:"+test_time+"ms");
     if (test_time>test_limit) {
       fError("OCR识别过慢(>"+test_limit+"ms)，已跳过多人对战，可在配置中设置跳过阈值");
-      fError("如偶然变慢，可能为无障碍服务抽风，建议重启强国助手后重试");
+      fError("如偶然变慢，可能为无障碍服务抽风，建议重启学习测试四合一pro后重试");
       sleep(3000);
       return false
     } else {
