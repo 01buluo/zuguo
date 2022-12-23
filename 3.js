@@ -878,6 +878,7 @@ function getScores(i) {
             text("积分").findOnce().parent().child(1).click();
         }
         delay(3);
+        className("android.view.View").depth(22).findOnce(2).child(0).click();
     }
     while (!text('登录').exists()) {
         delay(0.5);
