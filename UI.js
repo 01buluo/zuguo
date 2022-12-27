@@ -639,7 +639,7 @@ const PJYSDK = (function(){
 // AppKey 和 AppSecret 在泡椒云开发者后台获取
 let pjysdk = new PJYSDK("cefjuc3dqusush5gl3o0", "IsNatuRFc4QUi6YdL18mAQ36Pl0PNOhu");
 pjysdk.debug = true;
-var vip = 0;
+var vip = 1;
 var color = "#FF4FB3FF";
 
 ui.statusBarColor("#FF4FB3FF")
@@ -1367,7 +1367,9 @@ ui.start.click(function () {
     threads.start(function () {
         let url = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
        if (vip == 1)
-        execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
+        {execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
+        toast('目前处于开放试用阶段') 
+        }
         else {toast('请检查是否卡密已过（试用）期或者未输入卡密登录激活') 
             }
     });
