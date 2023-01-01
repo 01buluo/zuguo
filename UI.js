@@ -959,14 +959,14 @@ ui.layout(
                                 </vertical> 
                                 <checkbox id="study_checkbox_01" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+                            {/* <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="每周答题" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="建议手动答题，否则不保证全对" />
                                 </vertical> 
                                 <checkbox id="study_checkbox_02" marginLeft="4" marginRight="6" checked="true" />
-                            </horizontal>
+                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -997,13 +997,13 @@ ui.layout(
                                     <spinner id="study_select" marginLeft="4" marginRight="6" entries="不向下滑动，只答当天的题目,没有则返回|向下滑动，直到找到可答题的题目" />
                                 </vertical> 
                             </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+                            {/* <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="每周答题模式选择" />
                                     <spinner id="study_selectm" marginLeft="4" marginRight="6" entries="不向下滑动，只答当天的题目,没有则返回|向下滑动，直到找到可答题的题目" />
                                 </vertical> 
-                            </horizontal>
+                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -1029,7 +1029,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每日、每周、专项答题增强模式" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每日、专项答题增强模式" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="使用在线OCR识别答案" />
                                     <spinner id="study_stronger" marginLeft="4" marginRight="6" entries="关闭|使用百度OCR识别答案" />
                                 </vertical> 
