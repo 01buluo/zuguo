@@ -1357,7 +1357,6 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("shipin", ui.ttxs_pro_shipin.isChecked());
     TTXS_PRO_CONFIG.put("wenzhang", ui.ttxs_pro_wenzhang.isChecked());
     TTXS_PRO_CONFIG.put("meiri", ui.ttxs_pro_meiri.isChecked());
-    TTXS_PRO_CONFIG.put("meizhou", ui.ttxs_pro_meizhou.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("zhuanxiang", ui.ttxs_pro_zhuanxiang.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("tiaozhan", ui.ttxs_pro_tiaozhan.isChecked());
     TTXS_PRO_CONFIG.put("ocr_choice", ui.ttxs_pro_ocr_choice.getSelectedItemPosition());
@@ -1365,7 +1364,6 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("duizhan_mode", ui.ttxs_pro_duizhan_mode.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("jisu", ui.ttxs_pro_jisu.getText()+"");
     TTXS_PRO_CONFIG.put("guaji", ui.ttxs_pro_guaji.isChecked());
-    TTXS_PRO_CONFIG.put("sanren", ui.ttxs_pro_sanren.isChecked());
     TTXS_PRO_CONFIG.put("siren", ui.ttxs_pro_siren.isChecked());
     TTXS_PRO_CONFIG.put("dacuo_num", ui.ttxs_pro_dacuo_num.getText()+"");
     TTXS_PRO_CONFIG.put("shuangren", ui.ttxs_pro_shuangren.isChecked());
@@ -1399,8 +1397,6 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang"));
     TTXS_PRO_CONFIG.put("meiri", true);
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri"));
-    TTXS_PRO_CONFIG.put("meizhou", 0);
-    ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou"));
     TTXS_PRO_CONFIG.put("zhuanxiang", 0);
     ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang"));
     TTXS_PRO_CONFIG.put("tiaozhan", true);
@@ -1415,8 +1411,6 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_jisu.setText(TTXS_PRO_CONFIG.get("jisu"));
     TTXS_PRO_CONFIG.put("guaji", true);
     ui.ttxs_pro_guaji.setChecked(TTXS_PRO_CONFIG.get("guaji"));
-    TTXS_PRO_CONFIG.put("sanren", true);
-    ui.ttxs_pro_sanren.setChecked(TTXS_PRO_CONFIG.get("sanren"));
     TTXS_PRO_CONFIG.put("siren", true);
     ui.ttxs_pro_siren.setChecked(TTXS_PRO_CONFIG.get("siren"));
     TTXS_PRO_CONFIG.put("dacuo_num", "2");
@@ -1547,7 +1541,6 @@ function Initialize() {
     ui.ttxs_pro_shipin.setChecked(TTXS_PRO_CONFIG.get("shipin", true));
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang", true));
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri", true));
-    ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou", 0));
     ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang", 0));
     ui.ttxs_pro_tiaozhan.setChecked(TTXS_PRO_CONFIG.get("tiaozhan", true));
     ui.ttxs_pro_ocr_choice.setSelection(TTXS_PRO_CONFIG.get("ocr_choice", 0));
