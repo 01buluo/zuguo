@@ -1445,7 +1445,7 @@ ui.study_save.click(function () {
 
     STUDY_CONFIG.put("huakuaidelay", ui.study_huakuaidelay.getText()+"");
     STUDY_CONFIG.put("select", ui.study_select.getSelectedItemPosition());
-    STUDY_CONFIG.put("selectm", ui.study_selectm.getSelectedItemPosition());
+  //  STUDY_CONFIG.put("selectm", ui.study_selectm.getSelectedItemPosition());
     STUDY_CONFIG.put("select_01", ui.study_select_01.getSelectedItemPosition());
     STUDY_CONFIG.put("xianzhi", ui.study_xianzhi.isChecked());
     STUDY_CONFIG.put("another", ui.study_another.getText()+"");
@@ -1477,7 +1477,7 @@ ui.study_reset.click(function () {
     ui.study_checkbox_01.setChecked(STUDY_CONFIG.get("checkbox_01"));
     ui.study_checkbox_03.setChecked(STUDY_CONFIG.get("checkbox_03"));
     ui.study_shuangren.setChecked(STUDY_CONFIG.get("shuangren"));
-    
+
     STUDY_CONFIG.put("huakuaidelay", "300");
     STUDY_CONFIG.put("select", 0);
     STUDY_CONFIG.put("selectm", 0);
@@ -1487,7 +1487,7 @@ ui.study_reset.click(function () {
     STUDY_CONFIG.put("stronger", 0);
     ui.study_huakuaidelay.setText(STUDY_CONFIG.get("huakuaidelay"));
     ui.study_select.setSelection(STUDY_CONFIG.get("select"));
-    ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm"));
+  //  ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm"));
     ui.study_select_01.setSelection(STUDY_CONFIG.get("select_01"));
     ui.study_xianzhi.setChecked(STUDY_CONFIG.get("xianzhi"));
     ui.study_another.setText(STUDY_CONFIG.get("another"));
@@ -1563,7 +1563,7 @@ function Initialize() {
     ui.study_huakuaidelay.setText(STUDY_CONFIG.get("huakuaidelay", "300"));
     ui.study_shuangren.setChecked(STUDY_CONFIG.get("shuangren", true));
     ui.study_select.setSelection(STUDY_CONFIG.get("select", 0));
-    ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm", 0));
+   // ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm", 0));
     ui.study_select_01.setSelection(STUDY_CONFIG.get("select_01", 0));
     ui.study_xianzhi.setChecked(STUDY_CONFIG.get("xianzhi", false));
     ui.study_another.setText(STUDY_CONFIG.get("another", "1"));
