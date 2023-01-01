@@ -2296,7 +2296,7 @@ function refind_jifen() {
   className("android.webkit.WebView").scrollable().findOne().scrollForward();
  // fInfo("检测界面1");
  // var a = className("android.widget.ListView").rowCount(15).findOne();
-  var a = className("android.widget.ListView").rowCount(14).findOne();
+  var a = className("android.widget.ListView").rowCount(13).findOne();
  // fInfo("检测界面2");
   21 == a.depth() ? (jifen_flag = "old", fInfo("检测为旧版界面")) : 23 == a.depth() && (jifen_flag = "new", fInfo("检测为新版界面"));
   return a
