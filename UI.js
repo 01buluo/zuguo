@@ -767,13 +767,6 @@ ui.layout(
                                 </vertical>
                                 <checkbox id="ttxs_pro_meiri" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
-                            {/* <horizontal  gravity="center_vertical" padding="5 5" >
-                                <View bg="#00BFFF" h="*" w="10"  ></View>
-                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题" />
-                                    <spinner id="ttxs_pro_meizhou" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
-                                </vertical> 
-                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -827,13 +820,6 @@ ui.layout(
                                 </vertical>
                                 <checkbox id="ttxs_pro_guaji" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
-                            {/* <horizontal  gravity="center_vertical" padding="5 5" >
-                                <View bg="#00BFFF" h="*" w="10"  ></View>
-                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="太空三人行" />
-                                </vertical> 
-                                <checkbox id="ttxs_pro_sanren" marginLeft="4" marginRight="6" checked="true" />
-                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -959,14 +945,6 @@ ui.layout(
                                 </vertical> 
                                 <checkbox id="study_checkbox_01" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
-                            {/* <horizontal  gravity="center_vertical" padding="5 5" >
-                                <View bg="#00BFFF" h="*" w="10"  ></View>
-                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="建议手动答题，否则不保证全对" />
-                                </vertical> 
-                                <checkbox id="study_checkbox_02" marginLeft="4" marginRight="6" checked="true" />
-                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -997,13 +975,6 @@ ui.layout(
                                     <spinner id="study_select" marginLeft="4" marginRight="6" entries="不向下滑动，只答当天的题目,没有则返回|向下滑动，直到找到可答题的题目" />
                                 </vertical> 
                             </horizontal>
-                            {/* <horizontal  gravity="center_vertical" padding="5 5" >
-                                <View bg="#00BFFF" h="*" w="10"  ></View>
-                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题模式选择" />
-                                    <spinner id="study_selectm" marginLeft="4" marginRight="6" entries="不向下滑动，只答当天的题目,没有则返回|向下滑动，直到找到可答题的题目" />
-                                </vertical> 
-                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
