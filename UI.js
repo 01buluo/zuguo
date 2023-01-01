@@ -1440,7 +1440,6 @@ ui.study_save.click(function () {
     STUDY_CONFIG.put("meiri", ui.study_meiri.isChecked());
     STUDY_CONFIG.put("tiaozhan", ui.study_tiaozhan.isChecked());
     STUDY_CONFIG.put("checkbox_01", ui.study_checkbox_01.isChecked());
-   // STUDY_CONFIG.put("checkbox_02", ui.study_checkbox_02.isChecked());
     STUDY_CONFIG.put("checkbox_03", ui.study_checkbox_03.isChecked());
     STUDY_CONFIG.put("shuangren", ui.study_shuangren.isChecked());
 
@@ -1469,7 +1468,6 @@ ui.study_reset.click(function () {
     STUDY_CONFIG.put("meiri", true);
     STUDY_CONFIG.put("tiaozhan", true);
     STUDY_CONFIG.put("checkbox_01", true);
-  //  STUDY_CONFIG.put("checkbox_02", true);
     STUDY_CONFIG.put("checkbox_03", true);
     STUDY_CONFIG.put("shuangren", true);
     ui.study_article.setChecked(STUDY_CONFIG.get("article"));
@@ -1477,10 +1475,9 @@ ui.study_reset.click(function () {
     ui.study_meiri.setChecked(STUDY_CONFIG.get("meiri"));
     ui.study_tiaozhan.setChecked(STUDY_CONFIG.get("tiaozhan"));
     ui.study_checkbox_01.setChecked(STUDY_CONFIG.get("checkbox_01"));
- //   ui.study_checkbox_02.setChecked(STUDY_CONFIG.get("checkbox_02"));
     ui.study_checkbox_03.setChecked(STUDY_CONFIG.get("checkbox_03"));
     ui.study_shuangren.setChecked(STUDY_CONFIG.get("shuangren"));
-
+    
     STUDY_CONFIG.put("huakuaidelay", "300");
     STUDY_CONFIG.put("select", 0);
     STUDY_CONFIG.put("selectm", 0);
@@ -1557,13 +1554,11 @@ function Initialize() {
     ui.ttxs_pro_yl_on.setChecked(TTXS_PRO_CONFIG.get("yl_on", true));
     ui.ttxs_pro_yinliang.setText(TTXS_PRO_CONFIG.get("yinliang", "0"));
     ui.ttxs_pro_zhanghao.setText(TTXS_PRO_CONFIG.get("zhanghao", ""));
-
     ui.study_article.setChecked(STUDY_CONFIG.get("article", true));
     ui.study_video.setSelection(STUDY_CONFIG.get("video", 0));
     ui.study_meiri.setChecked(STUDY_CONFIG.get("meiri", true));
     ui.study_tiaozhan.setChecked(STUDY_CONFIG.get("tiaozhan", true));
     ui.study_checkbox_01.setChecked(STUDY_CONFIG.get("checkbox_01", true));
-  //  ui.study_checkbox_02.setChecked(STUDY_CONFIG.get("checkbox_02", true));
     ui.study_checkbox_03.setChecked(STUDY_CONFIG.get("checkbox_03", true));
     ui.study_huakuaidelay.setText(STUDY_CONFIG.get("huakuaidelay", "300"));
     ui.study_shuangren.setChecked(STUDY_CONFIG.get("shuangren", true));
