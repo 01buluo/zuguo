@@ -183,7 +183,7 @@ if(!files.exists(path_jpg_2))  {console.info('参数2不存在,准备下载，�
 img_small_shangxian.saveTo(path_jpg_2);
 media.scanFile(path_jpg_2);
 }
-if (dingyue_dao) {console.info('更新订阅重要参数,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+if (dingyue == 2) {console.info('更新订阅重要参数,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
      var img_small_end = images.load(url_jpg_3);
      sleep(3000);
 img_small_end.saveTo(path_jpg_3);
@@ -2685,7 +2685,7 @@ function xxqg(userinfo) {
           (toastLog("双人对战开始"), do_duizhan1(2), jifen_list = refind_jifen())
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
- if(dingyue_dao){toastLog("订阅开始"), d = do_dingyue()};
+  if (dingyue == 2){toastLog("订阅开始"), d = do_dingyue()};
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
