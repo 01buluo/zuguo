@@ -1491,12 +1491,13 @@ function do_dingyue_1(){
   fClear();
   sleep(7000);
   var path_jpg = 0;
-  requestScreenCapture();
+  //requestScreenCapture();
   while (true && path_jpg != 2){
-    var img_small_shangxin = images.read(path_jpg_4);
+    let img_small_shangxin = images.read(path_jpg_4);
   
-  var img_big_shangxin = captureScreen();
-  var result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
+  let img_big_shangxin = captureScreen();
+  let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
+    transparentMask:true,
     max: 1
   });
   fInfo(result_0);
@@ -1527,9 +1528,10 @@ var asub_0 = 0;
 //var asub_02 = 1;
  while (true && asub_0 != 2) {
    sleep(1000);
- var img_big = captureScreen()
+ let img_big = captureScreen()
 //在大图片中查找小图片的位置（模块匹配），找到时返回位置坐标(Point)，找不到时返回null。
- var result_00 = images.matchTemplate(img_big, img_small, {
+ let result_00 = images.matchTemplate(img_big, img_small, {
+  transparentMask:true,
   max: 2
    });
    fInfo(result_00.matches.length);
