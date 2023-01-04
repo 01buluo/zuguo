@@ -1500,17 +1500,17 @@ function do_dingyue_1(){
   console.info(result_0);
   var p_0 = findImage(img_big_shangxin, img_small_shangxin);
   if (p_0) {
-   //console.info("'上新'---找到了，坐标："+p_0.x+"----" + p_0.y);
+    fInfo("'上新'---找到了，坐标："+p_0.x+"----" + p_0.y);
    click(p_0.x+120, p_0.y+70);//点击坐标
    path_jpg = 2;
    break;
              } else {
         path_jpg = 0;
-           console.info("继续尝试点击--‘上线’栏");
+        fInfo("继续尝试点击--‘上线’栏");
         } 
     }
      sleep(1000);
- console.info('正在订阅');
+     fInfo('正在订阅');
   h = device.height; //屏幕高
   w = device.width; //屏幕宽
   x = (w / 3) * 2;
@@ -1520,8 +1520,8 @@ function do_dingyue_1(){
 let img_small = images.read(path_jpg_1);
 //console.info("读取图片完成");
 var asub_0 = 0;
-var asub_01 = 2;
-var asub_02 = 1;
+//var asub_01 = 2;
+//var asub_02 = 1;
  while (true && asub_0 != 2) {
    sleep(1000);
  let img_big = captureScreen()
@@ -1531,27 +1531,27 @@ var asub_02 = 1;
    });
  console.info(result_00.matches.length);
  if (result_00.matches.length > 0) {
-  console.info("找到'未订阅'准备完成");
+  fInfo("找到'未订阅'准备完成");
   for (let i = 0; i < result_00.matches.length; i++) {
     let pp = result_00.matches[i].point
      //log(pp)
     let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
     let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
-    console.info("找到'订阅'")
+    fInfo("找到'订阅'")
     press(xx, yy,100)
           var sss = i + 1;
-    console.info("点击第" + sss + "订阅")
+          fInfo("点击第" + sss + "订阅")
     sleep(3000)
      
   }
   asub_0 = 2;
- if(sss == 2 ) console.info("2个'未订阅'完成");
-   if (sss == 1) console.info("此次仅完成了1个'未订阅'");
+ if(sss == 2 )  fInfo("2个'未订阅'完成");
+   if (sss == 1)  fInfo("此次仅完成了1个'未订阅'");
   img_big.recycle();
   break;
   }
  else {
-  console.info("未找到新的--'未订阅'")
+  fInfo("未找到新的--'未订阅'")
       break;
     }
    
@@ -1573,7 +1573,7 @@ function do_dingyue(){
 //   click("订阅");
 //   sleep(1000);
 //   click("添加");
-  sleep(4000);
+  sleep(5000);
   var path_jpg = 0;
   while (true && path_jpg != 2){
     let img_small_shangxian = images.read(path_jpg_2);
@@ -1590,11 +1590,11 @@ function do_dingyue(){
    break;
              } else {
         path_jpg = 0;
-           console.info("继续尝试点击--2022年上线");
+        fInfo("继续尝试点击--2022年上线");
         } 
     }
      sleep(1000);
- console.info('正在订阅');
+     fInfo('正在订阅');
   h = device.height; //屏幕高
   w = device.width; //屏幕宽
   x = (w / 3) * 2;
@@ -1615,21 +1615,21 @@ var asub_02 = 1;
    });
  console.info(result_00.matches.length);
  if (result_00.matches.length >1 && asub_01 == 2 ) {
-  console.info("找到'未订阅'准备完成");
+  fInfo("找到'未订阅'准备完成");
   for (let i = 0; i < result_00.matches.length; i++) {
     let pp = result_00.matches[i].point
      //log(pp)
     let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
     let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
-    console.info("找到" + "'订阅'")
+    fInfo("找到" + "'订阅'")
     press(xx, yy,100)
-    console.info("点击" + "订阅")
+    fInfo("点击" + "订阅")
     sleep(3000)
      
   }
   asub_0 = 2;
   asub_02 = 2;
-  console.info("2个'未订阅'完成");
+  fInfo("2个'未订阅'完成");
   img_big.recycle();
   break;
   }
@@ -1639,9 +1639,9 @@ var asub_02 = 1;
     // log(pp)
     let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
     let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
-    console.info("找到" + "'订阅'")
+    fInfo("找到" + "'订阅'")
     press(xx, yy,100)
-    console.log("已经订阅了" + asub_02 + "个");
+    fInfo("已经订阅了" + asub_02 + "个");
     sleep(3000)
     // break;
   }
@@ -1649,13 +1649,13 @@ var asub_02 = 1;
   asub_01 = 1;
   asub_02 = 1;
   img_big.recycle();
- if(asub_0 == 2)  console.info("2个'未订阅'完成");
+ if(asub_0 == 2)   fInfo("2个'未订阅'完成");
   } 
 
  let img_small_end = images.read(path_jpg_3);
  let img_big_end = captureScreen()
  var p = findImage(img_big_end, img_small_end);
- if (p) {console.info("已滑到底端，未发现新的'未订阅'");
+ if (p) { fInfo("已滑到底端，未发现新的'未订阅'");
  img_big_end.recycle();
   break;}
  else {
@@ -1663,7 +1663,7 @@ var asub_02 = 1;
    swipe(x, h1, x, h2, random(400, 1000)); // 下滑动
        sleep(1000);
        
-  console.info("===滑动搜索" + "未订阅")
+       fInfo("===滑动搜索" + "未订阅")
     }
    
    sleep(2000);
