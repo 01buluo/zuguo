@@ -160,6 +160,38 @@ if (ocr_choice == 2) {
     exit();
   }
 }
+
+
+var url_jpg_1 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/dingyue_1.jpg'
+ var url_jpg_2 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/2022_shangxian.jpg'
+ var url_jpg_3 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/2022_shangxian_end.jpg'
+ var path_jpg_1 = '/sdcard/dingyue_1.jpg';
+ var path_jpg_2 = '/sdcard/2022_shangxian.jpg';
+ var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';
+//'订阅'参数图片加载……
+if(!files.exists(path_jpg_1)) {console.info('参数1存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+var img_small = images.load(url_jpg_1);
+sleep(3000);
+// //保存图片   这一步保存完图片后，相册里不会显示图片
+img_small.saveTo( path_jpg_1);
+// 用媒体，扫描完图片之后就就可以了
+media.scanFile(path_jpg_1);
+}
+if(!files.exists(path_jpg_2))  {console.info('参数2不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+     var img_small_shangxian = images.load(url_jpg_2);
+     sleep(3000);
+img_small_shangxian.saveTo(path_jpg_2);
+media.scanFile(path_jpg_2);
+}
+if (dingyue_dao) {console.info('更新订阅重要参数,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+     var img_small_end = images.load(url_jpg_3);
+     sleep(3000);
+img_small_end.saveTo(path_jpg_3);
+media.scanFile(path_jpg_3);
+}
+// //回收内存
+// img.recycle();
+
 // sleep(2000);
 // 自动允许权限进程
 threads.start(function() {
@@ -1441,7 +1473,115 @@ function dacuo(renshu) {
 }
 
 /********订阅*********/
-function do_dingyue() {
+function do_dingyue(){
+  console.hide();
+text("思想").findOne().parent().parent().child(13).click()
+sleep(3000);
+    var v_0 = textContains("添加").findOne().bounds();
+    press(v_0.centerX(), v_0.centerY(), 150);
+  sleep(1000);
+  click("订阅");
+  sleep(1000);
+  click("添加");
+  sleep(4000);
+  var path_jpg = 0;
+  while (true && path_jpg != 2){
+    let img_small_shangxian = images.read(path_jpg_2);
+  let img_big_shangxian = captureScreen()
+  let result_0 = images.matchTemplate(img_big_shangxian, img_small_shangxian, {
+    max: 1
+  });
+  console.info(result_0);
+  var p_0 = findImage(img_big_shangxian, img_small_shangxian);
+  if (p_0) {
+   //console.info("2022年上线---找到了，坐标："+p_0.x+"----" + p_0.y);
+   click(p_0.x+120, p_0.y+70);//点击坐标
+   path_jpg = 2;
+   break;
+             } else {
+        path_jpg = 0;
+           console.info("继续尝试点击--2022年上线");
+        } 
+    }
+     sleep(1000);
+ console.info('正在订阅');
+  h = device.height; //屏幕高
+  w = device.width; //屏幕宽
+  x = (w / 3) * 2;
+  h1 = (h / 6) * 4;
+  h2 = (h / 6);
+
+let img_small = images.read(path_jpg_1);
+//console.info("读取图片完成");
+var asub_0 = 0;
+var asub_01 = 2;
+var asub_02 = 1;
+ while (true && asub_0 != 2) {
+   sleep(1000);
+ let img_big = captureScreen()
+//在大图片中查找小图片的位置（模块匹配），找到时返回位置坐标(Point)，找不到时返回null。
+ let result_00 = images.matchTemplate(img_big, img_small, {
+  max: 2
+   });
+ console.info(result_00.matches.length);
+ if (result_00.matches.length >1 && asub_01 == 2 ) {
+  console.info("找到'未订阅'准备完成");
+  for (let i = 0; i < result_00.matches.length; i++) {
+    let pp = result_00.matches[i].point
+     //log(pp)
+    let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
+    let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
+    console.info("找到" + "'订阅'")
+    press(xx, yy,100)
+    console.info("点击" + "订阅")
+    sleep(3000)
+     
+  }
+  asub_0 = 2;
+  asub_02 = 2;
+  console.info("2个'未订阅'完成");
+  img_big.recycle();
+  break;
+  }
+   else if (result_00.matches.length >= 1 && asub_02 == 1) {
+  for (let i = 0; i < 1; i++) {
+    let pp = result_00.matches[i].point
+    // log(pp)
+    let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
+    let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
+    console.info("找到" + "'订阅'")
+    press(xx, yy,100)
+    console.log("已经订阅了" + asub_02 + "个");
+    sleep(3000)
+    // break;
+  }
+  asub_0 += 1;
+  asub_01 = 1;
+  asub_02 = 1;
+  img_big.recycle();
+ if(asub_0 == 2)  console.info("2个'未订阅'完成");
+  } 
+
+ let img_small_end = images.read(path_jpg_3);
+ let img_big_end = captureScreen()
+ var p = findImage(img_big_end, img_small_end);
+ if (p) {console.info("已滑到底端，未发现新的'未订阅'");
+ img_big_end.recycle();
+  break;}
+ else {
+  img_big_end.recycle();
+   swipe(x, h1, x, h2, random(400, 1000)); // 下滑动
+       sleep(1000);
+       
+  console.info("===滑动搜索" + "未订阅")
+    }
+   
+   sleep(2000);
+ }
+}
+
+
+function do_dingyue_0() {
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
   fClear();
