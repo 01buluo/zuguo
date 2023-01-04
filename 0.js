@@ -1497,7 +1497,7 @@ function do_dingyue_1(){
   
   let img_big_shangxin = captureScreen();
   let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
-    transparentMask:true,
+  //  transparentMask:true,
     max: 1
   });
   fInfo(result_0);
