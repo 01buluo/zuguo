@@ -165,9 +165,11 @@ if (ocr_choice == 2) {
 var url_jpg_1 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/dingyue_1.jpg'
  var url_jpg_2 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/2022_shangxian.jpg'
  var url_jpg_3 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/2022_shangxian_end.jpg'
- var path_jpg_1 = '/sdcard/dingyue_1.jpg';
- var path_jpg_2 = '/sdcard/2022_shangxian.jpg';
- var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';
+ var url_jpg_4 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/shangxin_1.jpg'
+ var path_jpg_1 = '/sdcard/dingyue_1.jpg';  //订阅---图标位置
+ var path_jpg_2 = '/sdcard/2022_shangxian.jpg'; //2022上线--图片位置
+ var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
+ var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
 //'订阅'参数图片加载……
 if(!files.exists(path_jpg_1)) {console.info('参数1存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
 var img_small = images.load(url_jpg_1);
@@ -188,6 +190,13 @@ if (dingyue == 2) {console.info('更新订阅重要参数,准备下载，若此�
      sleep(3000);
 img_small_end.saveTo(path_jpg_3);
 media.scanFile(path_jpg_3);
+}
+
+if(!files.exists(path_jpg_4) && dingyue == 1) {console.info('参数4不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+     var img_small_end = images.load(url_jpg_4);
+     sleep(3000);
+img_small_end.saveTo(path_jpg_4);
+media.scanFile(path_jpg_4);
 }
 // //回收内存
 // img.recycle();
@@ -1480,7 +1489,7 @@ function do_dingyue_1(){
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
   fClear();
-  sleep(4000);
+  sleep(7000);
   var path_jpg = 0;
   while (true && path_jpg != 2){
     let img_small_shangxin = images.read(path_jpg_4);
