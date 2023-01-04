@@ -1473,6 +1473,83 @@ function dacuo(renshu) {
 }
 
 /********订阅*********/
+
+function do_dingyue_1(){
+  console.hide();
+  var  jifen_flag = "new";
+  entry_jinfen_project("订阅");
+  fSet("title", "订阅…");
+  fClear();
+  sleep(4000);
+  var path_jpg = 0;
+  while (true && path_jpg != 2){
+    let img_small_shangxin = images.read(path_jpg_4);
+  let img_big_shangxin = captureScreen()
+  let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
+    max: 1
+  });
+  console.info(result_0);
+  var p_0 = findImage(img_big_shangxin, img_small_shangxin);
+  if (p_0) {
+   //console.info("'上新'---找到了，坐标："+p_0.x+"----" + p_0.y);
+   click(p_0.x+120, p_0.y+70);//点击坐标
+   path_jpg = 2;
+   break;
+             } else {
+        path_jpg = 0;
+           console.info("继续尝试点击--‘上线’栏");
+        } 
+    }
+     sleep(1000);
+ console.info('正在订阅');
+  h = device.height; //屏幕高
+  w = device.width; //屏幕宽
+  x = (w / 3) * 2;
+  h1 = (h / 6) * 4;
+  h2 = (h / 6);
+
+let img_small = images.read(path_jpg_1);
+//console.info("读取图片完成");
+var asub_0 = 0;
+var asub_01 = 2;
+var asub_02 = 1;
+ while (true && asub_0 != 2) {
+   sleep(1000);
+ let img_big = captureScreen()
+//在大图片中查找小图片的位置（模块匹配），找到时返回位置坐标(Point)，找不到时返回null。
+ let result_00 = images.matchTemplate(img_big, img_small, {
+  max: 2
+   });
+ console.info(result_00.matches.length);
+ if (result_00.matches.length > 0) {
+  console.info("找到'未订阅'准备完成");
+  for (let i = 0; i < result_00.matches.length; i++) {
+    let pp = result_00.matches[i].point
+     //log(pp)
+    let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
+    let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
+    console.info("找到'订阅'")
+    press(xx, yy,100)
+          var sss = i + 1;
+    console.info("点击第" + sss + "订阅")
+    sleep(3000)
+     
+  }
+  asub_0 = 2;
+ if(sss == 2 ) console.info("2个'未订阅'完成");
+   if (sss == 1) console.info("此次仅完成了1个'未订阅'");
+  img_big.recycle();
+  break;
+  }
+ else {
+  console.info("未找到新的--'未订阅'")
+      break;
+    }
+   
+   sleep(2000);
+ }
+}
+
 function do_dingyue(){
  var  jifen_flag = "new";
   entry_jinfen_project("订阅");
@@ -2690,6 +2767,7 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   if (dingyue == 2){toastLog("订阅开始"), do_dingyue()};
+  if (dingyue == 1){toastLog("订阅开始"), do_dingyue_1()};
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
