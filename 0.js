@@ -1474,15 +1474,19 @@ function dacuo(renshu) {
 
 /********订阅*********/
 function do_dingyue(){
+ var  jifen_flag = "new";
+  entry_jinfen_project("订阅");
+  fSet("title", "订阅…");
+  fClear();
   console.hide();
-text("思想").findOne().parent().parent().child(13).click()
-sleep(3000);
-    var v_0 = textContains("添加").findOne().bounds();
-    press(v_0.centerX(), v_0.centerY(), 150);
-  sleep(1000);
-  click("订阅");
-  sleep(1000);
-  click("添加");
+//text("思想").findOne().parent().parent().child(13).click()
+// sleep(3000);
+//     var v_0 = textContains("添加").findOne().bounds();
+//     press(v_0.centerX(), v_0.centerY(), 150);
+//   sleep(1000);
+//   click("订阅");
+//   sleep(1000);
+//   click("添加");
   sleep(4000);
   var path_jpg = 0;
   while (true && path_jpg != 2){
