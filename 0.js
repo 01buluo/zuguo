@@ -171,31 +171,31 @@ var url_jpg_1 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/
  var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
  var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
 //'订阅'参数图片加载……
-if(!files.exists(path_jpg_1)) {fInfo('参数1存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+if(!files.exists(path_jpg_1)) {fInfo('参数1不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
 var img_small = images.load(url_jpg_1);
 sleep(3000);
 // //保存图片   这一步保存完图片后，相册里不会显示图片
-imges.save(img_small, path_jpg_1);
+images.save(img_small, path_jpg_1);
 // 用媒体，扫描完图片之后就就可以了
 //media.scanFile(path_jpg_1);
 }
 if(!files.exists(path_jpg_2))  {fInfo('参数2不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
      var img_small_shangxian = images.load(url_jpg_2);
      sleep(3000);
-     imges.save(img_small_shangxian, path_jpg_2);
+     images.save(img_small_shangxian, path_jpg_2);
 //media.scanFile(path_jpg_2);
 }
 if (dingyue == 2) {fInfo('更新订阅重要参数,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
      var img_small_end = images.load(url_jpg_3);
      sleep(3000);
-     imges.save(img_small_end, path_jpg_3);
+     images.save(img_small_end, path_jpg_3);
 //media.scanFile(path_jpg_3);
 }
 
 if(!files.exists(path_jpg_4) && dingyue == 1) {fInfo('参数4不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
      var img_small_end = images.load(url_jpg_4);
      sleep(3000);
-     imges.save(img_small_end, path_jpg_4);
+     images.save(img_small_end, path_jpg_4);
 //media.scanFile(path_jpg_4);
 }
 // //回收内存
@@ -1491,17 +1491,19 @@ function do_dingyue_1(){
   fClear();
   sleep(7000);
   var path_jpg = 0;
+  requestScreenCapture();
   while (true && path_jpg != 2){
-    let img_small_shangxin = images.read(path_jpg_4);
-  let img_big_shangxin = captureScreen()
-  let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
+    var img_small_shangxin = images.read(path_jpg_4);
+  
+  var img_big_shangxin = captureScreen();
+  var result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
     max: 1
   });
-  console.info(result_0);
+  fInfo(result_0);
   var p_0 = findImage(img_big_shangxin, img_small_shangxin);
   if (p_0) {
     fInfo("'上新'---找到了，坐标："+p_0.x+"----" + p_0.y);
-   click(p_0.x+120, p_0.y+70);//点击坐标
+   press(p_0.x+120, p_0.y+70 ,100);//点击坐标
    path_jpg = 2;
    break;
              } else {
@@ -1509,6 +1511,7 @@ function do_dingyue_1(){
         fInfo("继续尝试点击--‘上新’栏");
         } 
     }
+    img_small_shangxin.recycle();
      sleep(1000);
      fInfo('正在订阅');
   h = device.height; //屏幕高
@@ -1517,26 +1520,26 @@ function do_dingyue_1(){
   h1 = (h / 6) * 4;
   h2 = (h / 6);
 
-let img_small = images.read(path_jpg_1);
+var img_small = images.read(path_jpg_1);
 //console.info("读取图片完成");
 var asub_0 = 0;
 //var asub_01 = 2;
 //var asub_02 = 1;
  while (true && asub_0 != 2) {
    sleep(1000);
- let img_big = captureScreen()
+ var img_big = captureScreen()
 //在大图片中查找小图片的位置（模块匹配），找到时返回位置坐标(Point)，找不到时返回null。
- let result_00 = images.matchTemplate(img_big, img_small, {
+ var result_00 = images.matchTemplate(img_big, img_small, {
   max: 2
    });
- console.info(result_00.matches.length);
+   fInfo(result_00.matches.length);
  if (result_00.matches.length > 0) {
   fInfo("找到'未订阅'准备完成");
-  for (let i = 0; i < result_00.matches.length; i++) {
-    let pp = result_00.matches[i].point
+  for (var  i = 0; i < result_00.matches.length; i++) {
+    var  pp = result_00.matches[i].point
      //log(pp)
-    let xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
-    let yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
+    var  xx = random(pp.x+20, pp.x + img_small.getWidth()/3)
+    var  yy = random(pp.y+10, pp.y + img_small.getWidth()/3)
     fInfo("找到'订阅'")
     press(xx, yy,100)
           var sss = i + 1;
@@ -1576,16 +1579,16 @@ function do_dingyue(){
   sleep(5000);
   var path_jpg = 0;
   while (true && path_jpg != 2){
-    let img_small_shangxian = images.read(path_jpg_2);
-  let img_big_shangxian = captureScreen()
+    var  img_small_shangxian = images.read(path_jpg_2);
+  var  img_big_shangxian = captureScreen();
   let result_0 = images.matchTemplate(img_big_shangxian, img_small_shangxian, {
     max: 1
   });
-  console.info(result_0);
+  fInfo(result_0);
   var p_0 = findImage(img_big_shangxian, img_small_shangxian);
   if (p_0) {
    //console.info("2022年上线---找到了，坐标："+p_0.x+"----" + p_0.y);
-   click(p_0.x+120, p_0.y+70);//点击坐标
+   press(p_0.x+120, p_0.y+70,100);//点击坐标
    path_jpg = 2;
    break;
              } else {
@@ -1594,6 +1597,7 @@ function do_dingyue(){
         } 
     }
      sleep(1000);
+     img_small_shangxin
      fInfo('正在订阅');
   h = device.height; //屏幕高
   w = device.width; //屏幕宽
@@ -1613,7 +1617,7 @@ var asub_02 = 1;
  let result_00 = images.matchTemplate(img_big, img_small, {
   max: 2
    });
- console.info(result_00.matches.length);
+   fInfo(result_00.matches.length);
  if (result_00.matches.length >1 && asub_01 == 2 ) {
   fInfo("找到'未订阅'准备完成");
   for (let i = 0; i < result_00.matches.length; i++) {
