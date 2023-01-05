@@ -1493,8 +1493,9 @@ function do_dingyue_1(){
   var path_jpg = 0;
   //requestScreenCapture();
   while (true && path_jpg != 2){
+    fClear();
     let img_small_shangxin = images.read(path_jpg_4);
-  
+    sleep(3000);
   // let img_big_shangxin = captureScreen();
   // let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
   // //  transparentMask:true,
