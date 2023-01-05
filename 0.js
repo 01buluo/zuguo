@@ -1484,27 +1484,28 @@ function dacuo(renshu) {
 /********订阅*********/
 
 function do_dingyue_1(){
-  console.hide();
+  //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
   fClear();
+  f
   sleep(7000);
   var path_jpg = 0;
   //requestScreenCapture();
   while (true && path_jpg != 2){
     let img_small_shangxin = images.read(path_jpg_4);
   
-  let img_big_shangxin = captureScreen();
-  let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
-  //  transparentMask:true,
-    max: 1
-  });
-  fInfo(result_0);
-  var p_0 = findImage(img_big_shangxin, img_small_shangxin);
+  // let img_big_shangxin = captureScreen();
+  // let result_0 = images.matchTemplate(img_big_shangxin, img_small_shangxin, {
+  // //  transparentMask:true,
+  //   max: 1
+  // });
+  // fInfo(result_0);
+  var p_0 = findImage(captureScreen(), img_small_shangxin);
   if (p_0) {
     fInfo("'上新'---找到了，坐标："+p_0.x+"----" + p_0.y);
-   press(p_0.x+120, p_0.y+70 ,100);//点击坐标
+   press(p_0.x+50, p_0.y+50 ,100);//点击坐标
    path_jpg = 2;
    break;
              } else {
@@ -1512,7 +1513,7 @@ function do_dingyue_1(){
         fInfo("继续尝试点击--‘上新’栏");
         } 
     }
-    img_small_shangxin.recycle();
+   // img_small_shangxin.recycle();
      sleep(1000);
      fInfo('正在订阅');
   h = device.height; //屏幕高
@@ -1569,7 +1570,7 @@ function do_dingyue(){
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
   fClear();
-  console.hide();
+ // console.hide();
 //text("思想").findOne().parent().parent().child(13).click()
 // sleep(3000);
 //     var v_0 = textContains("添加").findOne().bounds();
