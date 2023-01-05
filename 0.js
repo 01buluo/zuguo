@@ -1489,7 +1489,6 @@ function do_dingyue_1(){
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
   fClear();
-  f
   sleep(7000);
   var path_jpg = 0;
   //requestScreenCapture();
