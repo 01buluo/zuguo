@@ -1515,7 +1515,7 @@ function pic_click0(a, b, s1,asub_1, asub) {
   return asub = asub;
   //return asub_1 = asub_1;
 }
-var asub = 2;
+//var asub = 2;
 function pic_click(a, b, s1, asub_1, asub) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
@@ -1579,7 +1579,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    //var asub = 2;
+    var asub = 2;
     var t_1 = 318;
     for (var i = 0; i < 10; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
@@ -1590,20 +1590,38 @@ function do_dingyue_1(){
         press(136,t_1,100) ;
         sleep(1000);
         sleep(random(700, 1500)); 
-        if(asub != 0){ pic_click(20, 20, 1000,asub_1,asub);
-   // var asub = asub;
+        while (asub > 0) {
+          let result = findColor(captureScreen(), '#E42417', {
+              max: 5,
+              region: [s1, 100, device.width - 1000, device.height - 200], //区域
+              threshold: 10,
+          });
+          if (result) {
+              console.log("已经订阅了" + (3 - asub) + "个");
+              press(result.x + 20, result.y + 20,100);
+              sleep(1000);
+              sleep(random(700, 1500)); 
+              asub--;
+            
+          }
+          if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+              asub_1--;
+              sleep(random(700, 1500)); 
+              sleep(1000);
+                       }
+          if(asub_1 == 0 || asub == 0) break;
+        sleep(random(700, 1500));   
+      }
+      console.info('共完成'+(2-asub));
     sleep(random(700, 1500)); 
-    t_1 += 150;}
-   // console.info(t_1);
-  else {
-     console.info(asub);
+    if(asub == 0) break;
+    t_1 += 150;
+        }
     if(asub == 0) console.log("今日已完成订阅任务");
     if(asub == 1 && asub_1==1) console.log("只找到1个订阅任务");
     if(asub == 2 && asub_1==1) console.log("未找到新的‘未订阅’");
-    //if(asub == 2) console.info('没有发现新的订阅');
-    break;}
+    
   }
-}
 
 
 function do_dingyue_11(){
