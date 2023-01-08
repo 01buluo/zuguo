@@ -1515,7 +1515,7 @@ function pic_click0(a, b, s1,asub_1, asub) {
   return asub = asub;
   //return asub_1 = asub_1;
 }
-//var asub = 2;
+var asub = 2;
 function pic_click(a, b, s1, asub_1, asub) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
@@ -1579,7 +1579,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    var asub = 2;
+    //var asub = 2;
     var t_1 = 318;
     for (var i = 0; i < 10; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
