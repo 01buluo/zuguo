@@ -1539,7 +1539,7 @@ function do_dingyue_1(){
 if(asub == 0) break;
     }
 }
-function do_dingyue(){
+function do_dingyue_01(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
@@ -1651,7 +1651,7 @@ var asub_0 = 0;
  }
 }
 
-function do_dingyue_00(){
+function do_dingyue(){
  var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
