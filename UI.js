@@ -853,7 +853,7 @@ ui.layout(
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="订阅" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="若已root或虚拟机等去除截图限制的参照（）内容选择，QG旧版的忽略（）内容" />
-                                    <spinner id="ttxs_pro_dingyue" marginLeft="4" marginRight="6" entries="不做|正序订阅（已root版选这个--表示只看‘上新’）|只订阅年度上新（已root版选这个--表示只看‘2022年上线’）" />
+                                    <spinner id="ttxs_pro_dingyue" marginLeft="4" marginRight="6" entries="不做|正序订阅（若root版选此--表示只看‘上新/2023年上线’）|只订阅年度上新（若root版选此--表示遍历搜索‘强国号’，较费时）" />
                                 </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
