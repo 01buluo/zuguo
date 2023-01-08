@@ -1500,7 +1500,7 @@ function pic_click(a, b, s1) {
           sleep(1000);
                    }
       if(asub_1 == 0 || asub == 0){
-          // if(asub == 0) fInfo("今日已完成订阅任务");
+           if(asub == 0)   asub == 0; //fInfo("今日已完成订阅任务");
           // if(asub == 1 && i== sousuo * 1) fInfo("只找到1个订阅任务");
           // if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
           break;}
@@ -1524,7 +1524,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    var asub = 2;
+    var asub = 2*1;
     var t_1 = 318;
     var sousuo = 10;
     for (var i = 0; i < sousuo * 1; i++) {
@@ -1537,7 +1537,7 @@ function do_dingyue_1(){
     pic_click(20, 20, 1000);
     t_1 += 150;
    // console.info(t_1);
-if(asub == 0) break;
+       if(asub == 0) break;
     }
 }
 function do_dingyue(){
@@ -1552,7 +1552,7 @@ function do_dingyue(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    var asub = 2;
+    var asub = 2*1;
     var t_1 = 468;
     var sousuo = 2;
     for (var i = 0; i < sousuo * 1; i++) {
