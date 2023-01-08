@@ -1593,7 +1593,7 @@ function do_dingyue_1(){
         while (asub > 0) {
           let result = findColor(captureScreen(), '#E42417', {
               max: 5,
-              region: [s1, 100, device.width - 1000, device.height - 200], //区域
+              region: [1000, 100, device.width - 1000, device.height - 200], //区域
               threshold: 10,
           });
           if (result) {
