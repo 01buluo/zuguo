@@ -1515,7 +1515,7 @@ function pic_click0(a, b, s1,asub_1, asub) {
   return asub = asub;
   //return asub_1 = asub_1;
 }
-
+var asub = 2;
 function pic_click(a, b, s1) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
