@@ -1581,8 +1581,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    //var asub = 2;
-    
+    var asub = 2;
     var t_1 = 318;
     for (var i = 0; i < 10; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
@@ -1594,7 +1593,7 @@ function do_dingyue_1(){
         sleep(1000);
         sleep(random(700, 1500)); 
     pic_click(20, 20, 1000,asub_1,asub);
-    var asub = asub;
+    //var asub = asub;
     sleep(random(700, 1500)); 
     t_1 += 150;
    // console.info(t_1);
