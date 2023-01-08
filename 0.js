@@ -1584,7 +1584,7 @@ function do_dingyue_1(){
     for (var i = 0; i < 10; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
             var asub_1 = parseInt(arr[i]);
-            console.log(asub_1);
+            fInfo(asub_1);
         //sleep(1000);
         sleep(random(700, 1500)); 
         press(136,t_1,100) ;
@@ -1597,7 +1597,7 @@ function do_dingyue_1(){
               threshold: 10,
           });
           if (result) {
-              console.log("已经订阅了" + (3 - asub) + "个");
+            fInfo("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
               sleep(1000);
               sleep(random(700, 1500)); 
@@ -1612,14 +1612,13 @@ function do_dingyue_1(){
           if(asub_1 == 0 || asub == 0) break;
         sleep(random(700, 1500));   
       }
-      console.info('共完成'+(2-asub));
     sleep(random(700, 1500)); 
     if(asub == 0) break;
     t_1 += 150;
         }
-    if(asub == 0) console.log("今日已完成订阅任务");
-    if(asub == 1 && asub_1==1) console.log("只找到1个订阅任务");
-    if(asub == 2 && asub_1==1) console.log("未找到新的‘未订阅’");
+    if(asub == 0)  fInfo("今日已完成订阅任务");
+    if(asub == 1 && asub_1==1)  fInfo("只找到1个订阅任务");
+    if(asub == 2 && asub_1==1)  fInfo("未找到新的‘未订阅’");
     
   }
 
