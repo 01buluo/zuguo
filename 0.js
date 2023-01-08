@@ -1516,7 +1516,7 @@ function do_dingyue_1(){
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
-  fClear();
+  //fClear();
   sleep(3000);
   h = device.height; //屏幕高
     w = device.width; //屏幕宽
@@ -1531,7 +1531,7 @@ function do_dingyue_1(){
             var asub_1 = parseInt(arr[i]);
             fInfo(asub_1);
         sleep(1000);
-        press(136,t_1,100) ;
+        press(136, t_1, 100) ;
         sleep(1000);
     pic_click(20, 20, 1000);
     t_1 += 150;
@@ -1539,12 +1539,12 @@ function do_dingyue_1(){
 if(asub == 0) break;
     }
 }
-function do_dingyue_01(){
+function do_dingyue(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘上新或2023年上线’订阅…");
-  fClear();
+  //fClear();
   sleep(3000);
   h = device.height; //屏幕高
     w = device.width; //屏幕宽
@@ -1651,7 +1651,7 @@ var asub_0 = 0;
  }
 }
 
-function do_dingyue(){
+function do_dingyue_00(){
  var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
@@ -2868,8 +2868,8 @@ function xxqg(userinfo) {
           (toastLog("双人对战开始"), do_duizhan1(2), jifen_list = refind_jifen())
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
-  if (dingyue == 2){toastLog("订阅开始"), do_dingyue()};
-  if (dingyue == 1){toastLog("订阅开始"), do_dingyue_1()};
+  if (dingyue == 2){toastLog("订阅开始"), do_dingyue();};
+  if (dingyue == 1){toastLog("订阅开始"), do_dingyue_1();};
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
