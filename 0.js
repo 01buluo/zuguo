@@ -1524,7 +1524,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    var asub = 2*1;
+    let asub = 2*1;
     var t_1 = 318;
     var sousuo = 10;
     for (var i = 0; i < sousuo * 1; i++) {
