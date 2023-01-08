@@ -1504,9 +1504,9 @@ function pic_click(a, b, s1,asub_1, asub) {
       if(asub_1 == 0 || asub == 0){
            if(asub == 0)   {
             toastLog("今日已完成订阅任务");
-            return asub_a = 0; 
+            return asub = 0;
             }
-          
+            
           break;}
       
       sleep(1000);
@@ -1521,7 +1521,7 @@ function do_dingyue_1(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
- // fSet("title", "搜索‘强国号’订阅…");
+  fSet("title", "搜索‘强国号’订阅…");
   fClear();
   fInfo('订阅开始1');
   sleep(3000);
@@ -1547,7 +1547,7 @@ function do_dingyue_1(){
     t_1 += 150;
    // console.info(t_1);
    
-       if(asub == 0 || asub_a == 0) break;
+       if(asub == 0 ) break;
     }
     if(asub == 1 && i == 9) toastLog("只找到1个订阅任务");
     if(asub == 2 && i== 9) toastLog("未找到新的‘未订阅’");
@@ -1556,7 +1556,7 @@ function do_dingyue(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
-  //fSet("title", "搜索‘上新或2023年上线’订阅…");
+  fSet("title", "搜索‘上新或2023年上线’订阅…");
   fClear();
   sleep(3000);
   h = device.height; //屏幕高
