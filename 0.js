@@ -1581,7 +1581,6 @@ function do_dingyue_1(){
     h2 = (h / 6);
     //var asub = 2;
     var t_1 = 318;
-    while(asub != 0){
     for (var i = 0; i < 10; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
             var asub_1 = parseInt(arr[i]);
@@ -1591,19 +1590,19 @@ function do_dingyue_1(){
         press(136,t_1,100) ;
         sleep(1000);
         sleep(random(700, 1500)); 
-    pic_click(20, 20, 1000,asub_1,asub);
+        if(asub != 0){ pic_click(20, 20, 1000,asub_1,asub);
    // var asub = asub;
     sleep(random(700, 1500)); 
-    t_1 += 150;
+    t_1 += 150;}
    // console.info(t_1);
-//if(asub == 0) break;
-    }
-  }
+  else {
      console.info(asub);
     if(asub == 0) console.log("今日已完成订阅任务");
     if(asub == 1 && asub_1==1) console.log("只找到1个订阅任务");
     if(asub == 2 && asub_1==1) console.log("未找到新的‘未订阅’");
     //if(asub == 2) console.info('没有发现新的订阅');
+    break;}
+  }
 }
 
 
