@@ -1584,7 +1584,7 @@ function do_dingyue_1(){
     for (var i = 0; i < 10; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
             var asub_1 = parseInt(arr[i]);
-            fInfo(asub_1);
+            console.info(asub_1);
         //sleep(1000);
         sleep(random(700, 1500)); 
         press(136,t_1,100) ;
@@ -1597,7 +1597,7 @@ function do_dingyue_1(){
               threshold: 10,
           });
           if (result) {
-            fInfo("已经订阅了" + (3 - asub) + "个");
+            console.info("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
               sleep(1000);
               sleep(random(700, 1500)); 
