@@ -1591,7 +1591,7 @@ function do_dingyue_1(){
         sleep(1000);
         sleep(random(700, 1500)); 
     pic_click(20, 20, 1000,asub_1,asub);
-    var asub = asub;
+   // var asub = asub;
     sleep(random(700, 1500)); 
     t_1 += 150;
    // console.info(t_1);
