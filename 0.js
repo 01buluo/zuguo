@@ -1530,21 +1530,21 @@ function pic_click(a, b, s1, asub_1, asub) {
           sleep(1000);
           sleep(random(700, 1500)); 
           asub--;
-          return asub;
+        
       }
       if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
           asub_1--;
           sleep(random(700, 1500)); 
           sleep(1000);
                    }
-      if(asub_1 == 0 || asub == 0){
-          if(asub == 0)console.log("今日已完成订阅任务");
-          break;}
+      if( asub == 0)  return asub;
+      if(asub_1 == 0 ) break;
       
       sleep(1000);sleep
     sleep(random(700, 1500)); 
-   // return asub;
+   
   }
+  console.info('完成'+(3-asub));
   return asub;
 }
 
@@ -1597,7 +1597,9 @@ function do_dingyue_1(){
    // console.info(t_1);
 if(asub == 0) break;
     }
-    if(asub == 1 && asub_1==1)console.log("只找到1个订阅任务");
+     console.info(asub);
+    if(asub == 0) console.log("今日已完成订阅任务");
+    if(asub == 1 && asub_1==1) console.log("只找到1个订阅任务");
     if(asub == 2 && asub_1==1) console.log("未找到新的‘未订阅’");
     //if(asub == 2) console.info('没有发现新的订阅');
 }
