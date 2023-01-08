@@ -1539,8 +1539,6 @@ function pic_click(a, b, s1, asub_1, asub) {
                    }
       if(asub_1 == 0 || asub == 0){
           if(asub == 0)console.log("今日已完成订阅任务");
-          if(asub == 1 && asub_1==1)console.log("只找到1个订阅任务");
-          if(asub == 2 && asub_1==1) console.log("未找到新的‘未订阅’");
           break;}
       
       sleep(1000);sleep
@@ -1599,7 +1597,9 @@ function do_dingyue_1(){
    // console.info(t_1);
 if(asub == 0) break;
     }
-    if(asub == 2) console.info('没有发现新的订阅');
+    if(asub == 1 && asub_1==1)console.log("只找到1个订阅任务");
+    if(asub == 2 && asub_1==1) console.log("未找到新的‘未订阅’");
+    //if(asub == 2) console.info('没有发现新的订阅');
 }
 
 
