@@ -1489,7 +1489,7 @@ function pic_click(a, b, s1) {
       });
      // console.log(result.matches.length);
       if (result) {
-          console.log("已经订阅了" + (3 - asub) + "个");
+        fInfo("已经订阅了" + (3 - asub) + "个");
           press(result.x + a, result.y + a,100);
           sleep(1000);
           asub--;
@@ -1500,9 +1500,9 @@ function pic_click(a, b, s1) {
           sleep(1000);
                    }
       if(asub_1 == 0 || asub == 0){
-          if(asub == 0)console.log("今日已完成订阅任务");
-          if(asub == 1 && i== sousuo * 1)console.log("只找到1个订阅任务");
-          if(asub == 2 && i== sousuo * 1) console.log("未找到新的‘未订阅’");
+          if(asub == 0)fInfo("今日已完成订阅任务");
+          if(asub == 1 && i== sousuo * 1) fInfo("只找到1个订阅任务");
+          if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
           break;}
       
       delay(1);
@@ -1529,7 +1529,7 @@ function do_dingyue_1(){
     for (var i = 0; i < sousuo * 1; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
             var asub_1 = parseInt(arr[i]);
-            console.log(asub_1);
+            fInfo(asub_1);
         sleep(1000);
         press(136,t_1,100) ;
         sleep(1000);
@@ -1557,7 +1557,7 @@ function do_dingyue(){
     for (var i = 0; i < sousuo * 1; i++) {
         var arr = [4, 2];
             var asub_1 = parseInt(arr[i]);
-            console.log(asub_1);
+            fInfo(asub_1);
         sleep(1000);
         press(136,t_1,100) ;
         sleep(1000);
