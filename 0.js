@@ -1489,7 +1489,7 @@ function pic_click(a, b, s1) {
       });
      // console.log(result.matches.length);
       if (result) {
-        fInfo("已经订阅了" + (3 - asub) + "个");
+        //fInfo("已经订阅了" + (3 - asub) + "个");
           press(result.x + a, result.y + a,100);
           sleep(1000);
           asub--;
@@ -1500,9 +1500,9 @@ function pic_click(a, b, s1) {
           sleep(1000);
                    }
       if(asub_1 == 0 || asub == 0){
-          if(asub == 0) fInfo("今日已完成订阅任务");
-          if(asub == 1 && i== sousuo * 1) fInfo("只找到1个订阅任务");
-          if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
+          // if(asub == 0) fInfo("今日已完成订阅任务");
+          // if(asub == 1 && i== sousuo * 1) fInfo("只找到1个订阅任务");
+          // if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
           break;}
       
       delay(1);
@@ -1515,11 +1515,12 @@ function do_dingyue_1(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
-  fSet("title", "搜索‘强国号’订阅…");
-  //fClear();
+ // fSet("title", "搜索‘强国号’订阅…");
+  fClear();
+  fInfo('订阅开始1');
   sleep(3000);
-  h = device.height; //屏幕高
-    w = device.width; //屏幕宽
+  h = device_h; //屏幕高
+    w = device_w; //屏幕宽
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
@@ -1529,7 +1530,7 @@ function do_dingyue_1(){
     for (var i = 0; i < sousuo * 1; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
             var asub_1 = parseInt(arr[i]);
-            fInfo(asub_1);
+           // fInfo(asub_1);
         sleep(1000);
         press(136, t_1, 100) ;
         sleep(1000);
@@ -1543,8 +1544,8 @@ function do_dingyue(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
-  fSet("title", "搜索‘上新或2023年上线’订阅…");
-  //fClear();
+  //fSet("title", "搜索‘上新或2023年上线’订阅…");
+  fClear();
   sleep(3000);
   h = device.height; //屏幕高
     w = device.width; //屏幕宽
@@ -2868,8 +2869,8 @@ function xxqg(userinfo) {
           (toastLog("双人对战开始"), do_duizhan1(2), jifen_list = refind_jifen())
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
-  if (dingyue == 2){toastLog("订阅开始"), do_dingyue();};
-  if (dingyue == 1){toastLog("订阅开始"), do_dingyue_1();};
+  if (dingyue == 2){toastLog("订阅开始"), D = do_dingyue();};
+  if (dingyue == 1){toastLog("订阅开始"), D = do_dingyue_1();};
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
