@@ -1481,7 +1481,7 @@ function dacuo(renshu) {
   }
 }
 //var asub= 2;
-function pic_click(a, b, s1,asub_1, asub) {
+function pic_click0(a, b, s1,asub_1, asub) {
   while (asub > 0) {
        
       let result = findColor(captureScreen(), '#E42417', {
@@ -1516,8 +1516,91 @@ function pic_click(a, b, s1,asub_1, asub) {
   //return asub_1 = asub_1;
 }
 
+function pic_click(a, b, s1) {
+  while (asub > 0) {
+      let result = findColor(captureScreen(), '#E42417', {
+          max: 5,
+          region: [s1, 100, device.width - s1, device.height - 200], //区域
+          threshold: 10,
+      });
+     // console.log(result.matches.length);
+      if (result) {
+          console.log("已经订阅了" + (3 - asub) + "个");
+          press(result.x + a, result.y + a,100);
+          sleep(1000);
+          sleep(random(700, 1500)); 
+          asub--;
+
+      }
+      if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+          asub_1--;
+          sleep(random(700, 1500)); 
+          sleep(1000);
+                   }
+      if(asub_1 == 0 || asub == 0){
+          if(asub == 0)console.log("今日已完成订阅任务");
+          if(asub == 1 && i==9)console.log("只找到1个订阅任务");
+          if(asub == 2 && i==9) console.log("未找到新的‘未订阅’");
+          break;}
+      
+      sleep(11000);sleep
+    sleep(random(700, 1500)); 
+  }
+}
+
+
+
+var delay_time = 2;
+var seconds=1;
+function delay(seconds) {
+  sleep(1000 * seconds + randomNum(0, 500)); //sleep函数参数单位为毫秒所以乘1000
+}
+function randomNum(minNum, maxNum) {
+  switch (arguments.length) {
+      case 1:
+          return parseInt(Math.random() * minNum + 1, 10);
+      case 2:
+          return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+      default:
+          return 0;
+  }
+}
 /********订阅*********/
 function do_dingyue_1(){
+  //console.hide();
+  var  jifen_flag = "new";
+  entry_jinfen_project("订阅");
+  fSet("title", "搜索‘强国号’订阅…");
+  fClear();
+  fInfo('订阅开始1');
+  sleep(3000);
+  h = device_h; //屏幕高
+    w = device_w; //屏幕宽
+    x = (w / 3) * 2;
+    h1 = (h / 6) * 5;
+    h2 = (h / 6);
+    var asub = 2;
+    
+    var t_1 = 318;
+    for (var i = 0; i < 10; i++) {
+        var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
+            var asub_1 = parseInt(arr[i]);
+            console.log(asub_1);
+        sleep(1000);
+        sleep(random(700, 1500)); 
+        press(136,t_1,100) ;
+        sleep(1000);
+        sleep(random(700, 1500)); 
+    pic_click(20, 20, 1000);
+    sleep(random(700, 1500)); 
+    t_1 += 150;
+   // console.info(t_1);
+if(asub == 0) break;
+    }
+}
+
+
+function do_dingyue_11(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
