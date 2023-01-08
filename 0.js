@@ -1516,7 +1516,7 @@ function pic_click0(a, b, s1,asub_1, asub) {
   //return asub_1 = asub_1;
 }
 var asub = 2;
-function pic_click(a, b, s1,asub_1) {
+function pic_click(a, b, s1,asub_1,asub) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
           max: 5,
@@ -1543,9 +1543,11 @@ function pic_click(a, b, s1,asub_1) {
           if(asub == 2 && i==9) console.log("未找到新的‘未订阅’");
           break;}
       
-      sleep(11000);sleep
+      sleep(1000);sleep
     sleep(random(700, 1500)); 
+    return asub;
   }
+  return asub;
 }
 
 
@@ -1579,7 +1581,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    var asub = 2;
+    //var asub = 2;
     
     var t_1 = 318;
     for (var i = 0; i < 10; i++) {
@@ -1591,7 +1593,8 @@ function do_dingyue_1(){
         press(136,t_1,100) ;
         sleep(1000);
         sleep(random(700, 1500)); 
-    pic_click(20, 20, 1000,asub_1);
+    pic_click(20, 20, 1000,asub_1,asub);
+    var asub = asub;
     sleep(random(700, 1500)); 
     t_1 += 150;
    // console.info(t_1);
