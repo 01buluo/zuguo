@@ -1530,7 +1530,7 @@ function pic_click(a, b, s1, asub_1, asub) {
           sleep(1000);
           sleep(random(700, 1500)); 
           asub--;
-
+          return asub;
       }
       if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
           asub_1--;
