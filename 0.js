@@ -1502,15 +1502,18 @@ function pic_click(a, b, s1,asub_1, asub) {
           sleep(1000);
                    }
       if(asub_1 == 0 || asub == 0){
-           if(asub == 0)   return asub_a = 0; //fInfo("今日已完成订阅任务");
-          // if(asub == 1 && i== sousuo * 1) fInfo("只找到1个订阅任务");
-          // if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
+           if(asub == 0)   {
+            toastLog("今日已完成订阅任务");
+            return asub_a = 0; 
+            }
+          
           break;}
       
       sleep(1000);
     sleep(random(700, 1500)); 
   }
-  return asub;
+  return asub = asub;
+  //return asub_1 = asub_1;
 }
 
 /********订阅*********/
@@ -1527,10 +1530,10 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    var asub = 2*1;
+   // var asub = 2*1;
     var t_1 = 318;
     var sousuo = 10;
-    var asub_a = 1;
+  //  var asub_1 = null;
     for (var i = 0; i < sousuo * 1; i++) {
         var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
             var asub_1 = parseInt(arr[i]);
@@ -1540,11 +1543,14 @@ function do_dingyue_1(){
         press(136, t_1, 100) ;
         sleep(1000);
         sleep(random(700, 1500)); 
-    pic_click(20, 20, 1000, asub_1, asub);
+    pic_click(20, 20, 1000, asub_1, 2);
     t_1 += 150;
    // console.info(t_1);
+   
        if(asub == 0 || asub_a == 0) break;
     }
+    if(asub == 1 && i == 9) toastLog("只找到1个订阅任务");
+    if(asub == 2 && i== 9) toastLog("未找到新的‘未订阅’");
 }
 function do_dingyue(){
   //console.hide();
