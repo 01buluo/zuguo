@@ -1480,10 +1480,96 @@ function dacuo(renshu) {
     num++;
   }
 }
+function pic_click(a, b, s1) {
+  while (asub > 0) {
+      let result = findColor(captureScreen(), '#E42417', {
+          max: 5,
+          region: [s1, 100, device.width - s1, device.height - 200], //区域
+          threshold: 10,
+      });
+     // console.log(result.matches.length);
+      if (result) {
+          console.log("已经订阅了" + (3 - asub) + "个");
+          press(result.x + a, result.y + a,100);
+          sleep(1000);
+          asub--;
+
+      }
+      if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+          asub_1--;
+          sleep(1000);
+                   }
+      if(asub_1 == 0 || asub == 0){
+          if(asub == 0)console.log("今日已完成订阅任务");
+          if(asub == 1 && i== sousuo * 1)console.log("只找到1个订阅任务");
+          if(asub == 2 && i== sousuo * 1) console.log("未找到新的‘未订阅’");
+          break;}
+      
+      delay(1);
+    delay(random(0.7, 1.5)); 
+  }
+}
 
 /********订阅*********/
-
 function do_dingyue_1(){
+  //console.hide();
+  var  jifen_flag = "new";
+  entry_jinfen_project("订阅");
+  fSet("title", "搜索‘强国号’订阅…");
+  fClear();
+  sleep(3000);
+  h = device.height; //屏幕高
+    w = device.width; //屏幕宽
+    x = (w / 3) * 2;
+    h1 = (h / 6) * 5;
+    h2 = (h / 6);
+    var asub = 2;
+    var t_1 = 318;
+    var sousuo = 10;
+    for (var i = 0; i < sousuo * 1; i++) {
+        var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
+            var asub_1 = parseInt(arr[i]);
+            console.log(asub_1);
+        sleep(1000);
+        press(136,t_1,100) ;
+        sleep(1000);
+    pic_click(20, 20, 1000);
+    t_1 += 150;
+   // console.info(t_1);
+if(asub == 0) break;
+    }
+}
+function do_dingyue(){
+  //console.hide();
+  var  jifen_flag = "new";
+  entry_jinfen_project("订阅");
+  fSet("title", "搜索‘上新/2023年上线’订阅…");
+  fClear();
+  sleep(3000);
+  h = device.height; //屏幕高
+    w = device.width; //屏幕宽
+    x = (w / 3) * 2;
+    h1 = (h / 6) * 5;
+    h2 = (h / 6);
+    var asub = 2;
+    var t_1 = 468;
+    var sousuo = 2;
+    for (var i = 0; i < sousuo * 1; i++) {
+        var arr = [4, 2];
+            var asub_1 = parseInt(arr[i]);
+            console.log(asub_1);
+        sleep(1000);
+        press(136,t_1,100) ;
+        sleep(1000);
+    pic_click(20, 20, 1000);
+    t_1 += 1199;
+   // console.info(t_1);
+if(asub == 0) break;
+    }
+}
+
+
+function do_dingyue_2(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
@@ -1565,7 +1651,7 @@ var asub_0 = 0;
  }
 }
 
-function do_dingyue(){
+function do_dingyue_00(){
  var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "订阅…");
