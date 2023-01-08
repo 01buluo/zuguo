@@ -1480,9 +1480,10 @@ function dacuo(renshu) {
     num++;
   }
 }
-var asub= 2;
-function pic_click(a, b, s1) {
+//var asub= 2;
+function pic_click(a, b, s1,asub_1, asub) {
   while (asub > 0) {
+       
       let result = findColor(captureScreen(), '#E42417', {
           max: 5,
           region: [s1, 100, device_w - s1, device_h - 200], //区域
@@ -1525,7 +1526,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    //var asub = 2*1;
+    var asub = 2*1;
     var t_1 = 318;
     var sousuo = 10;
     for (var i = 0; i < sousuo * 1; i++) {
@@ -1535,7 +1536,7 @@ function do_dingyue_1(){
         sleep(1000);
         press(136, t_1, 100) ;
         sleep(1000);
-    pic_click(20, 20, 1000);
+    pic_click(20, 20, 1000, asub_1, asub);
     t_1 += 150;
    // console.info(t_1);
        if(asub == 0) break;
