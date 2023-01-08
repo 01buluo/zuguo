@@ -1484,7 +1484,7 @@ function pic_click(a, b, s1) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
           max: 5,
-          region: [s1, 100, device.width - s1, device.height - 200], //区域
+          region: [s1, 100, device_w - s1, device_h - 200], //区域
           threshold: 10,
       });
      // console.log(result.matches.length);
@@ -1500,7 +1500,7 @@ function pic_click(a, b, s1) {
           sleep(1000);
                    }
       if(asub_1 == 0 || asub == 0){
-          if(asub == 0)fInfo("今日已完成订阅任务");
+          if(asub == 0) fInfo("今日已完成订阅任务");
           if(asub == 1 && i== sousuo * 1) fInfo("只找到1个订阅任务");
           if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
           break;}
@@ -1543,7 +1543,7 @@ function do_dingyue(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
-  fSet("title", "搜索‘上新/2023年上线’订阅…");
+  fSet("title", "搜索‘上新或2023年上线’订阅…");
   fClear();
   sleep(3000);
   h = device.height; //屏幕高
@@ -1590,7 +1590,7 @@ function do_dingyue_2(){
   // fInfo(result_0);
   var p_0 = findImage(captureScreen(), img_small_shangxin);
   if (p_0) {
-    fInfo("'上新'---找到了，坐标："+p_0.x+"----" + p_0.y);
+    fInfo("'上新'---找到了，坐标：" + p_0.x+"----" + p_0.y);
    press(p_0.x+50, p_0.y+50 ,100);//点击坐标
    path_jpg = 2;
    break;
@@ -1601,7 +1601,7 @@ function do_dingyue_2(){
     }
    // img_small_shangxin.recycle();
      sleep(1000);
-     fInfo('正在订阅');
+     fInfo("正在订阅");
   h = device.height; //屏幕高
   w = device.width; //屏幕宽
   x = (w / 3) * 2;
