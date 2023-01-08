@@ -1515,8 +1515,8 @@ function pic_click0(a, b, s1,asub_1, asub) {
   return asub = asub;
   //return asub_1 = asub_1;
 }
-var asub = 2;
-function pic_click(a, b, s1,asub_1,asub) {
+//var asub = 2;
+function pic_click(a, b, s1, asub_1, asub) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
           max: 5,
@@ -1545,7 +1545,7 @@ function pic_click(a, b, s1,asub_1,asub) {
       
       sleep(1000);sleep
     sleep(random(700, 1500)); 
-    return asub;
+   // return asub;
   }
   return asub;
 }
@@ -1593,12 +1593,13 @@ function do_dingyue_1(){
         sleep(1000);
         sleep(random(700, 1500)); 
     pic_click(20, 20, 1000,asub_1,asub);
-    //var asub = asub;
+    var asub = asub;
     sleep(random(700, 1500)); 
     t_1 += 150;
    // console.info(t_1);
 if(asub == 0) break;
     }
+    if(asub == 2) console.info('没有发现新的订阅');
 }
 
 
