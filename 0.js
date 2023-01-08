@@ -1507,8 +1507,8 @@ function pic_click(a, b, s1,asub_1, asub) {
           // if(asub == 2 && i== sousuo * 1) fInfo("未找到新的‘未订阅’");
           break;}
       
-      delay(1);
-    delay(random(0.7, 1.5)); 
+      sleep(1000);
+    sleep(random(700, 1500)); 
   }
 }
 
@@ -1534,8 +1534,10 @@ function do_dingyue_1(){
             var asub_1 = parseInt(arr[i]);
            // fInfo(asub_1);
         sleep(1000);
+        sleep(random(700, 1500)); 
         press(136, t_1, 100) ;
         sleep(1000);
+        sleep(random(700, 1500)); 
     pic_click(20, 20, 1000, asub_1, asub);
     t_1 += 150;
    // console.info(t_1);
@@ -1562,9 +1564,11 @@ function do_dingyue(){
             var asub_1 = parseInt(arr[i]);
            // fInfo(asub_1);
         sleep(1000);
+        sleep(random(700, 1500)); 
         press(136,t_1,100) ;
         sleep(1000);
-    pic_click(20, 20, 1000);
+        sleep(random(700, 1500)); 
+        pic_click(20, 20, 1000, asub_1, asub);
     t_1 += 1199;
    // console.info(t_1);
 if(asub == 0) break;
