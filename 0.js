@@ -1480,6 +1480,7 @@ function dacuo(renshu) {
     num++;
   }
 }
+var asub= 2;
 function pic_click(a, b, s1) {
   while (asub > 0) {
       let result = findColor(captureScreen(), '#E42417', {
@@ -1524,7 +1525,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 6) * 5;
     h2 = (h / 6);
-    let asub = 2*1;
+    //var asub = 2*1;
     var t_1 = 318;
     var sousuo = 10;
     for (var i = 0; i < sousuo * 1; i++) {
@@ -1558,7 +1559,7 @@ function do_dingyue(){
     for (var i = 0; i < sousuo * 1; i++) {
         var arr = [2, 2];
             var asub_1 = parseInt(arr[i]);
-            fInfo(asub_1);
+           // fInfo(asub_1);
         sleep(1000);
         press(136,t_1,100) ;
         sleep(1000);
