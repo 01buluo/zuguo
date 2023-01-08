@@ -1555,7 +1555,7 @@ function do_dingyue(){
     var t_1 = 468;
     var sousuo = 2;
     for (var i = 0; i < sousuo * 1; i++) {
-        var arr = [4, 2];
+        var arr = [2, 2];
             var asub_1 = parseInt(arr[i]);
             fInfo(asub_1);
         sleep(1000);
