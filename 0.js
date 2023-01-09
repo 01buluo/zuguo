@@ -1663,8 +1663,8 @@ function do_dingyue_1(){
     t_1 += 1199;
         }
     if(asub == 0)  console.info("今日已完成订阅任务");
-    if(asub == 1 && asub_1==1)  console.info("只找到1个订阅任务");
-    if(asub == 2 && asub_1==1)  console.info("未找到新的‘未订阅’");
+    if(asub == 1 && asub_1==2)  console.info("只找到1个订阅任务");
+    if(asub == 2 && asub_1==2)  console.info("未找到新的‘未订阅’");
     
 }
 
