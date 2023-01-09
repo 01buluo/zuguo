@@ -1631,8 +1631,8 @@ function do_dingyue_1(){
     h1 = (h / 6) * 5;
     h2 = (h / 6);
    // var asub = 2*1;
-    var t_1 = 318;
-    var sousuo = 10;
+    var t_1 = 468;
+    var sousuo = 2;
     for (var i = 0; i < sousuo * 1; i++) {
         var arr = [1, 2];
             var asub_1 = parseInt(arr[i]);
@@ -1660,7 +1660,7 @@ function do_dingyue_1(){
       }
     sleep(random(400, 800)); 
     if(asub == 0) break;
-    t_1 += 150;
+    t_1 += 1199;
         }
     if(asub == 0)  console.info("今日已完成订阅任务");
     if(asub == 1 && asub_1==1)  console.info("只找到1个订阅任务");
