@@ -1566,7 +1566,7 @@ function randomNum(minNum, maxNum) {
   }
 }
 /********订阅*********/
-function do_dingyue_1(){
+function do_dingyue(){
   //console.hide();
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
@@ -1586,10 +1586,9 @@ function do_dingyue_1(){
             var asub_1 = parseInt(arr[i]);
             //console.info(asub_1);
         //sleep(1000);
-        sleep(random(700, 1500)); 
+        sleep(random(400, 800)); 
         press(136,t_1,100) ;
-        sleep(1000);
-        sleep(random(700, 1500)); 
+        sleep(random(800, 1500)); 
         while (asub > 0) {
           let result = findColor(captureScreen(), '#E42417', {
               max: 5,
@@ -1599,20 +1598,18 @@ function do_dingyue_1(){
           if (result) {
             console.info("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
-              sleep(1000);
-              sleep(random(700, 1500)); 
+              sleep(random(800, 1500)); 
               asub--;
             
           }
           if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
               asub_1--;
-              sleep(random(700, 1500)); 
-              sleep(1000);
+              sleep(random(800, 1500)); 
                        }
           if(asub_1 == 0 || asub == 0) break;
-        sleep(random(700, 1500));   
+        sleep(random(400, 700));   
       }
-    sleep(random(700, 1500)); 
+    sleep(random(700, 1200)); 
     if(asub == 0) break;
     t_1 += 150;
         }
@@ -1621,10 +1618,7 @@ function do_dingyue_1(){
     if(asub == 2 && asub_1==1)  console.info("未找到新的‘未订阅’");
     
   }
-
-
-function do_dingyue_11(){
-  //console.hide();
+function do_dingyue_1(){
   var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
@@ -1639,54 +1633,39 @@ function do_dingyue_11(){
    // var asub = 2*1;
     var t_1 = 318;
     var sousuo = 10;
-  //  var asub_1 = null;
     for (var i = 0; i < sousuo * 1; i++) {
-        var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 2];
+        var arr = [1, 2];
             var asub_1 = parseInt(arr[i]);
-           // fInfo(asub_1);
-        sleep(1000);
-        sleep(random(700, 1500)); 
-        press(136, t_1, 100) ;
-        sleep(1000);
-        sleep(random(700, 1500)); 
-    pic_click(20, 20, 1000, asub_1, 2);
-    t_1 += 150;
-   // console.info(t_1);
-   
-       if(asub == 0 ) break;
-    }
-    if(asub == 1 && i == 9) toastLog("只找到1个订阅任务");
-    if(asub == 2 && i== 9) toastLog("未找到新的‘未订阅’");
-}
-function do_dingyue(){
-  //console.hide();
-  var  jifen_flag = "new";
-  entry_jinfen_project("订阅");
-  fSet("title", "搜索‘上新或2023年上线’订阅…");
-  fClear();
-  sleep(3000);
-  h = device.height; //屏幕高
-    w = device.width; //屏幕宽
-    x = (w / 3) * 2;
-    h1 = (h / 6) * 5;
-    h2 = (h / 6);
-    var asub = 2*1;
-    var t_1 = 468;
-    var sousuo = 2;
-    for (var i = 0; i < sousuo * 1; i++) {
-        var arr = [2, 2];
-            var asub_1 = parseInt(arr[i]);
-           // fInfo(asub_1);
-        sleep(1000);
-        sleep(random(700, 1500)); 
+        sleep(random(400, 1200)); 
         press(136,t_1,100) ;
-        sleep(1000);
-        sleep(random(700, 1500)); 
-        pic_click(20, 20, 1000, asub_1, asub);
-    t_1 += 1199;
-   // console.info(t_1);
-if(asub == 0) break;
-    }
+        sleep(random(800, 1500)); 
+        while (asub > 0) {
+          let result = findColor(captureScreen(), '#E42417', {
+              max: 5,
+              region: [1000, 100, device.width - 1000, device.height - 200], //区域
+              threshold: 10,
+          });
+          if (result) {
+            console.info("已经订阅了" + (3 - asub) + "个");
+              press(result.x + 20, result.y + 20,100);
+              sleep(random(800, 1500)); 
+              asub--; 
+          }
+          if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+              asub_1--;
+              sleep(random(800, 1500)); 
+                       }
+          if(asub_1 == 0 || asub == 0) break;
+        sleep(random(700, 1500));   
+      }
+    sleep(random(400, 800)); 
+    if(asub == 0) break;
+    t_1 += 150;
+        }
+    if(asub == 0)  console.info("今日已完成订阅任务");
+    if(asub == 1 && asub_1==1)  console.info("只找到1个订阅任务");
+    if(asub == 2 && asub_1==1)  console.info("未找到新的‘未订阅’");
+    
 }
 
 
