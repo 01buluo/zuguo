@@ -2,7 +2,7 @@
 auto.waitFor();//mode = "fast"
 var delay_time = 3000;
 device.wakeUpIfNeeded();
-
+setScreenMetrics(1080, 1920);
 // 读取自定义配置
 var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
 var watchdog = TTXS_PRO_CONFIG.get("watchdog", "1800");
@@ -1577,8 +1577,8 @@ function do_dingyue(){
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
     x = (w / 3) * 2;
-    h1 = (h / 6) * 5;
-    h2 = (h / 6);
+    h1 = (h / 10) * 9;
+    h2 = (h / 12);
     var asub = 2;
     var t_1 = 318;
     for (var i = 0; i < 10; i++) {
@@ -1628,8 +1628,8 @@ function do_dingyue_1(){
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
     x = (w / 3) * 2;
-    h1 = (h / 6) * 5;
-    h2 = (h / 6);
+    h1 = (h / 10) * 9;
+    h2 = (h / 12);
    // var asub = 2*1;
     var t_1 = 468;
     var sousuo = 2;
