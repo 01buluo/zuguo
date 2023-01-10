@@ -1576,6 +1576,8 @@ function do_dingyue(){
   fInfo('强国号’-- 搜索中………');
   fRefocus()
   fClear();
+  console.hide();
+  sleep(200);
   console.show();
   console.setPosition(200, device.height * 0.3);
   sleep(3000);
@@ -1656,6 +1658,8 @@ function do_dingyue_1(){
   fInfo('上新/2023年上线--搜索中……');
   fRefocus()
   fClear();
+  console.hide();
+  sleep(200);
   console.show();
   console.setPosition(200, device.height * 0.3);
   sleep(3000);
