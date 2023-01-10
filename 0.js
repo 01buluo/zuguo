@@ -1618,8 +1618,9 @@ function do_dingyue(){
     if(asub == 1 && i>9)  console.info("只找到1个订阅任务");
     if(asub == 2 && i>9)  console.info("未找到新的‘未订阅’");
     back();
-    text("登录").waitFor();
-    return false
+  text("登录").waitFor();
+  ran_sleep();
+  return true;
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
@@ -1669,15 +1670,9 @@ function do_dingyue_1(){
     if(asub == 2 && i>1)  console.info("未找到新的‘未订阅’");
     //user_thread.isAlive() && (user_thread.interrupt(), fInfo("终止用户须知弹窗检测"));
     back();
-    text("登录").waitFor();
-    return false
-            // back();
-            // text("登录").waitFor();
-            // ran_sleep();
-            // back();
-            // ran_sleep();
-            // back();
-            // return true;
+  text("登录").waitFor();
+  ran_sleep();
+  return true;
 }
 
 
@@ -2980,9 +2975,9 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
-  1 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始"), d = do_dingyue_1(), jifen_list = refind_jifen());
+  1 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
 
-  2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
+  2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
 
   // function do_dingyue_a(){
@@ -2999,7 +2994,7 @@ function xxqg(userinfo) {
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
   // 2 == meizhou || c || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答");
-   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
+  // 0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
   if (pushplus || token) {
       fInfo("推送前等待积分刷新5秒");
       sleep(5E3);
