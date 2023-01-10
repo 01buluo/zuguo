@@ -1620,9 +1620,11 @@ function do_dingyue(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  ran_sleep();
+  sleep(800);
   back();
-  ran_sleep();
+  sleep(1000);
+  back();
+  sleep(1000);
   back();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
@@ -1691,9 +1693,11 @@ function do_dingyue_1(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  ran_sleep();
+  sleep(800);
   back();
-  ran_sleep();
+  sleep(1000);
+  back();
+  sleep(1000);
   back();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
