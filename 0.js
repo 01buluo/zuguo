@@ -1602,6 +1602,7 @@ function do_dingyue(){
               region: [1000, 100, device.width - 1000, device.height - 200], //区域
               threshold: 10,
           });
+          sleep(random(400, 700));
           if (result) {
             toastLog("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
@@ -1682,6 +1683,7 @@ function do_dingyue_1(){
               region: [1000, 100, device.width - 1000, device.height - 200], //区域
               threshold: 10,
           });
+          sleep(random(400, 700));
           if (result) {
             toastLog("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
