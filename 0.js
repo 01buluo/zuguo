@@ -1630,7 +1630,7 @@ function do_dingyue_1(){
     x = (w / 3) * 2;
     h1 = (h / 10) * 9;
     h2 = (h / 12);
-   // var asub = 2*1;
+   var asub = 2*1;
     var t_1 = 468;
     var sousuo = 2;
     for (var i = 0; i < sousuo * 1; i++) {
@@ -2923,7 +2923,7 @@ function xxqg(userinfo) {
   if (zhuanxiang == 1) {zhuanxiang_dao = false;}
   else if (zhuanxiang == 0) {zhuanxiang_dao = true;}
   if (dingyue == 1) {dingyue_dao = false;}
-  else if (dingyue == 2) {dingyue_dao = true;}
+  if (dingyue == 2) {dingyue_dao = false;}
   //id("comm_head_xuexi_score").findOne().click();
   sleep(7000);
   setScreenMetrics(1080, 1920);
@@ -2969,11 +2969,12 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始"), do_dingyue_a(), jifen_list = refind_jifen());
+ 
   var noverify_thread = noverify();
 
   function do_dingyue_a(){
-    if (dingyue == 2){toastLog("订阅开始"), D = do_dingyue();};
-  if (dingyue == 1){toastLog("订阅开始"), D = do_dingyue_1();};
+    if (dingyue == 2){toastLog("订阅开始"), do_dingyue();};
+    if (dingyue == 1){toastLog("订阅开始"), do_dingyue_1();};
   if (noverify_thread.isAlive()) {
     noverify_thread.interrupt();
   }
@@ -2981,7 +2982,7 @@ function xxqg(userinfo) {
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
-   2 == meizhou || c || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答");
+  // 2 == meizhou || c || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答");
   // 0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
   if (pushplus || token) {
       fInfo("推送前等待积分刷新5秒");
