@@ -1573,7 +1573,7 @@ function do_dingyue(){
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
-  fInfo('订阅开始1');
+  fInfo('订阅开始--遍历搜索‘强国号’…');
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1618,16 +1618,33 @@ function do_dingyue(){
     if(asub == 1 && i>9)  console.info("只找到1个订阅任务");
     if(asub == 2 && i>9)  console.info("未找到新的‘未订阅’");
     back();
+    console.info("返回");
   text("登录").waitFor();
   ran_sleep();
-  return true;
+  let xxqg_end=new Date();
+  let spent_time = ((xxqg_end - xxqg_begin)/1000).toFixed();
+  console.info("本轮已正常结束，花费时间"+spent_time+"s");
+  if (yl_on) {
+    console.info("调回初始音量:"+ yuan_yl);
+    device.setMusicVolume(yuan_yl);
+  }
+  // 取消屏幕常亮
+  console.info("取消屏幕常亮");
+  device.cancelKeepingAwake();
+  // 震动提示
+  device.vibrate(500);
+  console.info("十秒后关闭悬浮窗");
+  sleep(10000);
+  console.hide();
+  home();
+  exit();
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
   entry_jinfen_project("订阅");
-  fSet("title", "搜索‘强国号’订阅…");
+  fSet("title", "搜索‘上新/2023年上线’订阅…");
   fClear();
-  fInfo('订阅开始0');
+  fInfo('订阅开始--搜索‘上新/2023年上线’');
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1668,11 +1685,27 @@ function do_dingyue_1(){
     if(asub == 0)  console.info("今日已完成订阅任务");
     if(asub == 1 && i>1)  console.info("只找到1个订阅任务");
     if(asub == 2 && i>1)  console.info("未找到新的‘未订阅’");
-    //user_thread.isAlive() && (user_thread.interrupt(), fInfo("终止用户须知弹窗检测"));
     back();
+    console.info("返回");
   text("登录").waitFor();
   ran_sleep();
-  return true;
+  let xxqg_end=new Date();
+  let spent_time = ((xxqg_end - xxqg_begin)/1000).toFixed();
+  console.info("本轮已正常结束，花费时间"+spent_time+"s");
+  if (yl_on) {
+    console.info("调回初始音量:"+ yuan_yl);
+    device.setMusicVolume(yuan_yl);
+  }
+  // 取消屏幕常亮
+  console.info("取消屏幕常亮");
+  device.cancelKeepingAwake();
+  // 震动提示
+  device.vibrate(500);
+  console.info("十秒后关闭悬浮窗");
+  sleep(10000);
+  console.hide();
+  home();
+  exit();
 }
 
 
