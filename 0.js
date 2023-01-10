@@ -1617,24 +1617,27 @@ function do_dingyue(){
     if(asub == 0)  console.info("今日已完成订阅任务");
     if(asub == 1 && asub_1==1)  console.info("只找到1个订阅任务");
     if(asub == 2 && asub_1==1)  console.info("未找到新的‘未订阅’");
-    
+       
+    back();
+            text("登录").waitFor();
+            ran_sleep();
+            return true;
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
-  fInfo('订阅开始1');
+  fInfo('订阅开始0');
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
     x = (w / 3) * 2;
     h1 = (h / 10) * 9;
     h2 = (h / 12);
-   var asub = 2*1;
+   var asub = 2;
     var t_1 = 468;
-    var sousuo = 2;
-    for (var i = 0; i < sousuo * 1; i++) {
+    for (var i = 0; i < 2; i++) {
         var arr = [1, 2];
             var asub_1 = parseInt(arr[i]);
         sleep(random(400, 1200)); 
@@ -1666,7 +1669,11 @@ function do_dingyue_1(){
     if(asub == 0)  console.info("今日已完成订阅任务");
     if(asub == 1 && asub_1==2)  console.info("只找到1个订阅任务");
     if(asub == 2 && asub_1==2)  console.info("未找到新的‘未订阅’");
-    
+   
+            back();
+            text("登录").waitFor();
+            ran_sleep();
+            return true;
 }
 
 
@@ -2969,7 +2976,6 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   if(dingyue == 1){true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始"), do_dingyue_1(), jifen_list = refind_jifen());
-  
   }
   if(dingyue == 2) {true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历‘强国号’"), do_dingyue(), jifen_list = refind_jifen());}
  
