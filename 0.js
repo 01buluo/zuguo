@@ -1545,7 +1545,7 @@ function pic_click(a, b, s1, asub_1, asub) {
     sleep(random(700, 1500)); 
    
   }
-  console.info('共完成'+(3-asub));
+  toastLog('共完成'+(3-asub));
   return asub;
 }
 
@@ -1621,6 +1621,7 @@ function do_dingyue(){
     toastLog("返回");
   text("登录").waitFor();
   ran_sleep();
+  back();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
@@ -1633,7 +1634,7 @@ function do_dingyue(){
   device.cancelKeepingAwake();
   // 震动提示
   device.vibrate(500);
-  toastLog("十秒后关闭悬浮窗");
+  fInfo("十秒后关闭悬浮窗");
   sleep(10000);
   console.hide();
   home();
@@ -1666,7 +1667,7 @@ function do_dingyue_1(){
               threshold: 10,
           });
           if (result) {
-            console.info("已经订阅了" + (3 - asub) + "个");
+            toastLog("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
               sleep(random(800, 1500)); 
               asub--; 
@@ -1689,6 +1690,7 @@ function do_dingyue_1(){
     toastLog("返回");
   text("登录").waitFor();
   ran_sleep();
+  back();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
@@ -1701,7 +1703,7 @@ function do_dingyue_1(){
   device.cancelKeepingAwake();
   // 震动提示
   device.vibrate(500);
-  toastLog("十秒后关闭悬浮窗");
+  fInfo("十秒后关闭悬浮窗");
   sleep(10000);
   console.hide();
   home();
