@@ -2969,16 +2969,18 @@ function xxqg(userinfo) {
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始"), do_dingyue_a(), jifen_list = refind_jifen());
  
-  var noverify_thread = noverify();
+ 
 
   function do_dingyue_a(){
-    
-    if (dingyue == 1){toastLog("订阅开始"); do_dingyue_1();
-                   }else {toastLog("订阅开始"); do_dingyue();};
+    var noverify_thread = noverify();
+    if (dingyue == 1){toastLog("订阅开始"); do_dingyue();
+                   }else {toastLog("订阅开始"); do_dingyue_1();};
+                  
+                   if (noverify_thread.isAlive()) {
+                    noverify_thread.interrupt();
                   }
-  if (noverify_thread.isAlive()) {
-    noverify_thread.interrupt();
-  }
+                  }
+
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
