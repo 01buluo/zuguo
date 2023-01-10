@@ -2922,8 +2922,8 @@ function xxqg(userinfo) {
   else if (meizhou == 0) {meizhou_dao = true;}
   if (zhuanxiang == 1) {zhuanxiang_dao = false;}
   else if (zhuanxiang == 0) {zhuanxiang_dao = true;}
-  if (dingyue == 1) {dingyue_dao = false;}
-  if (dingyue == 2) {dingyue_dao = false;}
+  if (dingyue == 1) {dingyue_dao = false;fInfo("选择1")}
+  if (dingyue == 2) {dingyue_dao = false;fInfo("选择遍历")}
   //id("comm_head_xuexi_score").findOne().click();
   sleep(7000);
   setScreenMetrics(1080, 1920);
