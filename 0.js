@@ -1614,9 +1614,9 @@ function do_dingyue(){
     if(asub == 0) break;
     t_1 += 150;
         }
-    if(asub == 0)  toastLog("今日已完成订阅任务");
-    if(asub == 1 && i>9)  toastLog("只找到1个订阅任务");
-    if(asub == 2 && i>9)  toastLog("未找到新的‘未订阅’");
+    if(asub == 0)  {toastLog("今日已完成订阅任务");toast('今日已完成订阅任务');}
+    if(asub == 1 && i>9)  {toastLog("只找到1个订阅任务");toast("只找到1个订阅任务");}
+    if(asub == 2 && i>9)  {toastLog("未找到新的‘未订阅’");toastLog("未找到新的‘未订阅’");}
     back();
     toastLog("返回");
   text("登录").waitFor();
@@ -1634,7 +1634,7 @@ function do_dingyue(){
   device.cancelKeepingAwake();
   // 震动提示
   device.vibrate(500);
-  fInfo("十秒后关闭悬浮窗");
+  toastLog("十秒后关闭悬浮窗");
   sleep(10000);
   console.hide();
   home();
@@ -1683,9 +1683,9 @@ function do_dingyue_1(){
     if(asub == 0) break;
     t_1 += 1199;
         }
-    if(asub == 0)  toastLog("今日已完成订阅任务");
-    if(asub == 1 && i>1)  toastLog("只找到1个订阅任务");
-    if(asub == 2 && i>1)  toastLog("未找到新的‘未订阅’");
+    if(asub == 0)   {toastLog("今日已完成订阅任务");toast('今日已完成订阅任务');}
+    if(asub == 1 && i>1)  {toastLog("只找到1个订阅任务");toast("只找到1个订阅任务");}
+    if(asub == 2 && i>1)  {toastLog("未找到新的‘未订阅’");toastLog("未找到新的‘未订阅’");}
     back();
     toastLog("返回");
   text("登录").waitFor();
@@ -1703,7 +1703,7 @@ function do_dingyue_1(){
   device.cancelKeepingAwake();
   // 震动提示
   device.vibrate(500);
-  fInfo("十秒后关闭悬浮窗");
+  toastLog("十秒后关闭悬浮窗");
   sleep(10000);
   console.hide();
   home();
