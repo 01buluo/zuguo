@@ -1569,7 +1569,7 @@ function randomNum(minNum, maxNum) {
 /********订阅*********/
 function do_dingyue(){
   //console.hide();
-  var  jifen_flag = "new";
+  //var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
@@ -1620,7 +1620,7 @@ function do_dingyue(){
     
   }
 function do_dingyue_1(){
-  var  jifen_flag = "new";
+ // var  jifen_flag = "new";
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
@@ -2971,7 +2971,7 @@ function xxqg(userinfo) {
   if(dingyue == 1){true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始"), do_dingyue_1(), jifen_list = refind_jifen());
   
   }
-  if(dingyue == 1) {true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历‘强国号’"), do_dingyue(), jifen_list = refind_jifen());}
+  if(dingyue == 2) {true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历‘强国号’"), do_dingyue(), jifen_list = refind_jifen());}
  
 
   // function do_dingyue_a(){
