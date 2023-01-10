@@ -1616,10 +1616,12 @@ function do_dingyue(){
         }
     if(asub == 0)  {toastLog("今日已完成订阅任务");toast('今日已完成订阅任务');}
     if(asub == 1 && i>9)  {toastLog("只找到1个订阅任务");toast("只找到1个订阅任务");}
-    if(asub == 2 && i>9)  {toastLog("未找到新的‘未订阅’");toastLog("未找到新的‘未订阅’");}
+    if(asub == 2 && i>9)  {toastLog("未找到新的‘未订阅’");toast("未找到新的‘未订阅’");}
     back();
     toastLog("返回");
   text("登录").waitFor();
+  ran_sleep();
+  back();
   ran_sleep();
   back();
   let xxqg_end_1=new Date();
@@ -1685,10 +1687,12 @@ function do_dingyue_1(){
         }
     if(asub == 0)   {toastLog("今日已完成订阅任务");toast('今日已完成订阅任务');}
     if(asub == 1 && i>1)  {toastLog("只找到1个订阅任务");toast("只找到1个订阅任务");}
-    if(asub == 2 && i>1)  {toastLog("未找到新的‘未订阅’");toastLog("未找到新的‘未订阅’");}
+    if(asub == 2 && i>1)  {toastLog("未找到新的‘未订阅’");toast("未找到新的‘未订阅’");}
     back();
     toastLog("返回");
   text("登录").waitFor();
+  ran_sleep();
+  back();
   ran_sleep();
   back();
   let xxqg_end_1=new Date();
