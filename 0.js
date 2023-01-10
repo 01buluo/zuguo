@@ -1573,8 +1573,9 @@ function do_dingyue(){
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
-  fInfo('订阅开始--遍历搜索‘强国号’…');
+  fInfo('强国号’-- 搜索中………');
   fRefocus()
+  fClear();
   console.show();
   console.setPosition(200, device.height * 0.3);
   sleep(3000);
@@ -1652,8 +1653,9 @@ function do_dingyue_1(){
   entry_jinfen_project("订阅");
   fSet("title", "搜索‘上新/2023年上线’订阅…");
   fClear();
-  fInfo('订阅开始--搜索‘上新/2023年上线’');
+  fInfo('上新/2023年上线--搜索中……');
   fRefocus()
+  fClear();
   console.show();
   console.setPosition(200, device.height * 0.3);
   sleep(3000);
