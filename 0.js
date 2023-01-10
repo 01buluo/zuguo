@@ -1673,14 +1673,21 @@ function do_dingyue_1(){
     if(asub == 0)  console.info("今日已完成订阅任务");
     if(asub == 1 && i>1)  console.info("只找到1个订阅任务");
     if(asub == 2 && i>1)  console.info("未找到新的‘未订阅’");
-   
-            back();
-            text("登录").waitFor();
-            ran_sleep();
-            back();
-            ran_sleep();
-            back();
-            return true;
+    user_thread.isAlive() && (user_thread.interrupt(), fInfo("终止用户须知弹窗检测"));
+    sleep(2000);
+    back();
+    sleep(1000);
+    back();
+    text("登录").waitFor();
+    ran_sleep();
+    return true;
+            // back();
+            // text("登录").waitFor();
+            // ran_sleep();
+            // back();
+            // ran_sleep();
+            // back();
+            // return true;
 }
 
 
