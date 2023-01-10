@@ -2927,7 +2927,6 @@ function xxqg(userinfo) {
   //id("comm_head_xuexi_score").findOne().click();
   sleep(7000);
   setScreenMetrics(1080, 1920);
- 
   fInfo("等待点击‘学习积分’");
   click(245, 875);
   press(245, 875, 1);
@@ -2973,12 +2972,13 @@ function xxqg(userinfo) {
   var noverify_thread = noverify();
 
   function do_dingyue_a(){
-    if (dingyue == 2){toastLog("订阅开始"), do_dingyue();};
-    if (dingyue == 1){toastLog("订阅开始"), do_dingyue_1();};
+    
+    if (dingyue == 1){toastLog("订阅开始"); do_dingyue_1();
+                   }else {toastLog("订阅开始"); do_dingyue();};
+                  }
   if (noverify_thread.isAlive()) {
     noverify_thread.interrupt();
   }
-      }
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
   //     "old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text()) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
