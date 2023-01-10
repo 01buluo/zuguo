@@ -1678,8 +1678,9 @@ function do_dingyue_1(){
     back();
     sleep(1000);
     back();
-    text("登录").waitFor();
+    //text("登录").waitFor();
     ran_sleep();
+    back();
     return true;
             // back();
             // text("登录").waitFor();
