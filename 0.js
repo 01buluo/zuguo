@@ -189,6 +189,7 @@ if (dingyue == 2) {fInfo('更新订阅重要参数,准备下载，若此次报�
      var img_small_end = images.load(url_jpg_3);
      sleep(3000);
      images.save(img_small_end, path_jpg_3);
+     var dingyue = 2;
 //media.scanFile(path_jpg_3);
 }
 
@@ -2969,7 +2970,8 @@ function xxqg(userinfo) {
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   if(dingyue == 1){true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始"), do_dingyue_1(), jifen_list = refind_jifen());
   
-  }else {true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历‘强国号’"), do_dingyue(), jifen_list = refind_jifen());}
+  }
+  if(dingyue == 1) {true == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历‘强国号’"), do_dingyue(), jifen_list = refind_jifen());}
  
 
   // function do_dingyue_a(){
