@@ -3012,21 +3012,21 @@ function xxqg(userinfo) {
           fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
       }
   }
-  back();
-  if (!zhanghao) return !0;
-  text("我的").findOne().click();
-  log("等待设置按钮");
-  b = id("my_setting").findOne();
-  sleep(1E3);
-  log("点击设置按钮");
-  real_click(b);
-  log("等待退出登录");
-  b = id("setting_sign_out").findOne();
-  sleep(1E3);
-  log("点击退出登录");
-  real_click(b);
-  text("确认").findOne().click();
-  return !0
+  // back();
+  // if (!zhanghao) return !0;
+  // text("我的").findOne().click();
+  // log("等待设置按钮");
+  // b = id("my_setting").findOne();
+  // sleep(1E3);
+  // log("点击设置按钮");
+  // real_click(b);
+  // log("等待退出登录");
+  // b = id("setting_sign_out").findOne();
+  // sleep(1E3);
+  // log("点击退出登录");
+  // real_click(b);
+  // text("确认").findOne().click();
+  // return !0
 }
 
 function main(userinfo){
