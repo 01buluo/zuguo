@@ -1597,7 +1597,7 @@ function do_dingyue(){
               threshold: 10,
           });
           if (result) {
-            console.info("已经订阅了" + (3 - asub) + "个");
+            toastLog("已经订阅了" + (3 - asub) + "个");
               press(result.x + 20, result.y + 20,100);
               sleep(random(800, 1500)); 
               asub--;
@@ -1614,26 +1614,26 @@ function do_dingyue(){
     if(asub == 0) break;
     t_1 += 150;
         }
-    if(asub == 0)  console.info("今日已完成订阅任务");
-    if(asub == 1 && i>9)  console.info("只找到1个订阅任务");
-    if(asub == 2 && i>9)  console.info("未找到新的‘未订阅’");
+    if(asub == 0)  toastLog("今日已完成订阅任务");
+    if(asub == 1 && i>9)  toastLog("只找到1个订阅任务");
+    if(asub == 2 && i>9)  toastLog("未找到新的‘未订阅’");
     back();
-    console.info("返回");
+    toastLog("返回");
   text("登录").waitFor();
   ran_sleep();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-  console.info("本轮已正常结束，花费时间"+spent_time+"s");
+  toastLog("本轮已正常结束，花费时间"+spent_time+"s");
   if (yl_on) {
-    console.info("调回初始音量:"+ yuan_yl);
+    toastLog("调回初始音量:"+ yuan_yl);
     device.setMusicVolume(yuan_yl);
   }
   // 取消屏幕常亮
-  console.info("取消屏幕常亮");
+  toastLog("取消屏幕常亮");
   device.cancelKeepingAwake();
   // 震动提示
   device.vibrate(500);
-  console.info("十秒后关闭悬浮窗");
+  toastLog("十秒后关闭悬浮窗");
   sleep(10000);
   console.hide();
   home();
@@ -1682,26 +1682,26 @@ function do_dingyue_1(){
     if(asub == 0) break;
     t_1 += 1199;
         }
-    if(asub == 0)  console.info("今日已完成订阅任务");
-    if(asub == 1 && i>1)  console.info("只找到1个订阅任务");
-    if(asub == 2 && i>1)  console.info("未找到新的‘未订阅’");
+    if(asub == 0)  toastLog("今日已完成订阅任务");
+    if(asub == 1 && i>1)  toastLog("只找到1个订阅任务");
+    if(asub == 2 && i>1)  toastLog("未找到新的‘未订阅’");
     back();
-    console.info("返回");
+    toastLog("返回");
   text("登录").waitFor();
   ran_sleep();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-  console.info("本轮已正常结束，花费时间"+spent_time+"s");
+  toastLog("本轮已正常结束，花费时间"+spent_time+"s");
   if (yl_on) {
-    console.info("调回初始音量:"+ yuan_yl);
+    toastLog("调回初始音量:"+ yuan_yl);
     device.setMusicVolume(yuan_yl);
   }
   // 取消屏幕常亮
-  console.info("取消屏幕常亮");
+  toastLog("取消屏幕常亮");
   device.cancelKeepingAwake();
   // 震动提示
   device.vibrate(500);
-  console.info("十秒后关闭悬浮窗");
+  toastLog("十秒后关闭悬浮窗");
   sleep(10000);
   console.hide();
   home();
@@ -3000,7 +3000,7 @@ function xxqg(userinfo) {
           do_duizhan1(4);
           do_duizhan1(4);
           if (d = Number(dacuo_num))
-              for (fSet("title", "平衡胜率…"), fClear(), console.info("开始平衡胜率，答错次数：" + d), i = 0; i < d; i++) fInfo("答错第" + (i + 1) + "轮"), dacuo(4), fClear();
+              for (fSet("title", "平衡胜率…"), fClear(), toastLog("开始平衡胜率，答错次数：" + d), i = 0; i < d; i++) fInfo("答错第" + (i + 1) + "轮"), dacuo(4), fClear();
           jifen_list = refind_jifen()
       }
       true == shuangren && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["双人"]).child(2).text().match(/\d+/)[0] || "new" == jifen_flag && "0" == jifen_list.child(jifen_map["双人"]).child(3).child(0).text()) &&
