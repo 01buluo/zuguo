@@ -1639,7 +1639,7 @@ function do_dingyue(){
   // 震动提示
   device.vibrate(500);
   toastLog("十秒后关闭悬浮窗");
-  sleep(10000);
+  sleep(5000);
   console.hide();
   home();
   exit();
@@ -1712,7 +1712,7 @@ function do_dingyue_1(){
   // 震动提示
   device.vibrate(500);
   toastLog("十秒后关闭悬浮窗");
-  sleep(10000);
+  sleep(5000);
   console.hide();
   home();
   exit();
