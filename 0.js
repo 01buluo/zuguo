@@ -1620,11 +1620,11 @@ function do_dingyue(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  sleep(800);
+  sleep(random(400, 800)); 
   back();
-  sleep(1000);
+  sleep(random(400, 800)); 
   back();
-  sleep(1000);
+  sleep(random(400, 800)); 
   back();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
@@ -1693,11 +1693,11 @@ function do_dingyue_1(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  sleep(800);
+  sleep(random(400, 800)); 
   back();
-  sleep(1000);
+  sleep(random(400, 800)); 
   back();
-  sleep(1000);
+  sleep(random(400, 800)); 
   back();
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
@@ -3141,6 +3141,9 @@ if (noverify_thread.isAlive()) {
 /*****************结束后配置*****************/
 //console.show();
 // console.clear();
+back();
+  sleep(random(400, 800)); 
+  back();
 fInfo("已全部结束");
 // 调回原始音量
 if (yl_on) {
