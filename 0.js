@@ -1681,7 +1681,7 @@ function do_dingyue_1(){
     //text("登录").waitFor();
     ran_sleep();
     back();
-    return true;
+    return false;
             // back();
             // text("登录").waitFor();
             // ran_sleep();
