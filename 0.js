@@ -1574,6 +1574,9 @@ function do_dingyue(){
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
   fInfo('订阅开始--遍历搜索‘强国号’…');
+  fRefocus()
+  console.show();
+  console.setPosition(200, device.height * 0.3);
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1650,6 +1653,9 @@ function do_dingyue_1(){
   fSet("title", "搜索‘上新/2023年上线’订阅…");
   fClear();
   fInfo('订阅开始--搜索‘上新/2023年上线’');
+  fRefocus()
+  console.show();
+  console.setPosition(200, device.height * 0.3);
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
