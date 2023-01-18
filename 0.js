@@ -2793,6 +2793,8 @@ function entry_jinfen_project(a) {
   if ("old" == jifen_flag) var b = 3;
   else "new" == jifen_flag && (b = 4);
   jifen_list.child(jifen_map[a]).child(b).click()
+  sleep(700);
+  if(a=='挑战' && textContains('挑战答题').exists()) press(300,700);
 }
 
 function winReshow() {
