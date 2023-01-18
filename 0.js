@@ -171,34 +171,34 @@ var url_jpg_1 = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/
  var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
  var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
 //'订阅'参数图片加载……
-if(!files.exists(path_jpg_1)) {fInfo('参数1不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
-var img_small = images.load(url_jpg_1);
-sleep(3000);
-// //保存图片   这一步保存完图片后，相册里不会显示图片
-images.save(img_small, path_jpg_1);
-// 用媒体，扫描完图片之后就就可以了
-//media.scanFile(path_jpg_1);
-}
-if(!files.exists(path_jpg_2))  {fInfo('参数2不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
-     var img_small_shangxian = images.load(url_jpg_2);
-     sleep(3000);
-     images.save(img_small_shangxian, path_jpg_2);
-//media.scanFile(path_jpg_2);
-}
-if (dingyue == 2) {fInfo('更新订阅重要参数,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
-     var img_small_end = images.load(url_jpg_3);
-     sleep(3000);
-     images.save(img_small_end, path_jpg_3);
-     var dingyue = 2;
-//media.scanFile(path_jpg_3);
-}
+// if(!files.exists(path_jpg_1)) {fInfo('参数1不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+// var img_small = images.load(url_jpg_1);
+// sleep(3000);
+// // //保存图片   这一步保存完图片后，相册里不会显示图片
+// images.save(img_small, path_jpg_1);
+// // 用媒体，扫描完图片之后就就可以了
+// //media.scanFile(path_jpg_1);
+// }
+// if(!files.exists(path_jpg_2))  {fInfo('参数2不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+//      var img_small_shangxian = images.load(url_jpg_2);
+//      sleep(3000);
+//      images.save(img_small_shangxian, path_jpg_2);
+// //media.scanFile(path_jpg_2);
+// }
+// if (dingyue == 2) {fInfo('更新订阅重要参数,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+//      var img_small_end = images.load(url_jpg_3);
+//      sleep(3000);
+//      images.save(img_small_end, path_jpg_3);
+//      var dingyue = 2;
+// //media.scanFile(path_jpg_3);
+// }
 
-if(!files.exists(path_jpg_4) && dingyue == 1) {fInfo('参数4不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
-     var img_small_end = images.load(url_jpg_4);
-     sleep(3000);
-     images.save(img_small_end, path_jpg_4);
-//media.scanFile(path_jpg_4);
-}
+// if(!files.exists(path_jpg_4) && dingyue == 1) {fInfo('参数4不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+//      var img_small_end = images.load(url_jpg_4);
+//      sleep(3000);
+//      images.save(img_small_end, path_jpg_4);
+// //media.scanFile(path_jpg_4);
+// }
 // //回收内存
 // img.recycle();
 
