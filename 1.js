@@ -2242,6 +2242,8 @@ function entry_jinfen_project(a) {
   if ("old" == jifen_flag) var b = 3;
   else "new" == jifen_flag && (b = 4);
   jifen_list.child(jifen_map[a]).child(b).click()
+  if ("new" == jifen_flag) sleep(2500);
+  if(a=='挑战' && textContains('挑战答题').exists()) {fInfo("检测为新界面--分类版界面"); press(300,700,100);}
 }
 
 function winReshow() {
