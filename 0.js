@@ -344,7 +344,7 @@ function do_pinglun() {
 /********时长部分*********/
 function do_shipin() {
   entry_jinfen_project("视频");
-  jifen_list.child(jifen_map["视频"]).child(3).click();
+  jifen_list.child(jifen_map["视频"]).child(2).click();
   if (ddtong) { fSet("title", "视听(dd通)…"); }
   else { fSet("title", "视听学习…"); }
   fClear();
