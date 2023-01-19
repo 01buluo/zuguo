@@ -903,6 +903,8 @@ function do_tiaozhan() {
       else {
         // 退出
         back();
+        sleep(1000);
+        if( textContains('挑战答题').exists() && textContains('科普知识').exists()) {fInfo("检测为新界面--分类版界面"); back();}
         text("登录").waitFor();
         ran_sleep();
         return true;
