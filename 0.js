@@ -3071,7 +3071,9 @@ function xxqg(userinfo) {
   }
   back();
   if (!zhanghao) return !0;
-  text("我的").findOne().click();
+  sleep(1000);
+  if(text("我的").findOne(3000)) click("我的");
+  else {back();text("我的").findOne().click();}
   log("等待设置按钮");
   b = id("my_setting").findOne();
   sleep(1E3);
@@ -3144,7 +3146,7 @@ if (zhanghao) {
     main(userinfo);
   }
   fClear();
-  fInfo("登录回账号1");
+  console.info("登录回账号1");
   console.verbose(zhanghao_list[0][0], zhanghao_list[0][1]);
   login(zhanghao_list[0][0], zhanghao_list[0][1]);
 } else {
