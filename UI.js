@@ -884,7 +884,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="多账号(选填，不限个数)" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="多账号(选填，不限个数)，root/虚拟机等已去除截图限制不推荐也不支持多账号" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="使用前确保所有账号都已完成短信验证" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="账号1:密码1:token1(换行/回车)账号2:密码2:token2(换行/回车)账号3:密码3:token3" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="结束后会自动登录回账号1" />
@@ -1358,6 +1358,7 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("shipin", ui.ttxs_pro_shipin.isChecked());
     TTXS_PRO_CONFIG.put("wenzhang", ui.ttxs_pro_wenzhang.isChecked());
     TTXS_PRO_CONFIG.put("meiri", ui.ttxs_pro_meiri.isChecked());
+    //TTXS_PRO_CONFIG.put("meizhou", ui.ttxs_pro_meizhou.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("zhuanxiang", ui.ttxs_pro_zhuanxiang.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("tiaozhan", ui.ttxs_pro_tiaozhan.isChecked());
     TTXS_PRO_CONFIG.put("ocr_choice", ui.ttxs_pro_ocr_choice.getSelectedItemPosition());
@@ -1481,7 +1482,7 @@ ui.study_reset.click(function () {
 
     STUDY_CONFIG.put("huakuaidelay", "300");
     STUDY_CONFIG.put("select", 0);
-    STUDY_CONFIG.put("selectm", 0);
+    //STUDY_CONFIG.put("selectm", 0);
     STUDY_CONFIG.put("select_01", 0);
     STUDY_CONFIG.put("xianzhi", false);
     STUDY_CONFIG.put("another", "1");
