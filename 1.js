@@ -300,7 +300,9 @@ function do_pinglun() {
 /********时长部分*********/
 function do_shipin() {
   entry_jinfen_project("视频");
-  jifen_list.child(jifen_map["视频"]).child(3).click();
+  if ("old" == jifen_flag) var b = 3;
+  else "new" == jifen_flag && (b = 4);
+  jifen_list.child(jifen_map["视频"]).child(b).click();
   if (ddtong) { fSet("title", "视听(dd通)…"); }
   else { fSet("title", "视听学习…"); }
   fClear();
@@ -850,6 +852,8 @@ function do_tiaozhan() {
       else {
         // 退出
         back();
+        sleep(1000);
+        if(textContains('挑战答题').exists() && textContains('科普知识').exists()) {fInfo("检测为新界面--分类版界面"); back();}
         text("登录").waitFor();
         ran_sleep();
         return true;
