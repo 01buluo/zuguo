@@ -722,7 +722,7 @@ function do_zhuanxiang() {
     while (!text("已满分").exists()) {
       scoll.scrollForward();
       // 不加延迟会很卡
-      sleep(200);
+      sleep(random(400, 510));
     }
     var clt = text("开始答题").find();
     if (clt.empty()) {
@@ -756,7 +756,7 @@ function do_zhuanxiang() {
       for (i=0; i<15; i++) {
         scoll.scrollForward();
         // 不加延迟会很卡
-        sleep(300);
+        sleep(random(200, 420));
       }
     }
     text("开始答题").findOne().click();
@@ -780,6 +780,7 @@ function do_zhuanxiang() {
     text(num+substr).waitFor();
     num++;
     do_exec();
+    sleep(random(300, 500));
     // 点击确定下一题
     let next = className("android.view.View").filter(function(l) {
       return (l.text() == "下一题") || (l.text() == "完成");
@@ -811,6 +812,7 @@ function do_zhuanxiang() {
         upload_wrong_exec();
       }
       // 点击确定下一题
+      sleep(random(300, 500));
       let next = className("android.view.View").filter(function(l) {
         return (l.text() == "下一题") || (l.text() == "完成");
       });
@@ -836,7 +838,7 @@ function do_tiaozhan() {
   else { fSet("title", "挑战答题…"); }
   fClear();
   // 等待加载、积分页面也有Image和List，需要用depth筛选
-  sleep(1000);
+  sleep(random(800, 1000));
   className("android.widget.Image").depth(24).waitFor();
   let total = 0;
   let max_total = 5;
@@ -858,8 +860,10 @@ function do_tiaozhan() {
     if (total >= max_total) {
       // 题数数够了随便选
       fInfo("已答对"+max_total+"题，全选A");
+      sleep(random(300, 500));
       xuan_list[0].child(0).click();
     }else if (ans_list.length != 0) {
+      sleep(random(300, 500));
       let max_simi = 0;
       let xuanxiang = null;
       // 循环对比所有选项和答案，选出相似度最大的
