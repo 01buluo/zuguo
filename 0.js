@@ -836,6 +836,7 @@ function do_tiaozhan() {
   else { fSet("title", "挑战答题…"); }
   fClear();
   // 等待加载、积分页面也有Image和List，需要用depth筛选
+  sleep(1000);
   className("android.widget.Image").depth(24).waitFor();
   let total = 0;
   let max_total = 5;
