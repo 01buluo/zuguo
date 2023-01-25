@@ -2703,7 +2703,7 @@ function send_pushplus(token, sign_list) {
       ((title = option.child(0).text()),
         (score = option.child(3).child(0).text()),
         (total = option.child(3).child(2).text().match(/\d+/g)[0]));
-    "专项答题" == title && (total = 10);
+    "专项答题" == title && (total = 5);
     let percent = (Number(score)/Number(total)*100).toFixed() + '%';
     let detail = title+": "+score+"/"+total;
     content_str += '<div class="item"><div class="bar"><div style="width: '+percent+';"></div></div><span>'+detail+'</span></div>';
