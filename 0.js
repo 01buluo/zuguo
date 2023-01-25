@@ -1642,6 +1642,16 @@ function do_dingyue(){
   back();
   sleep(random(400, 800)); 
   back();
+  if (pushplus || token) {
+    fInfo("推送前等待积分刷新5秒");
+    sleep(5E3);
+    token || (token = pushplus);
+    try {
+        send_pushplus(token, sign_list)
+    } catch (h) {
+        fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+    }
+}
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
@@ -1722,6 +1732,16 @@ function do_dingyue_1(){
   back();
   sleep(random(400, 800)); 
   back();
+  if (pushplus || token) {
+    fInfo("推送前等待积分刷新5秒");
+    sleep(5E3);
+    token || (token = pushplus);
+    try {
+        send_pushplus(token, sign_list)
+    } catch (h) {
+        fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+    }
+}
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
@@ -3048,16 +3068,6 @@ function xxqg(userinfo) {
 
   2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
-
-  // function do_dingyue_a(){
-  //   var noverify_thread = noverify();
-  //   if (dingyue == 1){toastLog("订阅开始"); do_dingyue();
-  //                  }else {toastLog("订阅开始"); do_dingyue_1();};
-                  
-  //                  if (noverify_thread.isAlive()) {
-  //                   noverify_thread.interrupt();
-  //                 }
-  //                 }
 
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
