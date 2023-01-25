@@ -1639,9 +1639,7 @@ function do_dingyue(){
   sleep(random(400, 800)); 
   back();
   sleep(random(400, 800)); 
-  back();
-  sleep(random(400, 800)); 
-  back();
+  
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
@@ -1651,6 +1649,10 @@ function do_dingyue(){
     } catch (h) {
         fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
+    back();
+  sleep(random(400, 800)); 
+  sleep(random(400, 800)); 
+  back(); 
 }
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
@@ -1729,9 +1731,6 @@ function do_dingyue_1(){
   sleep(random(400, 800)); 
   back();
   sleep(random(400, 800)); 
-  back();
-  sleep(random(400, 800)); 
-  back();
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
@@ -1741,6 +1740,10 @@ function do_dingyue_1(){
     } catch (h) {
         fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
+    sleep(random(400, 800)); 
+    back();
+  sleep(random(400, 800)); 
+  back();
 }
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
