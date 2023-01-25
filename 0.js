@@ -1637,9 +1637,6 @@ function do_dingyue(){
     toastLog("返回");
   text("登录").waitFor();
   sleep(random(400, 800)); 
-  back();
-  sleep(random(400, 800)); 
-  
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
@@ -1648,10 +1645,12 @@ function do_dingyue(){
         send_pushplus(token, sign_list)
     } catch (h) {
         fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-    }
-    back();
-  sleep(random(400, 800)); 
-  sleep(random(400, 800)); 
+    } 
+    sleep(random(400, 800)); 
+  back();
+    sleep(random(400, 800)); 
+  back();
+    sleep(random(400, 800)); 
   back(); 
 }
   let xxqg_end_1=new Date();
@@ -1729,8 +1728,6 @@ function do_dingyue_1(){
     toastLog("返回");
   text("登录").waitFor();
   sleep(random(400, 800)); 
-  back();
-  sleep(random(400, 800)); 
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
@@ -1740,10 +1737,12 @@ function do_dingyue_1(){
     } catch (h) {
         fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
-    sleep(random(400, 800)); 
+      sleep(random(400, 800)); 
     back();
-  sleep(random(400, 800)); 
-  back();
+      sleep(random(400, 800)); 
+    back();
+      sleep(random(400, 800)); 
+    back();
 }
   let xxqg_end_1=new Date();
   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
