@@ -1636,40 +1636,40 @@ function do_dingyue(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  sleep(random(400, 800)); 
-  if (pushplus || token) {
-    toastLog("推送前等待积分刷新5秒");
-    sleep(5E3);
-    token || (token = pushplus);
-    try {
-        send_pushplus(token, sign_list)
-    } catch (h) {
-      toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-    } 
-    sleep(random(400, 800)); 
-  back();
-    sleep(random(400, 800)); 
-  back();
-    sleep(random(400, 800)); 
-  back(); 
-}
-  let xxqg_end_1=new Date();
-  let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-  toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-  if (yl_on) {
-    toastLog("调回初始音量:"+ yuan_yl);
-    device.setMusicVolume(yuan_yl);
-  }
-  // 取消屏幕常亮
-  toastLog("取消屏幕常亮");
-  device.cancelKeepingAwake();
-  // 震动提示
-  device.vibrate(500);
-  toastLog("十秒后关闭悬浮窗");
-  sleep(5000);
-  console.hide();
-  home();
-  exit();
+  //   sleep(random(400, 800)); 
+//   if (pushplus || token) {
+//     toastLog("推送前等待积分刷新5秒");
+//     sleep(5E3);
+//     token || (token = pushplus);
+//     try {
+//         send_pushplus(token, sign_list)
+//     } catch (h) {
+//       toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+//     }
+//       sleep(random(400, 800)); 
+//     back();
+//       sleep(random(400, 800)); 
+//     back();
+//       sleep(random(400, 800)); 
+//     back();
+// }
+//   let xxqg_end_1=new Date();
+//   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
+//   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
+//   if (yl_on) {
+//     toastLog("调回初始音量:"+ yuan_yl);
+//     device.setMusicVolume(yuan_yl);
+//   }
+//   // 取消屏幕常亮
+//   toastLog("取消屏幕常亮");
+//   device.cancelKeepingAwake();
+//   // 震动提示
+//   device.vibrate(500);
+//   toastLog("十秒后关闭悬浮窗");
+//   sleep(5000);
+//   console.hide();
+//   home();
+//   exit();
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
@@ -1727,40 +1727,40 @@ function do_dingyue_1(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  sleep(random(400, 800)); 
-  if (pushplus || token) {
-    toastLog("推送前等待积分刷新5秒");
-    sleep(5E3);
-    token || (token = pushplus);
-    try {
-        send_pushplus(token, sign_list)
-    } catch (h) {
-      toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-    }
-      sleep(random(400, 800)); 
-    back();
-      sleep(random(400, 800)); 
-    back();
-      sleep(random(400, 800)); 
-    back();
-}
-  let xxqg_end_1=new Date();
-  let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-  toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-  if (yl_on) {
-    toastLog("调回初始音量:"+ yuan_yl);
-    device.setMusicVolume(yuan_yl);
-  }
-  // 取消屏幕常亮
-  toastLog("取消屏幕常亮");
-  device.cancelKeepingAwake();
-  // 震动提示
-  device.vibrate(500);
-  toastLog("十秒后关闭悬浮窗");
-  sleep(5000);
-  console.hide();
-  home();
-  exit();
+//   sleep(random(400, 800)); 
+//   if (pushplus || token) {
+//     toastLog("推送前等待积分刷新5秒");
+//     sleep(5E3);
+//     token || (token = pushplus);
+//     try {
+//         send_pushplus(token, sign_list)
+//     } catch (h) {
+//       toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+//     }
+//       sleep(random(400, 800)); 
+//     back();
+//       sleep(random(400, 800)); 
+//     back();
+//       sleep(random(400, 800)); 
+//     back();
+// }
+//   let xxqg_end_1=new Date();
+//   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
+//   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
+//   if (yl_on) {
+//     toastLog("调回初始音量:"+ yuan_yl);
+//     device.setMusicVolume(yuan_yl);
+//   }
+//   // 取消屏幕常亮
+//   toastLog("取消屏幕常亮");
+//   device.cancelKeepingAwake();
+//   // 震动提示
+//   device.vibrate(500);
+//   toastLog("十秒后关闭悬浮窗");
+//   sleep(5000);
+//   console.hide();
+//   home();
+//   exit();
 }
 
 
@@ -3070,7 +3070,7 @@ function xxqg(userinfo) {
   1 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
 
   2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
-  0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
+  0 == dingyue || d || toastLog("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
 
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
@@ -3078,13 +3078,13 @@ function xxqg(userinfo) {
   // 2 == meizhou || c || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答");
   // 0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
   if (pushplus || token) {
-      fInfo("推送前等待积分刷新5秒");
+    toastLog("推送前等待积分刷新5秒");
       sleep(5E3);
       token || (token = pushplus);
       try {
           send_pushplus(token, sign_list)
       } catch (h) {
-          fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+        toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
       }
   }
   back();
