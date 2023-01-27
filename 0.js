@@ -1638,13 +1638,13 @@ function do_dingyue(){
   text("登录").waitFor();
   sleep(random(400, 800)); 
   if (pushplus || token) {
-    fInfo("推送前等待积分刷新5秒");
+    toastLog("推送前等待积分刷新5秒");
     sleep(5E3);
     token || (token = pushplus);
     try {
         send_pushplus(token, sign_list)
     } catch (h) {
-        fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+      toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     } 
     sleep(random(400, 800)); 
   back();
@@ -1729,13 +1729,13 @@ function do_dingyue_1(){
   text("登录").waitFor();
   sleep(random(400, 800)); 
   if (pushplus || token) {
-    fInfo("推送前等待积分刷新5秒");
+    toastLog("推送前等待积分刷新5秒");
     sleep(5E3);
     token || (token = pushplus);
     try {
         send_pushplus(token, sign_list)
     } catch (h) {
-        fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+      toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
     }
       sleep(random(400, 800)); 
     back();
@@ -2715,7 +2715,7 @@ function send_pushplus(token, sign_list) {
     content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
     template: "markdown",
   });
-  if (r.body.json()["code"] == 200) {fInfo("推送成功");}
+  if (r.body.json()["code"] == 200) { toastLog("推送成功");}
   else {log(r.body.json());}
 }
 
