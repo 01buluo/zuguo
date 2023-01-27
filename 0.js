@@ -1588,7 +1588,7 @@ function do_dingyue(){
   console.hide();
   sleep(200);
   console.show();
-  console.setPosition(200, device.height * 0.2);
+  console.setPosition(200, device.height * 0.1);
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1636,41 +1636,41 @@ function do_dingyue(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-  //   sleep(random(400, 800)); 
-//   if (pushplus || token) {
-//     toastLog("推送前等待积分刷新5秒");
-//     sleep(5E3);
-//     token || (token = pushplus);
-//     try {
-//         send_pushplus(token, sign_list)
-//     } catch (h) {
-//       toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-//     }
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-// }
-//   let xxqg_end_1=new Date();
-//   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-//   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-//   if (yl_on) {
-//     toastLog("调回初始音量:"+ yuan_yl);
-//     device.setMusicVolume(yuan_yl);
-//   }
-//   // 取消屏幕常亮
-//   toastLog("取消屏幕常亮");
-//   device.cancelKeepingAwake();
-//   // 震动提示
-//   device.vibrate(500);
-//   toastLog("十秒后关闭悬浮窗");
-//   sleep(5000);
-//   console.hide();
-//   home();
-//   exit();
-return asub;
+    sleep(random(400, 800)); 
+  if (pushplus || token) {
+    toastLog("推送前等待积分刷新5秒");
+    sleep(5E3);
+    var token = pushplus;
+    try {
+        send_pushplus(token, sign_list)
+    } catch (h) {
+      toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+    }
+      sleep(random(400, 800)); 
+    back();
+      sleep(random(400, 800)); 
+    back();
+      sleep(random(400, 800)); 
+    back();
+}
+  let xxqg_end_1=new Date();
+  let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
+  toastLog("本轮已正常结束，花费时间"+spent_time+"s");
+  if (yl_on) {
+    toastLog("调回初始音量:"+ yuan_yl);
+    device.setMusicVolume(yuan_yl);
+  }
+  // 取消屏幕常亮
+  toastLog("取消屏幕常亮");
+  device.cancelKeepingAwake();
+  // 震动提示
+  device.vibrate(500);
+  toastLog("十秒后关闭悬浮窗");
+  sleep(5000);
+  console.hide();
+  home();
+  exit();
+//return asub;
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
@@ -1683,7 +1683,7 @@ function do_dingyue_1(){
   console.hide();
   sleep(200);
   console.show();
-  console.setPosition(200, device.height * 0.2);
+  console.setPosition(200, device.height * 0.1);
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1728,41 +1728,41 @@ function do_dingyue_1(){
     back();
     toastLog("返回");
   text("登录").waitFor();
-//   sleep(random(400, 800)); 
-//   if (pushplus || token) {
-//     toastLog("推送前等待积分刷新5秒");
-//     sleep(5E3);
-//     token || (token = pushplus);
-//     try {
-//         send_pushplus(token, sign_list)
-//     } catch (h) {
-//       toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-//     }
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-// }
-//   let xxqg_end_1=new Date();
-//   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-//   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-//   if (yl_on) {
-//     toastLog("调回初始音量:"+ yuan_yl);
-//     device.setMusicVolume(yuan_yl);
-//   }
-//   // 取消屏幕常亮
-//   toastLog("取消屏幕常亮");
-//   device.cancelKeepingAwake();
-//   // 震动提示
-//   device.vibrate(500);
-//   toastLog("十秒后关闭悬浮窗");
-//   sleep(5000);
-//   console.hide();
-//   home();
-//   exit();
-return asub;
+  sleep(random(400, 800)); 
+  if (pushplus || token) {
+    toastLog("推送前等待积分刷新5秒");
+    sleep(5E3);
+    var token = pushplus;
+    try {
+        send_pushplus(token, sign_list)
+    } catch (h) {
+      toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+    }
+      sleep(random(400, 800)); 
+    back();
+      sleep(random(400, 800)); 
+    back();
+      sleep(random(400, 800)); 
+    back();
+}
+  let xxqg_end_1=new Date();
+  let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
+  toastLog("本轮已正常结束，花费时间"+spent_time+"s");
+  if (yl_on) {
+    toastLog("调回初始音量:"+ yuan_yl);
+    device.setMusicVolume(yuan_yl);
+  }
+  // 取消屏幕常亮
+  toastLog("取消屏幕常亮");
+  device.cancelKeepingAwake();
+  // 震动提示
+  device.vibrate(500);
+  toastLog("十秒后关闭悬浮窗");
+  sleep(5000);
+  console.hide();
+  home();
+  exit();
+//return asub;
 }
 
 
@@ -3080,41 +3080,41 @@ function xxqg(userinfo) {
  
   if((pushplus || token) ){
      //if (0 != dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text())) {
-     if(dingyue != 0 && asub != 2){
-     console.info("推送前等待积分刷新5秒");
-         sleep(5E3);
-         token || (token = pushplus);
-         try {
-             send_pushplus(token, sign_list)
-         } catch (h) {
-      console.error(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
-         }
-    sleep(random(400, 800)); 
-        back();
-          sleep(random(400, 800)); 
-        back();
-          sleep(random(400, 800)); 
-        back();
-      let xxqg_end_1 = new Date();
-      let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-      toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-      if (yl_on) {
-        toastLog("调回初始音量:"+ yuan_yl);
-        device.setMusicVolume(yuan_yl);
-      }
-      // 取消屏幕常亮
-      toastLog("取消屏幕常亮");
-      device.cancelKeepingAwake();
-      // 震动提示
-      device.vibrate(500);
-      toastLog("十秒后关闭悬浮窗");
-      sleep(5000);
-      console.hide();
-      home();
-      exit();
-    }
-  }
-  else {
+  //    if(dingyue != 0 && asub != 2){
+  //    console.info("推送前等待积分刷新5秒");
+  //        sleep(5E3);
+  //        token || (token = pushplus);
+  //        try {
+  //            send_pushplus(token, sign_list)
+  //        } catch (h) {
+  //     console.error(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
+  //        }
+  //   sleep(random(400, 800)); 
+  //       back();
+  //         sleep(random(400, 800)); 
+  //       back();
+  //         sleep(random(400, 800)); 
+  //       back();
+  //     let xxqg_end_1 = new Date();
+  //     let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
+  //     toastLog("本轮已正常结束，花费时间"+spent_time+"s");
+  //     if (yl_on) {
+  //       toastLog("调回初始音量:"+ yuan_yl);
+  //       device.setMusicVolume(yuan_yl);
+  //     }
+  //     // 取消屏幕常亮
+  //     toastLog("取消屏幕常亮");
+  //     device.cancelKeepingAwake();
+  //     // 震动提示
+  //     device.vibrate(500);
+  //     toastLog("十秒后关闭悬浮窗");
+  //     sleep(5000);
+  //     console.hide();
+  //     home();
+  //     exit();
+  //   }
+  // }
+  // else {
    fInfo("推送前等待积分刷新5秒!");
        sleep(5E3);
        token || (token = pushplus);
