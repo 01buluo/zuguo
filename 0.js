@@ -1670,8 +1670,7 @@ function do_dingyue(){
 //   console.hide();
 //   home();
 //   exit();
- var dingyue_end = 2;
-return dingyue_end = 2;
+return asub;
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
@@ -1763,8 +1762,7 @@ function do_dingyue_1(){
 //   console.hide();
 //   home();
 //   exit();
-var dingyue_end = 2;
-return dingyue_end = 2;
+return asub;
 }
 
 
@@ -3082,7 +3080,7 @@ function xxqg(userinfo) {
  
   if((pushplus || token) ){
      //if (0 != dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text())) {
-     if(dingyue != 0 && dingyue_end == 2){
+     if(dingyue != 0 && asub != 2){
      console.info("推送前等待积分刷新5秒");
          sleep(5E3);
          token || (token = pushplus);
