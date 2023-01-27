@@ -2721,41 +2721,6 @@ function send_pushplus(token, sign_list) {
   else {log(r.body.json());}
 }
 
-function send_pushplus(token, sign_list) {
-  "old" == jifen_flag ? (zongfen = text("成长总积分").findOne().parent().child(3).text()) : "new" == jifen_flag && (zongfen = text("成长总积分").findOne().parent().child(1).text());
-  jinri = jifen_list.parent().child(1).text().match(/\d+/g)[0];
-  let style_str = '<style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}\
-.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}\
-.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>';
-  let content_str = '<h6>今日已累积:'+jinri+'积分 总积分:'+zongfen+'</h6><div>';
-  for (let sign of sign_list) {
-  	if (sign == "ocr_false") { content_str = '由于ocr过慢，已跳过多人对战'+content_str; }
-  }
-  for (let option of jifen_list.children()) {
-    if ("old" == jifen_flag)
-      var title = option.child(0).child(0).text(),
-      score = option.child(2).text().match(/\d+/g)[0],
-      total = option.child(2).text().match(/\d+/g)[1];
-    else
-      "new" == jifen_flag &&
-      ((title = option.child(0).text()),
-        (score = option.child(3).child(0).text()),
-        (total = option.child(3).child(2).text().match(/\d+/g)[0]));
-    "专项答题" == title && (total = 5);
-    let percent = (Number(score)/Number(total)*100).toFixed() + '%';
-    let detail = title+": "+score+"/"+total;
-    content_str += '<div class="item"><div class="bar"><div style="width: '+percent+';"></div></div><span>'+detail+'</span></div>';
-  }
-  content_str += '</div>'+style_str;
-  let r = http.postJson("http://www.pushplus.plus/send", {
-    token: token,
-    title: "学习测试四合一pro：" + name,
-    content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
-    template: "markdown",
-  });
-  if (r.body.json()["code"] == 200) { toastLog("推送成功");}
-  else {log(r.body.json());}
-}
 // 发送email通知
 function send_email(email) {
   let reg = /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/;
@@ -3150,13 +3115,13 @@ function xxqg(userinfo) {
 
   }
   else if (pushplus || token) {
-   fInfo("推送前等待积分刷新5秒");
+   fInfo("推送前等待积分刷新5秒!");
        sleep(5E3);
        token || (token = pushplus);
        try {
            send_pushplus(token, sign_list)
        } catch (h) {
-      fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
+      fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS!");
        }
    }
   back();
