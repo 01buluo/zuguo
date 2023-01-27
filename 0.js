@@ -1588,7 +1588,7 @@ function do_dingyue(){
   console.hide();
   sleep(200);
   console.show();
-  console.setPosition(200, device.height * 0.3);
+  console.setPosition(200, device.height * 0.2);
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1670,6 +1670,7 @@ function do_dingyue(){
 //   console.hide();
 //   home();
 //   exit();
+var dingyue_end = 2;
 return dingyue_end = 2;
   }
 function do_dingyue_1(){
@@ -1683,7 +1684,7 @@ function do_dingyue_1(){
   console.hide();
   sleep(200);
   console.show();
-  console.setPosition(200, device.height * 0.3);
+  console.setPosition(200, device.height * 0.2);
   sleep(3000);
   h = device_h; //屏幕高
     w = device_w; //屏幕宽
@@ -1762,6 +1763,7 @@ function do_dingyue_1(){
 //   console.hide();
 //   home();
 //   exit();
+var dingyue_end = 2;
 return dingyue_end = 2;
 }
 
