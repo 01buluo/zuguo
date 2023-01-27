@@ -1641,6 +1641,7 @@ function do_dingyue(){
     toastLog("推送前等待积分刷新5秒");
     sleep(5E3);
     var token = pushplus;
+    var sign_list = [];
     try {
         send_pushplus(token, sign_list)
     } catch (h) {
@@ -1733,6 +1734,7 @@ function do_dingyue_1(){
     toastLog("推送前等待积分刷新5秒");
     sleep(5E3);
     var token = pushplus;
+    var sign_list = [];
     try {
         send_pushplus(token, sign_list)
     } catch (h) {
