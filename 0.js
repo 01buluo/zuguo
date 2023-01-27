@@ -32,7 +32,7 @@ var pushplus = TTXS_PRO_CONFIG.get("pushplus", "");
 var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
-
+var dingyue_end = 0;
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
   let list = JSON.parse(JSON.stringify(gmlkit.ocr(img,"zh").toArray(3))); // 识别文字，并得到results
@@ -1670,7 +1670,7 @@ function do_dingyue(){
 //   console.hide();
 //   home();
 //   exit();
-var dingyue_end = 2;
+ var dingyue_end = 2;
 return dingyue_end = 2;
   }
 function do_dingyue_1(){
