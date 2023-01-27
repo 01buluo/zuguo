@@ -3049,7 +3049,6 @@ function xxqg(userinfo) {
   press(1014, 345, 1);
   sleep(3000);
   name = id("tv_item_content").findOne().text();
-  var name = id("tv_item_content").findOne().text();
   storage_user = storages.create('songgedodo:'+ name);
   fSet("username", name);
   back();
