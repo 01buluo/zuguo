@@ -313,7 +313,7 @@ function do_pinglun() {
     fRefocus();
   }
   fInfo("评论框click: true");
-  let content_list = ["全心全意为人民服务","不忘初心，牢记使命","不忘初心，方得始终","永远坚持党的领导","富强、民主、文明、和谐","自由，平等，公正，法治"];
+  let content_list = ["做事做人善为先","全心全意为人民服务","不忘初心，牢记使命","坚定不移，不忘初心","坚定践行党章党纪规定","不忘初心，方得始终","永远坚持党的领导","富强、民主、文明、和谐","自由，平等，公正，法治"];
   classNameEndsWith("EditText").findOne().setText(content_list[random(0, content_list.length-1)]);
   sleep(1000);
   text("发布").findOne().click();
@@ -3011,6 +3011,7 @@ function xxqg(userinfo) {
   click(1014, 345);
   press(1014, 345, 1);
   sleep(3000);
+  var name = id("tv_item_content").findOne().text();
   name = id("tv_item_content").findOne().text();
   storage_user = storages.create('songgedodo:'+name);
   fSet("username", name);
