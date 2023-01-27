@@ -2711,7 +2711,7 @@ function send_pushplus(token, sign_list) {
   content_str += '</div>'+style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
-    title: "学习测试四合一pro："+name,
+    title: "学习测试四合一pro：" + name,
     content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
     template: "markdown",
   });
@@ -3011,9 +3011,9 @@ function xxqg(userinfo) {
   click(1014, 345);
   press(1014, 345, 1);
   sleep(3000);
-  var name = id("tv_item_content").findOne().text();
   name = id("tv_item_content").findOne().text();
-  storage_user = storages.create('songgedodo:'+name);
+  var name = id("tv_item_content").findOne().text();
+  storage_user = storages.create('songgedodo:'+ name);
   fSet("username", name);
   back();
   ran_sleep();
