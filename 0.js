@@ -1670,6 +1670,7 @@ function do_dingyue(){
 //   console.hide();
 //   home();
 //   exit();
+return true;
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
@@ -1761,6 +1762,7 @@ function do_dingyue_1(){
 //   console.hide();
 //   home();
 //   exit();
+return true;
 }
 
 
@@ -2719,6 +2721,41 @@ function send_pushplus(token, sign_list) {
   else {log(r.body.json());}
 }
 
+function send_pushplus(token, sign_list) {
+  "old" == jifen_flag ? (zongfen = text("成长总积分").findOne().parent().child(3).text()) : "new" == jifen_flag && (zongfen = text("成长总积分").findOne().parent().child(1).text());
+  jinri = jifen_list.parent().child(1).text().match(/\d+/g)[0];
+  let style_str = '<style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}\
+.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}\
+.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>';
+  let content_str = '<h6>今日已累积:'+jinri+'积分 总积分:'+zongfen+'</h6><div>';
+  for (let sign of sign_list) {
+  	if (sign == "ocr_false") { content_str = '由于ocr过慢，已跳过多人对战'+content_str; }
+  }
+  for (let option of jifen_list.children()) {
+    if ("old" == jifen_flag)
+      var title = option.child(0).child(0).text(),
+      score = option.child(2).text().match(/\d+/g)[0],
+      total = option.child(2).text().match(/\d+/g)[1];
+    else
+      "new" == jifen_flag &&
+      ((title = option.child(0).text()),
+        (score = option.child(3).child(0).text()),
+        (total = option.child(3).child(2).text().match(/\d+/g)[0]));
+    "专项答题" == title && (total = 5);
+    let percent = (Number(score)/Number(total)*100).toFixed() + '%';
+    let detail = title+": "+score+"/"+total;
+    content_str += '<div class="item"><div class="bar"><div style="width: '+percent+';"></div></div><span>'+detail+'</span></div>';
+  }
+  content_str += '</div>'+style_str;
+  let r = http.postJson("http://www.pushplus.plus/send", {
+    token: token,
+    title: "学习测试四合一pro：" + name,
+    content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
+    template: "markdown",
+  });
+  if (r.body.json()["code"] == 200) { toastLog("推送成功");}
+  else {log(r.body.json());}
+}
 // 发送email通知
 function send_email(email) {
   let reg = /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/;
@@ -3067,10 +3104,10 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
-  1 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
+  1 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), dingyue_end = Vip, jifen_list = refind_jifen());
 
-  2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
-  0 == dingyue || d || toastLog("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
+  2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(),dingyue_end = Vip, jifen_list = refind_jifen());
+  0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
 
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
@@ -3078,14 +3115,42 @@ function xxqg(userinfo) {
   // 2 == meizhou || c || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答");
   // 0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
   if (pushplus || token) {
-    toastLog("推送前等待积分刷新5秒");
+   if(dingyue != 0) console.info("推送前等待积分刷新5秒");
+    else fInfo("推送前等待积分刷新5秒");
       sleep(5E3);
       token || (token = pushplus);
       try {
           send_pushplus(token, sign_list)
       } catch (h) {
-        toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+        if(dingyue != 0)  console.error(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
+        else fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
       }
+  }
+  if(dingyue_end == Vip){
+    sleep(random(400, 800)); 
+        back();
+          sleep(random(400, 800)); 
+        back();
+          sleep(random(400, 800)); 
+        back();
+      let xxqg_end_1 = new Date();
+      let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
+      toastLog("本轮已正常结束，花费时间"+spent_time+"s");
+      if (yl_on) {
+        toastLog("调回初始音量:"+ yuan_yl);
+        device.setMusicVolume(yuan_yl);
+      }
+      // 取消屏幕常亮
+      toastLog("取消屏幕常亮");
+      device.cancelKeepingAwake();
+      // 震动提示
+      device.vibrate(500);
+      toastLog("十秒后关闭悬浮窗");
+      sleep(5000);
+      console.hide();
+      home();
+      exit();
+
   }
   back();
   if (!zhanghao) return !0;
@@ -3185,10 +3250,10 @@ if (noverify_thread.isAlive()) {
 back();
   sleep(random(400, 800)); 
   back();
-fInfo("已全部结束");
+  fInfo("已全部结束");
 // 调回原始音量
 if (yl_on) {
-  fInfo("调回初始音量:"+ yuan_yl);
+ fInfo("调回初始音量:"+ yuan_yl);
   device.setMusicVolume(yuan_yl);
 }
 // 取消屏幕常亮
