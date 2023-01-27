@@ -1670,7 +1670,7 @@ function do_dingyue(){
 //   console.hide();
 //   home();
 //   exit();
-return true;
+return dingyue_end = 2;
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
@@ -1762,7 +1762,7 @@ function do_dingyue_1(){
 //   console.hide();
 //   home();
 //   exit();
-return true;
+return dingyue_end = 2;
 }
 
 
@@ -3070,7 +3070,7 @@ function xxqg(userinfo) {
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
   1 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
-  2 == dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
+  2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
   // d = 1;
   // 0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] ||
@@ -3078,9 +3078,10 @@ function xxqg(userinfo) {
   // 2 == meizhou || c || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答");
   // 0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
  
-  if(0 != dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text())){
-    if (pushplus || token) {
-      console.info("推送前等待积分刷新5秒");
+  if((pushplus || token) ){
+     //if (0 != dingyue && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["订阅"]).child(4).text())) {
+     if(dingyue != 0 && dingyue_end == 2){
+     console.info("推送前等待积分刷新5秒");
          sleep(5E3);
          token || (token = pushplus);
          try {
@@ -3088,7 +3089,6 @@ function xxqg(userinfo) {
          } catch (h) {
       console.error(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
          }
-     }
     sleep(random(400, 800)); 
         back();
           sleep(random(400, 800)); 
@@ -3112,9 +3112,9 @@ function xxqg(userinfo) {
       console.hide();
       home();
       exit();
-
+    }
   }
-  else if (pushplus || token) {
+  else {
    fInfo("推送前等待积分刷新5秒!");
        sleep(5E3);
        token || (token = pushplus);
