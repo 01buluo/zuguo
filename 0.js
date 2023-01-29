@@ -1451,7 +1451,7 @@ function randomNum(minNum, maxNum) {
 function do_dingyue(){
   //console.hide();
   //var  jifen_flag = "new";
-  entry_jinfen_project("订阅");
+  entry_jifen_project("订阅");
   fSet("title", "搜索‘强国号’订阅…");
   fClear();
   fInfo('强国号’-- 搜索中………');
@@ -1547,7 +1547,7 @@ function do_dingyue(){
   }
 function do_dingyue_1(){
  // var  jifen_flag = "new";
-  entry_jinfen_project("订阅");
+  entry_jifen_project("订阅");
   fSet("title", "搜索‘上新/2023年上线’订阅…");
   fClear();
   fInfo('上新/2023年上线--搜索中……');
@@ -2779,7 +2779,8 @@ function xxqg(userinfo) {
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版‘我的’界面");
     setScreenMetrics(1080, 1920);
-    sleep(800); press(994, 330, 100); click(994, 330); name = id("tv_item_content").findOne().text();
+    if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
+    else {sleep(800); press(994, 330, 100); click(994, 330); name = id("tv_item_content").findOne().text();}
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
   fSet("username", name);
@@ -2795,15 +2796,16 @@ function xxqg(userinfo) {
   } else if (zhuanxiang == 0) {
     zhuanxiang_dao = true;
   }
-  if (dingyue == 1) {
-    dingyue_dao = false;
-  } else if (dingyue == 2) {
-    dingyue_dao = true;
-  }
-  a_1 = id("comm_head_xuexi_score").findOne(6000);
+  // if (dingyue == 1) {
+  //   dingyue_dao = false;
+  // } else if (dingyue == 2) {
+  //   dingyue_dao = true;
+  // }
+  a_1 = id("comm_head_xuexi_score").findOne(5000);
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
-  setScreenMetrics(1080, 1920);
-    sleep(800); click(218, 905); press(218, 905, 100); fInfo("等待点击‘学习积分’");
+       setScreenMetrics(1080, 1920);
+     if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
+    else {sleep(800); click(218, 905); press(218, 905, 100); fInfo("等待点击‘学习积分’");}
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
   // setScreenMetrics(1080, 1920);
@@ -2841,8 +2843,8 @@ function xxqg(userinfo) {
   // 2 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
   // 1 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
   // 2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
-  1 == dingyue && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
-  2 == dingyue && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
+  if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
+  if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);

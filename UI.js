@@ -1260,7 +1260,7 @@ ui.emitter.on("options_item_selected", (e, item) => {
             app.startActivity("console");
             break;
         case "关于":
-            alert("关于", "学习测试四合一PRO v" + latest_version + "新Q群：758116397");
+            alert("关于", "学习测试四合一PRO v" + latest_version + "\n  新Q群：758116397");
             break;
         case "Github":
             app.openUrl("https://gitee.com/djh010/xxqg-zhuancang/blob/master/v2.2.pro.apk");
