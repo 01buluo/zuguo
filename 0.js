@@ -2778,8 +2778,8 @@ function xxqg(userinfo) {
   // name = id("my_display_name").findOne().text();
   a = id("my_display_name").findOne(5000);
   if(a == null){fInfo("无法识别控件内容", "检测到新版‘我的’界面，官方限制无法识别出内容，等待继续点击……(可请退回xxqgV2.41.0版及以下)"),
-    sleep(800), press(1014, 345, 1),click(1014, 345), a = id("my_display_name").findOne(5000);};
-  name = a.text();
+    sleep(800), press(1014, 345, 1),click(1014, 345), a = id("my_display_name").findOne().text();
+    }else name = a.text();
   storage_user = storages.create('songgedodo:' + name);
   fSet("username", name);
   back();
@@ -2801,8 +2801,8 @@ function xxqg(userinfo) {
   }
   a_1 = id("comm_head_xuexi_score").findOne(6000).click();
   if(a_1 == null){fInfo("无法识别控件内容", "检测到新版‘账号’界面，官方限制无法识别出内容，等待继续点击……(可请退回xxqgV2.41.0版及以下)"),
-    sleep(800), click(245, 875), press(245, 875, 1), fInfo("等待点击‘学习积分’");};
-  //id("comm_head_xuexi_score").findOne().click();
+    sleep(800), click(245, 875), press(245, 875, 1), fInfo("等待点击‘学习积分’");
+    }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
   // setScreenMetrics(1080, 1920);
   // fInfo("等待点击‘学习积分’");
