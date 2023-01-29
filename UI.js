@@ -1274,7 +1274,7 @@ ui.emitter.on("options_item_selected", (e, item) => {
 activity.setSupportActionBar(ui.toolbar);
 
 // 设置滑动页面的标题
-ui.viewpager.setTitles(["首页", "脚本配置"]);
+ui.viewpager.setTitles(["首页", "脚本配置",'VIP卡密']);
 // 让滑动页面和标签栏联动
 ui.tabs.setupWithViewPager(ui.viewpager);
 
