@@ -2778,7 +2778,7 @@ function xxqg(userinfo) {
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("无法识别控件内容,检测到新版‘我的’界面，官方限制无法识别出内容，等待继续点击……(可请退回xxqgV2.41.0版及以下)");
-    sleep(800); press(1014, 345, 1); click(1014, 345); a = id("tv_item_content").findOne().text();
+    sleep(800); press(1014, 345, 1); click(1014, 345); name = id("tv_item_content").findOne().text();
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
   fSet("username", name);
