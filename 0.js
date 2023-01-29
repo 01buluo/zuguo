@@ -2777,7 +2777,7 @@ function xxqg(userinfo) {
   setScreenMetrics(1080, 1920);
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
-  if(a == null){fInfo("无法识别控件内容,检测到新版‘我的’界面，官方限制无法识别出内容，等待继续点击……(可请退回xxqgV2.41.0版及以下)");
+  if(a == null){fInfo("检测到新版‘我的’界面");
     sleep(800); press(1014, 345, 1); click(1014, 345); name = id("tv_item_content").findOne().text();
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
@@ -2800,7 +2800,7 @@ function xxqg(userinfo) {
     dingyue_dao = true;
   }
   a_1 = id("comm_head_xuexi_score").findOne(6000);
-  if(a_1 == null){fInfo("无法识别控件内容,检测到新版‘账号’界面，官方限制无法识别出内容，等待继续点击……(可请退回xxqgV2.41.0版及以下)");
+  if(a_1 == null){fInfo("检测到新版‘账号’界面");
     sleep(800); click(245, 875); press(245, 875, 1); fInfo("等待点击‘学习积分’");
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
@@ -2835,8 +2835,8 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
-  1 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_1(), jifen_list = refind_jifen());
-  2 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
+  1 == dingyue && ("old" == jifen_flag && "0" != jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" != jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" != jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_1(), jifen_list = refind_jifen());
+  2 == dingyue && ("old" == jifen_flag && "0" != jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" != jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" != jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue(), jifen_list = refind_jifen());
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
