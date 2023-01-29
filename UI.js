@@ -1281,7 +1281,7 @@ ui.tabs.setupWithViewPager(ui.viewpager);
 // 脚本选择监听
 var script_chosen_Listener = new android.widget.AdapterView.OnItemSelectedListener({
     onItemSelected: function (parent, view, position, id) {
-        toastLog('选择脚本：' + ui.script_chosen.getSelectedItem());
+        toastLog('选择脚本：\n' + ui.script_chosen.getSelectedItem());
         if (ui.script_chosen.getSelectedItemPosition() == 0) {
             ui.ttxs.visibility = 8;
             ui.study.visibility = 8;
