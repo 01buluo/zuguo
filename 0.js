@@ -2774,10 +2774,11 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  setScreenMetrics(1080, 1920);
+  
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版‘我的’界面");
+    setScreenMetrics(1080, 1920);
     sleep(800); press(994, 330, 100); click(994, 330); name = id("tv_item_content").findOne().text();
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
@@ -2801,6 +2802,7 @@ function xxqg(userinfo) {
   }
   a_1 = id("comm_head_xuexi_score").findOne(6000);
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
+  setScreenMetrics(1080, 1920);
     sleep(800); click(218, 905); press(218, 905, 100); fInfo("等待点击‘学习积分’");
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
