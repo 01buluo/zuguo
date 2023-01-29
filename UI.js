@@ -5,6 +5,7 @@ importClass(java.net.URL);
 importClass(java.io.File);
 importClass(java.io.FileOutputStream);
 importClass(android.graphics.Color);
+
 console.clear();
 ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
@@ -639,7 +640,8 @@ const PJYSDK = (function(){
 // AppKey 和 AppSecret 在泡椒云开发者后台获取
 let pjysdk = new PJYSDK("cefjuc3dqusush5gl3o0", "IsNatuRFc4QUi6YdL18mAQ36Pl0PNOhu");
 pjysdk.debug = true;
-var vip = 1;
+
+var vip = 1;//VIP权限自由开关
 var color = "#FF4FB3FF";
 
 ui.statusBarColor("#FF4FB3FF")
@@ -648,7 +650,7 @@ ui.layout(
     <drawer id="drawer">
         <vertical>
             <appbar>
-                <toolbar id="toolbar" bg="#ff4fb3ff" title='{{ui.标题}}'/>
+                <toolbar id="toolbar" bg="#ff4fb3ff" title="学习测试四合一PRO"/>
                 <tabs id="tabs" bg="#ff4fb3ff"/>
             </appbar>
             <viewpager id="viewpager">
@@ -661,7 +663,7 @@ ui.layout(
                                         <text text="脚本选择" textColor="#222222" textSize="16sp" maxLines="1" />
                                         <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="14sp" maxLines="1" />
                                     </vertical>
-                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="root等去截图权限版|天天向上pro|天天向上|Study改" />
+                                    <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)需root、虚拟机等去截图权限版|天天向上Pro|天天向上|Study改" />
                                 </horizontal>
                             </card>
                             <card w="*" h="70" margin="10 5" cardCornerRadius="2dp" cardElevation="1dp" foreground="?selectableItemBackground">
@@ -766,6 +768,13 @@ ui.layout(
                                     <text w="auto" textColor="#222222" textSize="15sp" text="每日答题" />
                                 </vertical>
                                 <checkbox id="ttxs_pro_meiri" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题(暂已弃，勿勾选)" />
+                                    <spinner id="ttxs_pro_meizhou" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
+                                </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
@@ -885,7 +894,6 @@ ui.layout(
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="多账号(选填，不限个数)" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="root/虚拟机等已去除截图限制不推荐也不支持多账号" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="使用前确保所有账号都已完成短信验证" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="账号1:密码1:token1(换行/回车)账号2:密码2:token2(换行/回车)账号3:密码3:token3" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="结束后会自动登录回账号1" />
@@ -950,6 +958,14 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题(暂已弃，勿勾选)" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="建议手动答题，否则不保证全对" />
+                                </vertical> 
+                                <checkbox id="study_checkbox_02" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="滑块验证延迟" />
                                 </vertical> 
                                 <input id="study_huakuaidelay" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
@@ -980,6 +996,13 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题模式选择(暂已弃，勿勾选)" />
+                                    <spinner id="study_selectm" marginLeft="4" marginRight="6" entries="不向下滑动，只答当天的题目,没有则返回|向下滑动，直到找到可答题的题目" />
+                                </vertical> 
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="四人赛模式选择" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="注：一般手机本地识别速度大于云端，部分手机内置ocr识别较慢，请自行测试" />
                                     <spinner id="study_select_01" marginLeft="4" marginRight="6" entries="内置PaddleOCR->推荐|百度OCR接口,在OCR页配置" />
@@ -1002,7 +1025,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每日、专项答题增强模式" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每日、(每周)、专项答题增强模式" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="使用在线OCR识别答案" />
                                     <spinner id="study_stronger" marginLeft="4" marginRight="6" entries="关闭|使用百度OCR识别答案" />
                                 </vertical> 
@@ -1010,14 +1033,14 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的API Key" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的API Key" />
                                     <input id="study_AK" text=""  gravity="center" textSize="13sp" />
                                 </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的Secret Key" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="百度OCR的Secret Key" />
                                     <input id="study_SK" text=""  gravity="center" textSize="13sp" />
                                 </vertical> 
                             </horizontal>
@@ -1070,7 +1093,7 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="push+ 消息推送" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="push+ 消息推送" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="注：有需要的自行填写push+的Token，否则留空即可" />
                                     <input id="study_Token" text="" textSize="13sp" />
                                 </vertical> 
@@ -1084,34 +1107,34 @@ ui.layout(
                         </vertical>
                     </frame>
                 </ScrollView>
-                <frame>
-            <vertical>
-                <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
-                <vertical padding='8dp'>
-                    <horizontal>
-                        <text text='到期时间：'></text>
-                        <text id='endTime'></text>
-                    </horizontal>
-                    <horizontal>
-                        <text text='设置卡密：'></text>
-                        <input id='bh_kami' w='*'></input>
-                    </horizontal>
-                    <horizontal>
-                        <button id='denglu' text='登陆\试用' layout_weight='1'></button>
-                        <button id='获取剩余时长' text='获取剩余时长\试用' layout_weight='1'></button>
-                    </horizontal>
-                    <horizontal>
-                    <vertical>
-                    {/* 脚本公告配置区域 */}
-                   <vertical>
-                   <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
-                   <text padding='10dp' text='{{ui.公告}}'></text>
-                   </vertical>
+                    <frame>
+                        <vertical>
+                               <text gravity='center' text='用户' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='#00BFFF'></text>
+                             <vertical padding='8dp'>
+                          <horizontal>
+                               <text text='到期时间：'></text>
+                               <text id='endTime'></text>
+                          </horizontal>
+                          <horizontal>
+                              <text text='设置卡密：'></text>
+                              <input id='bh_kami' w='*'></input>
+                           </horizontal>
+                           <horizontal>
+                               <button id='denglu' text='登陆\试用' layout_weight='1'></button>
+                               <button id='获取剩余时长' text='获取剩余时长\试用' layout_weight='1'></button>
+                           </horizontal>
+                           <horizontal>
+                             <vertical>
+                                {/* 脚本公告配置区域 */}
+                             <vertical>
+                                <text gravity='center' text='公告' w='*' h='auto' textSize='18sp' textColor='#ffffff' padding='10dp' bg='{{ui.主题颜色}}'></text>
+                                <text padding='10dp' text='{{ui.公告}}'></text>
+                             </vertical>
+                         </vertical>
+                     </horizontal>
+                    </vertical>
                </vertical>
-                    </horizontal>
-                </vertical>
-            </vertical>
-        </frame>, "setTing"
+              </frame>, "setTing"        
             </viewpager>
         </vertical>
     </drawer>
@@ -1220,8 +1243,10 @@ ui.pjyLoginFun = function () {
     });
 }
 
+
+
 // 创建选项菜单(右上角)
-ui.emitter.on("create_options_menu", menu=>{
+ui.emitter.on("create_options_menu", menu => {
     menu.add("日志");
     menu.add("关于");
     menu.add("Github");
@@ -1229,16 +1254,16 @@ ui.emitter.on("create_options_menu", menu=>{
 });
 
 // 监听选项菜单点击
-ui.emitter.on("options_item_selected", (e, item)=>{
-    switch(item.getTitle()){
+ui.emitter.on("options_item_selected", (e, item) => {
+    switch (item.getTitle()) {
         case "日志":
             app.startActivity("console");
             break;
         case "关于":
-            alert("关于", "学习测试四合一 v"+latest_version);
+            alert("关于", "学习测试四合一PRO v" + latest_version + "新Q群：758116397");
             break;
         case "Github":
-            app.openUrl("https://www.jianguoyun.com/p/DfhigF0Q9cyhCxjO1-0EIAA");
+            app.openUrl("https://gitee.com/djh010/xxqg-zhuancang/blob/master/v2.2.pro.apk");
             break;
         case "V2.33.0下载":
             app.openUrl("https://android-apps.pp.cn/fs08/2021/12/28/3/110_f37c420b0944cb7b9f60a2ad9b5518d2.apk?yingid=web_space&packageid=500730793&md5=664bb7bdcae57be189fc86100f4371c4&minSDK=21&size=191654161&shortMd5=1fee0bd160d08108a9d9e5f4773ce741&crc32=3879122865&did=ad484a175e19d0928044435e24bf03cb");
@@ -1249,7 +1274,7 @@ ui.emitter.on("options_item_selected", (e, item)=>{
 activity.setSupportActionBar(ui.toolbar);
 
 // 设置滑动页面的标题
-ui.viewpager.setTitles(["首页", "脚本配置",'VIP卡密']);
+ui.viewpager.setTitles(["首页", "脚本配置"]);
 // 让滑动页面和标签栏联动
 ui.tabs.setupWithViewPager(ui.viewpager);
 
@@ -1307,7 +1332,7 @@ ui.consoleshow.on("check", function (checked) {
         });
     }
 });
- 
+
 // 当用户回到本界面时，resume事件会被触发
 ui.emitter.on("resume", function () {
     // 此时根据无障碍服务的开启情况，同步开关的状态
@@ -1338,8 +1363,9 @@ ui.start.click(function () {
         return;
     }
     threads.start(function () {
+        //let url = 'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/' + ui.script_chosen.getSelectedItemPosition() + '.js';
         let url = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
-       if (vip == 1)
+        if (vip == 1)
         {execution = engines.execScript("学习测试4合1pro", http.get(url).body.string());
         toast('目前处于开放试用阶段') 
         }
@@ -1348,10 +1374,10 @@ ui.start.click(function () {
     });
 });
 
-// 保存学习测试pro脚本设置
+// 保存学习测试四合一pro脚本设置
 ui.ttxs_pro_save.click(function () {
-    TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText()+"");
-    TTXS_PRO_CONFIG.put("slide_verify", ui.ttxs_pro_slide_verify.getText()+"");
+    TTXS_PRO_CONFIG.put("watchdog", ui.ttxs_pro_watchdog.getText() + "");
+    TTXS_PRO_CONFIG.put("slide_verify", ui.ttxs_pro_slide_verify.getText() + "");
     TTXS_PRO_CONFIG.put("fast_mode", ui.ttxs_pro_fast_mode.isChecked());
     TTXS_PRO_CONFIG.put("ddtong", ui.ttxs_pro_ddtong.isChecked());
     TTXS_PRO_CONFIG.put("is_exit", ui.ttxs_pro_is_exit.isChecked());
@@ -1359,25 +1385,25 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("shipin", ui.ttxs_pro_shipin.isChecked());
     TTXS_PRO_CONFIG.put("wenzhang", ui.ttxs_pro_wenzhang.isChecked());
     TTXS_PRO_CONFIG.put("meiri", ui.ttxs_pro_meiri.isChecked());
-    //TTXS_PRO_CONFIG.put("meizhou", ui.ttxs_pro_meizhou.getSelectedItemPosition());
+    TTXS_PRO_CONFIG.put("meizhou", ui.ttxs_pro_meizhou.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("zhuanxiang", ui.ttxs_pro_zhuanxiang.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("tiaozhan", ui.ttxs_pro_tiaozhan.isChecked());
     TTXS_PRO_CONFIG.put("ocr_choice", ui.ttxs_pro_ocr_choice.getSelectedItemPosition());
-    TTXS_PRO_CONFIG.put("ocr_maxtime", ui.ttxs_pro_ocr_maxtime.getText()+"");
+    TTXS_PRO_CONFIG.put("ocr_maxtime", ui.ttxs_pro_ocr_maxtime.getText() + "");
     TTXS_PRO_CONFIG.put("duizhan_mode", ui.ttxs_pro_duizhan_mode.getSelectedItemPosition());
-    TTXS_PRO_CONFIG.put("jisu", ui.ttxs_pro_jisu.getText()+"");
+    TTXS_PRO_CONFIG.put("jisu", ui.ttxs_pro_jisu.getText() + "");
     TTXS_PRO_CONFIG.put("guaji", ui.ttxs_pro_guaji.isChecked());
     TTXS_PRO_CONFIG.put("siren", ui.ttxs_pro_siren.isChecked());
-    TTXS_PRO_CONFIG.put("dacuo_num", ui.ttxs_pro_dacuo_num.getText()+"");
+    TTXS_PRO_CONFIG.put("dacuo_num", ui.ttxs_pro_dacuo_num.getText() + "");
     TTXS_PRO_CONFIG.put("shuangren", ui.ttxs_pro_shuangren.isChecked());
     TTXS_PRO_CONFIG.put("bendi", ui.ttxs_pro_bendi.isChecked());
     TTXS_PRO_CONFIG.put("dingyue", ui.ttxs_pro_dingyue.getSelectedItemPosition());
-    TTXS_PRO_CONFIG.put("pushplus", ui.ttxs_pro_pushplus.getText()+"");
+    TTXS_PRO_CONFIG.put("pushplus", ui.ttxs_pro_pushplus.getText() + "");
     TTXS_PRO_CONFIG.put("yl_on", ui.ttxs_pro_yl_on.isChecked());
-    TTXS_PRO_CONFIG.put("yinliang", ui.ttxs_pro_yinliang.getText()+"");
-    TTXS_PRO_CONFIG.put("zhanghao", ui.ttxs_pro_zhanghao.getText()+"");
+    TTXS_PRO_CONFIG.put("yinliang", ui.ttxs_pro_yinliang.getText() + "");
+    TTXS_PRO_CONFIG.put("zhanghao", ui.ttxs_pro_zhanghao.getText() + "");
 
-    toastLog("学习测试pro配置保存成功！");
+    toastLog("学习测试四合一pro配置保存成功！");
 });
 
 // 重置学习测试四合一pro脚本设置
@@ -1400,6 +1426,8 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang"));
     TTXS_PRO_CONFIG.put("meiri", true);
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri"));
+    TTXS_PRO_CONFIG.put("meizhou", 0);
+    ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou"));
     TTXS_PRO_CONFIG.put("zhuanxiang", 0);
     ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang"));
     TTXS_PRO_CONFIG.put("tiaozhan", true);
@@ -1433,7 +1461,7 @@ ui.ttxs_pro_reset.click(function () {
     TTXS_PRO_CONFIG.put("zhanghao", "");
     ui.ttxs_pro_zhanghao.setText(TTXS_PRO_CONFIG.get("zhanghao"));
 
-    toastLog("学习测试pro配置恢复默认！");
+    toastLog("学习测试四合一pro配置恢复默认！");
 });
 
 // 保存study脚本设置
@@ -1443,23 +1471,24 @@ ui.study_save.click(function () {
     STUDY_CONFIG.put("meiri", ui.study_meiri.isChecked());
     STUDY_CONFIG.put("tiaozhan", ui.study_tiaozhan.isChecked());
     STUDY_CONFIG.put("checkbox_01", ui.study_checkbox_01.isChecked());
+    STUDY_CONFIG.put("checkbox_02", ui.study_checkbox_02.isChecked());
     STUDY_CONFIG.put("checkbox_03", ui.study_checkbox_03.isChecked());
     STUDY_CONFIG.put("shuangren", ui.study_shuangren.isChecked());
 
-    STUDY_CONFIG.put("huakuaidelay", ui.study_huakuaidelay.getText()+"");
+    STUDY_CONFIG.put("huakuaidelay", ui.study_huakuaidelay.getText() + "");
     STUDY_CONFIG.put("select", ui.study_select.getSelectedItemPosition());
-  //  STUDY_CONFIG.put("selectm", ui.study_selectm.getSelectedItemPosition());
+    STUDY_CONFIG.put("selectm", ui.study_selectm.getSelectedItemPosition());
     STUDY_CONFIG.put("select_01", ui.study_select_01.getSelectedItemPosition());
     STUDY_CONFIG.put("xianzhi", ui.study_xianzhi.isChecked());
-    STUDY_CONFIG.put("another", ui.study_another.getText()+"");
+    STUDY_CONFIG.put("another", ui.study_another.getText() + "");
     STUDY_CONFIG.put("stronger", ui.study_stronger.getSelectedItemPosition());
 
     STUDY_CONFIG.put("ssub", ui.study_ssub.getSelectedItemPosition());
     STUDY_CONFIG.put("diandian", ui.study_diandian.isChecked());
-    STUDY_CONFIG.put("alltime", ui.study_alltime.getText()+"");
-    STUDY_CONFIG.put("time1", ui.study_time1.getText()+"");
-    STUDY_CONFIG.put("time2", ui.study_time2.getText()+"");
-    STUDY_CONFIG.put("Token", ui.study_Token.getText()+"");
+    STUDY_CONFIG.put("alltime", ui.study_alltime.getText() + "");
+    STUDY_CONFIG.put("time1", ui.study_time1.getText() + "");
+    STUDY_CONFIG.put("time2", ui.study_time2.getText() + "");
+    STUDY_CONFIG.put("Token", ui.study_Token.getText() + "");
 
     toastLog("STUDY配置保存成功！");
 });
@@ -1471,6 +1500,7 @@ ui.study_reset.click(function () {
     STUDY_CONFIG.put("meiri", true);
     STUDY_CONFIG.put("tiaozhan", true);
     STUDY_CONFIG.put("checkbox_01", true);
+    STUDY_CONFIG.put("checkbox_02", true);
     STUDY_CONFIG.put("checkbox_03", true);
     STUDY_CONFIG.put("shuangren", true);
     ui.study_article.setChecked(STUDY_CONFIG.get("article"));
@@ -1478,19 +1508,20 @@ ui.study_reset.click(function () {
     ui.study_meiri.setChecked(STUDY_CONFIG.get("meiri"));
     ui.study_tiaozhan.setChecked(STUDY_CONFIG.get("tiaozhan"));
     ui.study_checkbox_01.setChecked(STUDY_CONFIG.get("checkbox_01"));
+    ui.study_checkbox_02.setChecked(STUDY_CONFIG.get("checkbox_02"));
     ui.study_checkbox_03.setChecked(STUDY_CONFIG.get("checkbox_03"));
     ui.study_shuangren.setChecked(STUDY_CONFIG.get("shuangren"));
 
     STUDY_CONFIG.put("huakuaidelay", "300");
     STUDY_CONFIG.put("select", 0);
-    //STUDY_CONFIG.put("selectm", 0);
+    STUDY_CONFIG.put("selectm", 0);
     STUDY_CONFIG.put("select_01", 0);
     STUDY_CONFIG.put("xianzhi", false);
     STUDY_CONFIG.put("another", "1");
     STUDY_CONFIG.put("stronger", 0);
     ui.study_huakuaidelay.setText(STUDY_CONFIG.get("huakuaidelay"));
     ui.study_select.setSelection(STUDY_CONFIG.get("select"));
-  //  ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm"));
+    ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm"));
     ui.study_select_01.setSelection(STUDY_CONFIG.get("select_01"));
     ui.study_xianzhi.setChecked(STUDY_CONFIG.get("xianzhi"));
     ui.study_another.setText(STUDY_CONFIG.get("another"));
@@ -1541,6 +1572,7 @@ function Initialize() {
     ui.ttxs_pro_shipin.setChecked(TTXS_PRO_CONFIG.get("shipin", true));
     ui.ttxs_pro_wenzhang.setChecked(TTXS_PRO_CONFIG.get("wenzhang", true));
     ui.ttxs_pro_meiri.setChecked(TTXS_PRO_CONFIG.get("meiri", true));
+    ui.ttxs_pro_meizhou.setSelection(TTXS_PRO_CONFIG.get("meizhou", 0));
     ui.ttxs_pro_zhuanxiang.setSelection(TTXS_PRO_CONFIG.get("zhuanxiang", 0));
     ui.ttxs_pro_tiaozhan.setChecked(TTXS_PRO_CONFIG.get("tiaozhan", true));
     ui.ttxs_pro_ocr_choice.setSelection(TTXS_PRO_CONFIG.get("ocr_choice", 0));
@@ -1557,16 +1589,18 @@ function Initialize() {
     ui.ttxs_pro_yl_on.setChecked(TTXS_PRO_CONFIG.get("yl_on", true));
     ui.ttxs_pro_yinliang.setText(TTXS_PRO_CONFIG.get("yinliang", "0"));
     ui.ttxs_pro_zhanghao.setText(TTXS_PRO_CONFIG.get("zhanghao", ""));
+
     ui.study_article.setChecked(STUDY_CONFIG.get("article", true));
     ui.study_video.setSelection(STUDY_CONFIG.get("video", 0));
     ui.study_meiri.setChecked(STUDY_CONFIG.get("meiri", true));
     ui.study_tiaozhan.setChecked(STUDY_CONFIG.get("tiaozhan", true));
     ui.study_checkbox_01.setChecked(STUDY_CONFIG.get("checkbox_01", true));
+    ui.study_checkbox_02.setChecked(STUDY_CONFIG.get("checkbox_02", true));
     ui.study_checkbox_03.setChecked(STUDY_CONFIG.get("checkbox_03", true));
     ui.study_huakuaidelay.setText(STUDY_CONFIG.get("huakuaidelay", "300"));
     ui.study_shuangren.setChecked(STUDY_CONFIG.get("shuangren", true));
     ui.study_select.setSelection(STUDY_CONFIG.get("select", 0));
-   // ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm", 0));
+    ui.study_selectm.setSelection(STUDY_CONFIG.get("selectm", 0));
     ui.study_select_01.setSelection(STUDY_CONFIG.get("select_01", 0));
     ui.study_xianzhi.setChecked(STUDY_CONFIG.get("xianzhi", false));
     ui.study_another.setText(STUDY_CONFIG.get("another", "1"));
