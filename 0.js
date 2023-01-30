@@ -59,6 +59,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
              if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
                   press(pic_0.x+x_1, pic_0.y+x_2 ,100);//点击坐标
+                  click(pic_0.x+x_1, pic_0.y+x_2);
                   path_jpg_x = 2;
                   break;
               } else {
