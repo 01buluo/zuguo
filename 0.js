@@ -34,20 +34,28 @@ var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
 
 //（找）图片点击
 var url_xuexijifen_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_jpg.jpg'
-var path_xuexijifen_jpg = '/sdcard/dingyue_1.jpg';  //学习积分---图标位置
+var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
 // var path_jpg_2 = '/sdcard/2022_shangxian.jpg'; //2022上线--图片位置
 // var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
 // var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
 
-  function pic_click(path_jpg_y){
+  function pic_click(path_jpg_y,url_jpg_y){
+    if(!files.exists(path_jpg_y)) {
+      fClear();
+     fInfo('重要点击参数不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+     var img_small = images.load(url_jpg_y);
+     sleep(3000);
+     //保存图片   这一步保存完图片后，相册里不会显示图片
+     images.save(img_small, path_xuexijifen_jpg);
+    }
        sleep(1000);
         var path_jpg_x = 0;
        //requestScreenCapture();
           while (true && path_jpg_x != 2){
             fClear();
-            let img_small_dianji = images.read(path_jpg_y);
+            let img_small = images.read(path_jpg_y);
             sleep(3000);
-            var pic_0 = findImage(captureScreen(), img_small_dianji);
+            var pic_0 = findImage(captureScreen(), img_small);
              if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
                   press(pic_0.x+50, pic_0.y+50 ,100);//点击坐标
@@ -2741,16 +2749,8 @@ function xxqg(userinfo) {
   // click(245, 875);
   // press(245, 875, 1);  
   a_2 = text("积分规则").findOne(2000);
-    if(a_2 == null){
-       if(!files.exists(path_xuexijifen_jpg)) {
-        fClear();
-       fInfo('重要点击参数不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
-       var img_small_xuexi = images.load(path_xuexijifen_jpg);
-       sleep(3000);
-       //保存图片   这一步保存完图片后，相册里不会显示图片
-       images.save(img_small_xuexi, path_xuexijifen_jpg);
-      }
-     pic_click(img_small_xuexi);
+    if(a_2 == null){ 
+     pic_click(path_xuexijifen_jpg,url_xuexijifen_jpg);
   }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
