@@ -1636,7 +1636,7 @@ function do_dingyue_1(){
 //   console.hide();
 //   home();
 //   exit();
-  return true;
+   return true;
 }
 
 /********订阅*********/
@@ -2683,7 +2683,7 @@ function fInit() {
     	</relative>
     </card>
   );
-  ui.run(function () {
+  (function () {
     //w.title.setFocusable(true);
     w.version.setText("学习测试四合一pro+" + newest_version);
   });
@@ -2749,8 +2749,8 @@ function fRefocus() {
 function xxqg(userinfo) {
   var sign_list = [];
   fInfo("开始更新弹窗检测");
-  console.show()
-  console.info("开始更新弹窗检测")
+  // console.show()
+  // console.info("开始更新弹窗检测")
   var noupdate_thread = threads.start(function () {
     //在新线程执行的代码
     className("android.widget.Button").text("立即升级").waitFor();
