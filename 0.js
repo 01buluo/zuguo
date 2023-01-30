@@ -1430,8 +1430,9 @@ function dacuo(renshu) {
 function do_dingyue_0() {
   entry_jifen_project("订阅");
   fSet("title", "订阅…");
-  //fClear();
+  fClear();
   fInfo("设置订阅");
+  fRefocus()
   // console.hide();
   // sleep(200);
   // console.show();
@@ -2717,7 +2718,7 @@ ran_sleep();
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
-  0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_0(), jifen_list = refind_jifen_0());
+  0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_0(), w = fInit(), jifen_list = refind_jifen_0());
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
