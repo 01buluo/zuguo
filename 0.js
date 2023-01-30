@@ -2757,7 +2757,7 @@ function xxqg(userinfo) {
     dingyue_dao = true;
   }
   a_0 = id("comm_head_xuexi_score").findOne(5000);
-  if(a_1 == null){fInfo("检测到新版‘账号’界面");
+  if(a_0 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
      a_a = text("学习积分").findOne(3000);
      if(textContains("学习积分").exists()||a_a) {
