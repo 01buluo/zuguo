@@ -308,7 +308,7 @@ function do_pinglun() {
 /********时长部分*********/
 function do_shipin() {
   entry_jifen_project("视听学习");
-  jifen_list.child(jifen_map["视频"]).child(3).click();
+  jifen_list.child(jifen_map["视频"]).child(4).click();
   if (ddtong) {
     fSet("title", "视听(dd通)…");
   } else {
@@ -1462,23 +1462,21 @@ function do_dingyue() {
     let total_click = 0;
     if (dingyue_dao) {
       w = fInit();
-     // fSet("title", "搜索‘上新/2023年上线’订阅…");
-      //fClear();
-      fInfo("上新/2023年上线--搜索中……");
-      var t_1 = 468;
-      var t_2 = 1199;
-     // var dingyue_shu = 2;
-      var arr = [1, 2];
+        // fSet("title", "搜索‘上新/2023年上线’订阅…");
+         fClear();
+         fInfo("上新/2023年上线--搜索中……");
+         var t_1 = 468;
+         var t_2 = 1199;
+         var arr = [1, 2];
        }else{
         w = fInit();
-       // fSet("title", "搜索‘强国号’订阅…");
-        //fClear();
-        fInfo("强国号’-- 遍历搜索中………");
-        var t_1 = 318;
-        var t_2 = 150;
-      //var dingyue_shu = 10;
-      var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
-       }
+      // fSet("title", "搜索‘强国号’订阅…");
+       fClear();
+       fInfo("强国号’-- 遍历搜索中………");
+       var t_1 = 318;
+       var t_2 = 150;
+     var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
+        }
   for (let i = 0; i < arr.length; i++) {
     var asub_1 = parseInt(arr[i]);
     sleep(random(400, 800)); 
@@ -2693,11 +2691,11 @@ function xxqg(userinfo) {
   } else if (zhuanxiang == 0) {
     zhuanxiang_dao = true;
   }
-  // if (dingyue == 1) {
-  //   dingyue_dao = false;
-  // } else if (dingyue == 2) {
-  //   dingyue_dao = true;
-  // }
+  if (dingyue == 1) {
+    dingyue_dao = false;
+  } else if (dingyue == 2) {
+    dingyue_dao = true;
+  }
   a_1 = id("comm_head_xuexi_score").findOne(5000);
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
