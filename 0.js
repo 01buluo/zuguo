@@ -32,6 +32,34 @@ var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
 
+//（找）图片点击
+var url_xuexijifen_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_jpg.jpg'
+var path_xuexijifen_jpg = '/sdcard/dingyue_1.jpg';  //学习积分---图标位置
+// var path_jpg_2 = '/sdcard/2022_shangxian.jpg'; //2022上线--图片位置
+// var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
+// var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
+
+  function pic_click(path_jpg_y){
+       sleep(1000);
+        var path_jpg_x = 0;
+       //requestScreenCapture();
+          while (true && path_jpg != 2){
+            fClear();
+            let img_small_dianji = images.read(path_jpg_y);
+            sleep(3000);
+            var pic_0 = findImage(captureScreen(), img_small_dianji);
+             if (pic_0) {
+                  fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
+                  press(pic_0.x+50, pic_0.y+50 ,100);//点击坐标
+                  path_jpg_x = 2;
+                  break;
+              } else {
+                 path_jpg_x = 0;
+                  fInfo("继续尝试点击--‘上新’栏");
+                } 
+           }
+
+   }
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
   let list = JSON.parse(JSON.stringify(gmlkit.ocr(img, "zh").toArray(3))); // 识别文字，并得到results
@@ -2670,7 +2698,7 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  
+  fInfo("检测‘我的’界面……?新?旧，耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版‘我的’界面");
@@ -2706,14 +2734,23 @@ function xxqg(userinfo) {
       click(208, 958);press(208, 958, 100);
       fInfo("等待点击‘学习积分’");
     }else {sleep(800); 
-      click(208, 958); press(208, 958, 100); 
+      click(218, 958); press(218, 958, 100); 
       fInfo("等待点击‘学习积分’");}
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
-  // setScreenMetrics(1080, 1920);
-  // fInfo("等待点击‘学习积分’");
   // click(245, 875);
-  // press(245, 875, 1);
+  // press(245, 875, 1);  
+  a_2 = text("积分规则").findOne(2000);
+    if(a_2==null){
+       if(!files.exists(path_xuexijifen_jpg)) {
+       fInfo('重要点击参数不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
+       var img_small_xuexi = images.load(path_xuexijifen_jpg);
+       sleep(3000);
+       //保存图片   这一步保存完图片后，相册里不会显示图片
+       images.save(img_small_xuexi, path_xuexijifen_jpg);
+      }
+     pic_click(img_small_xuexi);
+  }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
