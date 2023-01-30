@@ -39,7 +39,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
 // var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
 // var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
 
-  function pic_click(path_jpg_y,url_jpg_y,x_1,x_2){
+  function pic_click(path_jpg_y, url_jpg_y, x_1, x_2){
     if(!files.exists(path_jpg_y)) {
       fClear();
      fInfo('重要点击参数不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
@@ -49,18 +49,25 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
      images.save(img_small, path_xuexijifen_jpg);
     }
        sleep(1000);
-       if(files.exists(path_jpg_y))fInfo('找到点击参考');
+       if(files.exists(path_jpg_y)) fInfo('找到点击参考');
         var path_jpg_x = 0;
        //requestScreenCapture();
           while (true && path_jpg_x != 2){
             fClear();
-            let img_small = images.read(path_jpg_y);
-            sleep(3000);
-            var pic_0 = findImage(captureScreen(), img_small);
-             if (pic_0) {
+            let img_small_t = images.read(path_jpg_y);t
+            let img_big_t = captureScreen();
+            let result_0 = images.matchTemplate(img_big_t, img_small_t, {
+              max: 1
+            });
+            fInfo(result_0);
+            sleep(2000);
+            var pic_0 = findImage(img_big_t, img_small_t);
+            sleep(2000);
+            if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
-                  press(pic_0.x + x_1, pic_0.y + x_2 ,100);//点击坐标
                   click(pic_0.x + x_1, pic_0.y + x_2);
+                  press(pic_0.x + x_1, pic_0.y + x_2 ,100);//点击坐标
+                  //click(pic_0.x + x_1, pic_0.y + x_2);
                   path_jpg_x = 2;
                   break;
               } else {
