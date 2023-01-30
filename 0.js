@@ -1510,7 +1510,8 @@ function do_dingyue_0() {
         }
         t_1 += t_2;
     }
-    if (total_click < 1) log("无新可订阅项目");
+    if (total_click = 0) log("无新可订阅项目");
+    if (total_click = 1) log("仅发现1个可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
@@ -2721,14 +2722,14 @@ ran_sleep();
   d = 1;
   0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_0(), w = fInit(), jifen_list = refind_jifen_0());
   if (pushplus || token) {
-    if (total_click != 0||(total_click == 0 && dingyue !=0)) log("推送前等待积分刷新5秒");
+    if (total_click != 0||(total_click == 0 && dingyue !=0)) log("推送前等待积分刷新 5 秒");
     else fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
     token || (token = pushplus);
     try {
       send_pushplus(token, sign_list)
     } catch (h) {
-      if (total_click != 0||(total_click == 0 && dingyue !=0)) log(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
+      if (total_click != 0||(total_click == 0 && dingyue !=0)) log(h + ":push+推送失败， 请尝试切换流量运行或者设置114DNS");
       else  fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS");
     }
   }
@@ -2773,7 +2774,7 @@ function main(userinfo) {
   }
   for (let i = 0; i < 3; i++) {
     fClear();
-    if (total_click != 0||(total_click == 0 && dingyue !=0)) log("开始第" + (i + 1) + "轮，最长运行时间为" + retry_time + "s");
+    if (total_click != 0||(total_click == 0 && dingyue !=0)) log("开始第" + (i + 1) + "轮， 最长运行时间为" + retry_time + "s");
     else fInfo("开始第" + (i + 1) + "轮，最长运行时间为" + retry_time + "s");
     let xxqg_begin = new Date();
     var main_thread = threads.start(function () {
@@ -2782,7 +2783,7 @@ function main(userinfo) {
     main_thread.join(retry_time * 1000);
     if (main_thread.isAlive()) {
       main_thread.interrupt();
-      if (total_click != 0||(total_click == 0 && dingyue !=0)) log("运行超时，重试");
+      if (total_click != 0||(total_click == 0 && dingyue !=0)) log("运行超时， 重试");
       else fError("运行超时，重试");
       exit_app("学习强国");
       sleep(1500);
@@ -2791,12 +2792,12 @@ function main(userinfo) {
     } else {
       let xxqg_end = new Date();
       let spent_time = ((xxqg_end - xxqg_begin) / 1000).toFixed();
-      if (total_click != 0||(total_click == 0 && dingyue !=0)) log("本轮已正常结束，花费时间" + spent_time + "s");
+      if (total_click != 0||(total_click == 0 && dingyue !=0)) log("本轮已正常结束， 花费时间" + spent_time + "s");
       else fInfo("本轮已正常结束，花费时间" + spent_time + "s");
       return true
     }
   }
-  if (total_click != 0||(total_click == 0 && dingyue !=0)) log("已重试3次，可能无障碍服务出现故障，退出脚本");
+  if (total_click != 0||(total_click == 0 && dingyue !=0)) log("已重试3次， 可能无障碍服务出现故障，退出脚本");
   else fError("已重试3次，可能无障碍服务出现故障，退出脚本");
   exit();
 }
