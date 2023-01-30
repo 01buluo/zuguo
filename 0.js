@@ -48,12 +48,14 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
      //保存图片   这一步保存完图片后，相册里不会显示图片
      images.save(img_small, path_xuexijifen_jpg);
     }
+      setScreenMetrics(1080, 1920);
        sleep(1000);
        if(files.exists(path_jpg_y)) fInfo('找到点击参考');
         var path_jpg_x = 0;
        //requestScreenCapture();
           while (true && path_jpg_x != 2){
             fClear();
+            setScreenMetrics(1080, 1920);
            let img_small_t = images.read(path_jpg_y);
             let img_big_t = captureScreen();
             // let result_0 = images.matchTemplate(img_big_t, img_small_t, {
