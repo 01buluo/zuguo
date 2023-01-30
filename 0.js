@@ -43,7 +43,7 @@ var path_xuexijifen_jpg = '/sdcard/dingyue_1.jpg';  //学习积分---图标位�
        sleep(1000);
         var path_jpg_x = 0;
        //requestScreenCapture();
-          while (true && path_jpg != 2){
+          while (true && path_jpg_x != 2){
             fClear();
             let img_small_dianji = images.read(path_jpg_y);
             sleep(3000);
@@ -2741,8 +2741,9 @@ function xxqg(userinfo) {
   // click(245, 875);
   // press(245, 875, 1);  
   a_2 = text("积分规则").findOne(2000);
-    if(a_2==null){
+    if(a_2 == null){
        if(!files.exists(path_xuexijifen_jpg)) {
+        fClear();
        fInfo('重要点击参数不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
        var img_small_xuexi = images.load(path_xuexijifen_jpg);
        sleep(3000);
