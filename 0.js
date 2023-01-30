@@ -1478,7 +1478,7 @@ function do_dingyue() {
        var t_2 = 150;
      var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
         }
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length + 1; i++) {
     var asub_1 = parseInt(arr[i]);
     sleep(random(400, 800)); 
     press(136,t_1,100) ;
@@ -1487,6 +1487,7 @@ function do_dingyue() {
         for (let ii = 0; ii < asub_1; ii++) {
           while (total_click < 2 && asub_1 != 0) {
           let img = captureScreen();
+          sleep(random(800, 1500));
           try {
             var pot = findColorInRegion(img, "#E42417", 1000, 100,
             device.width - 1000, device.height - 200, 30);
@@ -1494,7 +1495,6 @@ function do_dingyue() {
             console.error('继续搜寻');
             continue;
           }
-          
           if (pot) {
             fInfo("找到一个订阅");
             sleep(random(800, 1500)); 
@@ -2861,6 +2861,7 @@ if (noverify_thread.isAlive()) {
 /*****************结束后配置*****************/
 //console.show();
 // console.clear();
+back();
 fInfo("已全部结束");
 // 调回原始音量
 if (yl_on) {
