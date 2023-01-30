@@ -2676,7 +2676,7 @@ function xxqg(userinfo) {
   if(a == null){fInfo("检测到新版‘我的’界面");
     setScreenMetrics(1080, 1920);
     if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
-    else {sleep(800); press(994, 330, 100); click(994, 330); name = id("tv_item_content").findOne().text();}
+    else {sleep(1000); press(964, 330, 100); click(994, 330);  name = id("tv_item_content").findOne().text();}
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
   fSet("username", name);
