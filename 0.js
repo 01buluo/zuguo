@@ -2701,7 +2701,8 @@ function xxqg(userinfo) {
   a_1 = id("comm_head_xuexi_score").findOne(5000);
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
-     if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
+     a_a = text("学习积分").findOne(3000);
+     if(textContains("学习积分").exists()||a_a) text("学习积分").click();
     else {sleep(800); click(218, 905); press(218, 905, 100); fInfo("等待点击‘学习积分’");}
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
