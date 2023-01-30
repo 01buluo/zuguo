@@ -2756,7 +2756,7 @@ function xxqg(userinfo) {
   } else if (dingyue == 2) {
     dingyue_dao = true;
   }
-  a_1 = id("comm_head_xuexi_score").findOne(5000);
+  a_0 = id("comm_head_xuexi_score").findOne(5000);
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
      a_a = text("学习积分").findOne(3000);
@@ -2765,7 +2765,12 @@ function xxqg(userinfo) {
       fInfo("等待点击‘学习积分’");
     }else {
       sleep(800); 
-      click(218, 958);click(254, 775); press(218, 918, 100); 
+      click(218, 958); press(218, 918, 100); 
+      sleep(800); 
+      a_1 = text("积分规则").findOne(1500);
+      if(a_1 == null){ 
+        click(254, 775); press(254, 775, 100);
+        }
       fInfo("等待点击‘学习积分’");}
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
@@ -2776,8 +2781,7 @@ function xxqg(userinfo) {
       click(254, 775); press(254, 775, 100);
       a_3 = text("积分规则").findOne(1500);
      if(a_3 == null)pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
-  }
-    
+  }  
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
