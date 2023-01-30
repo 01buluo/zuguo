@@ -63,7 +63,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
             });
             fInfo(result_0);
             sleep(2000);
-            var pic_0 = findImage(img_big_t, img_small_t{
+            var pic_0 = findImage(img_big_t, img_small_t, {
               region: [400, 1100, 100, 550],
               threshold: 0.6
                  });
