@@ -135,9 +135,9 @@ if (storage.get(engine_version, true)) {
   }
 }
 var w = fInit();
-// console.setTitle("学习测试四合一");
+// console.setTitle("天天向上");
 // console.show();
-fInfo("学习测试四合一Pro" + newest_version + "\n……脚本初始化……");
+fInfo("天天向上Pro" + newest_version + "脚本初始化");
 // 初始化宽高
 var [device_w, device_h] = init_wh();
 // log("fina:", device_w, device_h);
@@ -205,7 +205,7 @@ try {
   dati_tiku = get_tiku_by_ct('https://webapi.ctfile.com/get_file_url.php?uid=35157972&fid=555754562&file_chk=94c3c662ba28f583d2128a1eb9d78af4&app=0&acheck=2&rd=0.14725283060014105');
 }
 // 设置资源保存路径
-files.createWithDirs("/sdcard/学习测试四合一/");
+files.createWithDirs("/sdcard/天天向上/");
 // 调整音量
 if (yl_on) {
   fInfo("设置媒体音量");
@@ -324,18 +324,12 @@ function do_shipin() {
   }
   desc("百灵").findOne().click();
   let shu = text("竖").findOne();
-  fInfo("找到 竖")
-  shu.click();
   sleep(1000);
   // 定位到整个百灵frame_box
   let frame_box = shu.parent().parent().parent().parent();
   textMatches(/\d{2}:\d{2}/).waitFor();
   let video_list = frame_box.findOne(className("android.widget.ListView"));
-  var v = className('android.widget.FrameLayout').clickable(true).depth(22).findOne().bounds();
-  press(v.centerX(), v.centerY() - 50, 150);
-  fInfo('点击视频');
-  sleep(2500);
-  //video_list.child(1).child(1).child(0).click();
+  video_list.child(1).child(1).child(0).click();
   text("分享").waitFor();
   if (idContains("guide_view").findOne(1500)) {
     fInfo("检测到引导遮罩");
@@ -1067,9 +1061,9 @@ function do_duizhan1(renshu) {
       }
       console.timeEnd('题目识别');
       if (!que_txt) {
-        images.save(img, '/sdcard/学习测试四合一/' + renshu + '-' + num + '.png', 'png', 50);
-        images.save(que_img, '/sdcard/学习测试四合一/' + renshu + '-' + num + '-q.png', 'png', 50);
-        fError("未识别出题目，图片保存至‘/sdcard/学习测试四合一/’");
+        images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '.png', 'png', 50);
+        images.save(que_img, '/sdcard/天天向上/' + renshu + '-' + num + '-q.png', 'png', 50);
+        fError("未识别出题目，图片保存至‘/sdcard/天天向上/’");
         console.error("大概率无障碍服务失效" + auto.service);
         console.error("题目框体范围：", que_x, que_y, que_w, que_h);
         img.recycle();
@@ -1197,8 +1191,8 @@ function do_duizhan1(renshu) {
     console.timeEnd("选项识别");
     // log(allx_txt);
     if (!allx_txt) {
-      images.save(img, '/sdcard/学习测试四合一/' + renshu + '-' + num + '-a.png', 'png', 50);
-      log("识别不出选项文本，图片保存至‘/sdcard/学习测试四合一/’");
+      images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '-a.png', 'png', 50);
+      log("识别不出选项文本，图片保存至‘/sdcard/天天向上/’");
       err_flag = false;
       sleep(200);
       continue;
@@ -1432,215 +1426,90 @@ function dacuo(renshu) {
   }
 }
 
-var delay_time = 2;
-var seconds=1;
-function delay(seconds) {
-  sleep(1000 * seconds + randomNum(0, 500)); //sleep函数参数单位为毫秒所以乘1000
-}
-function randomNum(minNum, maxNum) {
-  switch (arguments.length) {
-      case 1:
-          return parseInt(Math.random() * minNum + 1, 10);
-      case 2:
-          return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
-      default:
-          return 0;
-  }
-}
-/********订阅*********/
-function do_dingyue(){
-  //console.hide();
-  //var  jifen_flag = "new";
-  entry_jifen_project("订阅");
-  fSet("title", "搜索‘强国号’订阅…");
-  fClear();
-  fInfo('强国号’-- 搜索中………');
-  fRefocus()
-  fClear();
-  console.hide();
-  sleep(200);
-  console.show();
-  console.setPosition(200, device.height * 0.1);
-  sleep(3000);
-  h = device_h; //屏幕高
-    w = device_w; //屏幕宽
-    x = (w / 3) * 2;
-    h1 = (h / 10) * 9;
-    h2 = (h / 12);
-    var asub = 2;
-    var t_1 = 318;
-    for (var i = 0; i < 10; i++) {
-        var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
-            var asub_1 = parseInt(arr[i]);
-            //console.info(asub_1);
-        //sleep(1000);
-        sleep(random(400, 800)); 
-        press(136,t_1,100) ;
-        sleep(random(800, 1500)); 
-        while (asub > 0) {
-          let result = findColor(captureScreen(), '#E42417', {
-              max: 5,
-              region: [1000, 100, device.width - 1000, device.height - 200], //区域
-              threshold: 10,
-          });
-          sleep(random(400, 700));
-          if (result) {
-            toastLog("已经订阅了" + (3 - asub) + "个");
-              press(result.x + 20, result.y + 20,100);
-              sleep(random(800, 1500)); 
-              asub--;
-            
-          }
-          if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
-              asub_1--;
-              sleep(random(800, 1500)); 
-                       }
-          if(asub_1 == 0 || asub == 0) break;
-        sleep(random(400, 700));   
-      }
-    sleep(random(700, 1200)); 
-    if(asub == 0) break;
-    t_1 += 150;
-        }
-    if(asub == 0)  {toastLog("今日已完成订阅任务");toast('今日已完成订阅任务');}
-    if(asub == 1 && i>9)  {toastLog("只找到1个订阅任务");toast("只找到1个订阅任务");}
-    if(asub == 2 && i>9)  {toastLog("未找到新的‘未订阅’");toast("未找到新的‘未订阅’");}
-    back();
-    toastLog("返回");
-  text("登录").waitFor();
-    sleep(random(400, 800)); 
-//   if (pushplus || token) {
-//     toastLog("推送前等待积分刷新5秒");
-//     sleep(5E3);
-//     var token = pushplus;
-//     var sign_list = [];
-//     try {
-//         send_pushplus(token, sign_list)
-//     } catch (h) {
-//       toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-//     }
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-// }
-//   let xxqg_end_1=new Date();
-//   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-//   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-//   if (yl_on) {
-//     toastLog("调回初始音量:"+ yuan_yl);
-//     device.setMusicVolume(yuan_yl);
-//   }
-//   // 取消屏幕常亮
-//   toastLog("取消屏幕常亮");
-//   device.cancelKeepingAwake();
-//   // 震动提示
-//   device.vibrate(500);
-//   toastLog("十秒后关闭悬浮窗");
-//   sleep(5000);
-//   console.hide();
-//   home();
-//   exit();
-   return true;
-  }
-function do_dingyue_1(){
- // var  jifen_flag = "new";
-  entry_jifen_project("订阅");
-  fSet("title", "搜索‘上新/2023年上线’订阅…");
-  fClear();
-  fInfo('上新/2023年上线--搜索中……');
-  fRefocus()
-  fClear();
-  console.hide();
-  sleep(200);
-  console.show();
-  console.setPosition(200, device.height * 0.1);
-  sleep(3000);
-  h = device_h; //屏幕高
-    w = device_w; //屏幕宽
-    x = (w / 3) * 2;
-    h1 = (h / 10) * 9;
-    h2 = (h / 12);
-   var asub = 2;
-    var t_1 = 468;
-    for (var i = 0; i < 2; i++) {
-        var arr = [1, 2];
-            var asub_1 = parseInt(arr[i]);
-        sleep(random(400, 1200)); 
-        press(136,t_1,100) ;
-        sleep(random(800, 1500)); 
-        while (asub > 0) {
-          let result = findColor(captureScreen(), '#E42417', {
-              max: 5,
-              region: [1000, 100, device.width - 1000, device.height - 200], //区域
-              threshold: 10,
-          });
-          sleep(random(400, 700));
-          if (result) {
-            toastLog("已经订阅了" + (3 - asub) + "个");
-              press(result.x + 20, result.y + 20,100);
-              sleep(random(800, 1500)); 
-              asub--; 
-          }
-          if(!result && asub != 0 && asub_1 != 0 ){ swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
-              asub_1--;
-              sleep(random(800, 1500)); 
-                       }
-          if(asub_1 == 0 || asub == 0) break;
-        sleep(random(700, 1500));   
-      }
-    sleep(random(400, 800)); 
-    if(asub == 0) break;
-    t_1 += 1199;
-        }
-    if(asub == 0)   {toastLog("今日已完成订阅任务");toast('今日已完成订阅任务');}
-    if(asub == 1 && i>1)  {toastLog("只找到1个订阅任务");toast("只找到1个订阅任务");}
-    if(asub == 2 && i>1)  {toastLog("未找到新的‘未订阅’");toast("未找到新的‘未订阅’");}
-    back();
-    toastLog("返回");
-  text("登录").waitFor();
-  sleep(random(400, 800)); 
-//   if (pushplus || token) {
-//     toastLog("推送前等待积分刷新5秒");
-//     sleep(5E3);
-//     var token = pushplus;
-//     var sign_list = [];
-//     try {
-//         send_pushplus(token, sign_list)
-//     } catch (h) {
-//       toastLog(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-//     }
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-//       sleep(random(400, 800)); 
-//     back();
-// }
-//   let xxqg_end_1=new Date();
-//   let spent_time = ((xxqg_end_1 - xxqg_begin_1)/1000).toFixed();
-//   toastLog("本轮已正常结束，花费时间"+spent_time+"s");
-//   if (yl_on) {
-//     toastLog("调回初始音量:"+ yuan_yl);
-//     device.setMusicVolume(yuan_yl);
-//   }
-//   // 取消屏幕常亮
-//   toastLog("取消屏幕常亮");
-//   device.cancelKeepingAwake();
-//   // 震动提示
-//   device.vibrate(500);
-//   toastLog("十秒后关闭悬浮窗");
-//   sleep(5000);
-//   console.hide();
-//   home();
-//   exit();
-   return true;
-}
-
 /********订阅*********/
 function do_dingyue_0() {
+  entry_jfen_project("订阅");
+  //fSet("title", "订阅…");
+  fClear();
+  // 上方标签
+  //let tab_clt = descContains("Tab").untilFind();
+    h = device_h; //屏幕高
+    w = device_w; //屏幕宽
+    x = (w / 3) * 2;
+    h1 = (h / 10) * 9;
+    h2 = (h / 12); 
+    let total_click = 0;
+    if (dingyue_dao) {
+      fSet("title", "搜索‘上新/2023年上线’订阅…");
+      fClear();
+      fInfo('上新/2023年上线--搜索中……');
+      var t_1 = 468;
+      var t_2 = 1199;
+     // var dingyue_shu = 2;
+      var arr = [1, 2];
+       }else{
+        fSet("title", "搜索‘强国号’订阅…");
+        fClear();
+        fInfo('强国号’-- 搜索中………');
+        var t_1 = 318;
+        var t_2 = 150;
+      //var dingyue_shu = 10;
+      var arr = [4, 2, 8, 34, 38, 4, 45, 44, 4, 1];
+       }
+  for (let i = 0; i < arr.length; i++) {
+    var asub_1 = parseInt(arr[i]);
+    sleep(random(400, 800)); 
+    press(136,t_1,100) ;
+    sleep(random(800, 1500));
+   
+        for (let ii = 0; ii < asub_1; ii++) {
+          while (total_click < 2 && asub_1 != 0) {
+          let img = captureScreen();
+          try {
+            var pot = findColorInRegion(img, "#E42417", 1000, 100,
+            device.width - 1000, device.height - 200, 30);
+          } catch (e) {
+            console.error('继续搜寻');
+            continue;
+          }
+          
+          if (pot) {
+            fInfo("找到一个订阅");
+            sleep(random(800, 1500)); 
+            // let is_click = dingyue.click();
+             fInfo("点击：订阅");
+            //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
+            sleep(random(800, 1500)); 
+            click(pot.x, pot.y+5);
+            total_click += 1;
+          }
+          if (total_click >= 2) {
+            img.recycle();
+            fInfo("订阅已完成,准备返回");
+            back();
+            text("登录").waitFor();
+            ran_sleep();
+            return true;
+            } else { 
+           //   img.recycle();
+              swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+              asub_1--;
+          sleep(random(800, 1500)); 
+                   }
+        }
+        //img.recycle();
+        sleep(500);
+        }
+        t_1 += t_2;
+    }
+    fInfo("无可订阅项目");
+    back();
+    text("登录").waitFor();
+    ran_sleep();
+    return true;
+  }
+
+function do_dingyue() {
   entry_jifen_project("订阅");
   fSet("title", "订阅…");
   fClear();
@@ -2391,7 +2260,7 @@ function init_wh() {
     fError("设备屏幕方向检测为横向，后续运行很可能会报错，建议调整后重新运行脚本");
     sleep(10000);
   } else if (device.width == 0 || device.height == 0) {
-    fError("识别不出设备宽高，建议重启‘学习测试四合一’助手后重新运行脚本");
+    fError("识别不出设备宽高，建议重启强国助手后重新运行脚本");
     sleep(10000);
   }
   return [device_w, device_h]
@@ -2440,7 +2309,7 @@ function ocr_test() {
     fInfo("OCR识别结束:" + test_time + "ms");
     if (test_time > test_limit) {
       fError("OCR识别过慢(>" + test_limit + "ms)，已跳过多人对战，可在配置中设置跳过阈值");
-      fError("如偶然变慢，可能为无障碍服务抽风，建议重启‘学习测试四合一’助手后重试");
+      fError("如偶然变慢，可能为无障碍服务抽风，建议重启强国助手后重试");
       sleep(3000);
       return false
     } else {
@@ -2477,7 +2346,7 @@ function send_pushplus(token, sign_list) {
     else
       "new1" == jifen_flag ? ((title = option.child(0).text()), (score = option.child(3).child(0).text()), (total = option.child(3).child(2).text().match(/\d+/g)[0])) :
       "new2" == jifen_flag && (title = option.child(0).text(), score = option.child(3).text().match(/\d+/g)[0], total = option.child(3).text().match(/\d+/g)[1]);
-    "专项答题" == title && (total = 5);
+    "专项答题" == title && (total = 10);
     let percent = (Number(score) / Number(total) * 100).toFixed() + '%';
     let detail = title + ": " + score + "/" + total;
     content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
@@ -2485,7 +2354,7 @@ function send_pushplus(token, sign_list) {
   content_str += '</div>' + style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
-    title: "学习测试四合一：" + name,
+    title: "天天向上：" + name,
     content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
     template: "markdown",
   });
@@ -2510,7 +2379,7 @@ function send_email(email) {
     action: "SENDTO"
   });
   data.setData(app.parseUri("mailto:" + e_addr));
-  data.putExtra(Intent.EXTRA_SUBJECT, "学习测试四合一：" + name);
+  data.putExtra(Intent.EXTRA_SUBJECT, "天天向上：" + name);
   data.putExtra(Intent.EXTRA_TEXT, content);
   app.startActivity(data);
   return true;
@@ -2671,7 +2540,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">学习测试四合一+</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip">天天向上+</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -2683,9 +2552,9 @@ function fInit() {
     	</relative>
     </card>
   );
-  (function () {
+  ui.run(function () {
     //w.title.setFocusable(true);
-    w.version.setText("学习测试四合一pro+" + newest_version);
+    w.version.setText("天天向上+" + newest_version);
   });
   w.setSize(720, -2);
   w.setPosition(10, 10);
@@ -2749,8 +2618,6 @@ function fRefocus() {
 function xxqg(userinfo) {
   var sign_list = [];
   fInfo("开始更新弹窗检测");
-  // console.show()
-  // console.info("开始更新弹窗检测")
   var noupdate_thread = threads.start(function () {
     //在新线程执行的代码
     className("android.widget.Button").text("立即升级").waitFor();
@@ -2776,18 +2643,17 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  
   // name = id("my_display_name").findOne().text();
-  a = id("tv_item_content").findOne(5000);
+  a = id("my_display_name").findOne(5000);
   if(a == null){fInfo("检测到新版‘我的’界面");
-    setScreenMetrics(1080, 1920);
-    if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
-    else {sleep(800); press(994, 330, 100); click(994, 330); name = id("tv_item_content").findOne().text();}
-    }else  name = a.text();
-  storage_user = storages.create('songgedodo:' + name);
-  fSet("username", name);
-  back();
-  ran_sleep();
+  setScreenMetrics(1080, 1920);
+  if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
+  else {sleep(800); press(994, 330, 100); click(994, 330); name = id("tv_item_content").findOne().text();}
+  }else  name = a.text();
+storage_user = storages.create('songgedodo:' + name);
+fSet("username", name);
+back();
+ran_sleep();
   if (meizhou == 1) {
     meizhou_dao = false;
   } else if (meizhou == 0) {
@@ -2798,11 +2664,11 @@ function xxqg(userinfo) {
   } else if (zhuanxiang == 0) {
     zhuanxiang_dao = true;
   }
-  // if (dingyue == 1) {
-  //   dingyue_dao = false;
-  // } else if (dingyue == 2) {
-  //   dingyue_dao = true;
-  // }
+  if (dingyue == 1) {
+    dingyue_dao = false;
+  } else if (dingyue == 2) {
+    dingyue_dao = true;
+  }
   a_1 = id("comm_head_xuexi_score").findOne(5000);
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
@@ -2810,10 +2676,6 @@ function xxqg(userinfo) {
     else {sleep(800); click(218, 905); press(218, 905, 100); fInfo("等待点击‘学习积分’");}
     }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
-  // setScreenMetrics(1080, 1920);
-  // fInfo("等待点击‘学习积分’");
-  // click(245, 875);
-  // press(245, 875, 1);
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
@@ -2841,12 +2703,7 @@ function xxqg(userinfo) {
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
-  1 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
-  2 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
-  // // 1 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
-  // // 2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
-  // if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
-  // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
+  0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_0(), jifen_list = refind_jifen());
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
@@ -2924,7 +2781,6 @@ function main(userinfo) {
 
 /*******************主程序部分*******************/
 /********定义全局变量*********/
-var xxqg_begin_1 = new Date();
 var jifen_list, meizhou_dao, zhuanxiang_dao, dingyue_dao, storage_user, name, jinri, zongfen;
 var jifen_map = {
     "评论": 10,
