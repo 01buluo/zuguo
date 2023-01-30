@@ -1574,8 +1574,8 @@ function do_dingyue() {
             } else { 
            //   img.recycle();
               swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
-              toast("下滑搜索中……");
-              fInfo("下滑搜索中……");
+              toastLog("下滑搜索中……");
+              //fInfo("下滑搜索中……");
               asub_1--;
           sleep(random(800, 1500)); 
                    }
