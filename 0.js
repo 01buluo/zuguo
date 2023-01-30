@@ -63,7 +63,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
                   break;
               } else {
                  path_jpg_x = 0;
-                  fInfo("继续尝试点击--‘上新’栏");
+                  fInfo("继续尝试点击--‘学习积分’");
                 } 
            }
 
