@@ -2760,22 +2760,24 @@ function xxqg(userinfo) {
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
      a_a = text("学习积分").findOne(3000);
-    //  if(textContains("学习积分").exists()||a_a) {
-    //   click(208, 958);press(208, 958, 100);
-    //   fInfo("等待点击‘学习积分’");
-    // }else {
-    //   sleep(800); 
-    //   click(218, 958); press(218, 958, 100); 
-    //   fInfo("等待点击‘学习积分’");}
-    // }else id("comm_head_xuexi_score").findOne().click();
+     if(textContains("学习积分").exists()||a_a) {
+      click(208, 958);press(208, 958, 100);
+      fInfo("等待点击‘学习积分’");
+    }else {
+      sleep(800); 
+      click(218, 958);click(254, 775); press(218, 918, 100); 
+      fInfo("等待点击‘学习积分’");}
+    }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
   // click(245, 875);
   // press(245, 875, 1);  
-  a_2 = text("积分规则").findOne(2000);
+  a_2 = text("积分规则").findOne(1500);
     if(a_2 == null){ 
-     pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
+      click(254, 775); press(254, 775, 100);
+      a_3 = text("积分规则").findOne(1500);
+     if(a_3 == null)pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
   }
-    }
+    
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
