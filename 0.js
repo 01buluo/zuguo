@@ -1482,10 +1482,10 @@ function do_dingyue_0() {
           }
           
           if (pot) {
-            log("找到一个订阅");
+            toastLog("找到一个订阅");
             sleep(random(800, 1500)); 
             // let is_click = dingyue.click();
-            log("点击：订阅");
+            toastLog("点击：订阅");
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
             sleep(random(800, 1500)); 
             click(pot.x, pot.y+5);
@@ -1493,7 +1493,7 @@ function do_dingyue_0() {
           }
           if (total_click >= 2) {
             img.recycle();
-            log("订阅已完成,准备返回");
+            toastLog("订阅已完成,准备返回");
             back();
             text("登录").waitFor();
             ran_sleep();
@@ -1510,8 +1510,8 @@ function do_dingyue_0() {
         }
         t_1 += t_2;
     }
-    if (total_click = 0) log("无新可订阅项目");
-    if (total_click = 1) log("仅发现1个可订阅项目");
+    if (total_click = 0) toastLog("无新可订阅项目");
+    if (total_click = 1) toastLog("仅发现1个可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
