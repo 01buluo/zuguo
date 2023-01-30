@@ -54,7 +54,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
        //requestScreenCapture();
           while (true && path_jpg_x != 2){
             fClear();
-           // let img_small_t = images.read(path_jpg_y);
+           let img_small_t = images.read(path_jpg_y);
             let img_big_t = captureScreen();
             // let result_0 = images.matchTemplate(img_big_t, img_small_t, {
             //   threshold: 0.8,
@@ -63,13 +63,13 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
             // });
             // fInfo(result_0);
             sleep(2000);
-            var pic_0 = images.findMultiColors(img_big_t, "#ffa837a", [[11, 20, "#ffff978f"], [10, 36, "#fffffff"], [1, -42, "#fffffff"], [-2, 109, "#fffffff"], [-42, 96, "#fffffff"], [-58, 15, "#ffe73426"], [-18, 13, "#fff57066"]], {
-              region: [400, 1100, 100, 550]
-          });
-            // var pic_0 = findImage(img_big_t, img_small_t, {
-            //   region: [400, 1100, 100, 550],
-            //   threshold: 0.8
-            //      });
+          //   var pic_0 = images.findMultiColors(img_big_t, "#ffa837a", [[11, 20, "#ffff978f"], [10, 36, "#fffffff"], [1, -42, "#fffffff"], [-2, 109, "#fffffff"], [-42, 96, "#fffffff"], [-58, 15, "#ffe73426"], [-18, 13, "#fff57066"]], {
+          //     region: [400, 1100, 100, 550]
+          // });
+            var pic_0 = findImage(img_big_t, img_small_t, {
+              region: [400, 1100, 100, 550],
+              threshold: 0.8
+                 });
             sleep(2000);
             if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
@@ -2757,13 +2757,14 @@ function xxqg(userinfo) {
   if(a_1 == null){fInfo("检测到新版‘账号’界面");
        setScreenMetrics(1080, 1920);
      a_a = text("学习积分").findOne(3000);
-     if(textContains("学习积分").exists()||a_a) {
-      click(208, 958);press(208, 958, 100);
-      fInfo("等待点击‘学习积分’");
-    }else {sleep(800); 
-      click(218, 958); press(218, 958, 100); 
-      fInfo("等待点击‘学习积分’");}
-    }else id("comm_head_xuexi_score").findOne().click();
+    //  if(textContains("学习积分").exists()||a_a) {
+    //   click(208, 958);press(208, 958, 100);
+    //   fInfo("等待点击‘学习积分’");
+    // }else {
+    //   sleep(800); 
+    //   click(218, 958); press(218, 958, 100); 
+    //   fInfo("等待点击‘学习积分’");}
+    // }else id("comm_head_xuexi_score").findOne().click();
    sleep(1000);
   // click(245, 875);
   // press(245, 875, 1);  
@@ -2771,6 +2772,7 @@ function xxqg(userinfo) {
     if(a_2 == null){ 
      pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 30, 50);
   }
+    }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
