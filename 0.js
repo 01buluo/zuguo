@@ -8,6 +8,7 @@ var watchdog = TTXS_PRO_CONFIG.get("watchdog", "1800");
 var slide_verify = TTXS_PRO_CONFIG.get("slide_verify", "300");
 var fast_mode = TTXS_PRO_CONFIG.get("fast_mode", false);
 var ddtong = TTXS_PRO_CONFIG.get("ddtong", false);
+var weixin_kaiguan = TTXS_PRO_CONFIG.get("weixin_kaiguan", false);
 var is_exit = TTXS_PRO_CONFIG.get("is_exit", true);
 var pinglun = TTXS_PRO_CONFIG.get("pinglun", true);
 var shipin = TTXS_PRO_CONFIG.get("shipin", true);
@@ -2740,7 +2741,7 @@ function xxqg(userinfo) {
   // // 2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
   // if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
-  if (pushplus || token) {
+  if (weixin_kaiguan && (pushplus || token)) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
     token || (token = pushplus);

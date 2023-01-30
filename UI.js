@@ -661,6 +661,7 @@ ui.layout(
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="脚本选择" textColor="#222222" textSize="16sp" maxLines="1" />
+                                        <text text="共4脚本可按需选择" textColor="#999999" textSize="14sp" maxLines="1" />
                                         <text text="切换脚本后需在配置页设置" textColor="#999999" textSize="14sp" maxLines="1" />
                                     </vertical>
                                     <spinner id="script_chosen" marginLeft="4" marginRight="6" entries="(QG最新版)需root、虚拟机等去截图权限版|天天向上Pro|天天向上|Study改" />
@@ -864,6 +865,14 @@ ui.layout(
                                     <text w="auto" textColor="#999999" textSize="12sp" text="若已root或虚拟机等去除截图限制的参照()内容选择，QG旧版的忽略()内容" />
                                     <spinner id="ttxs_pro_dingyue" marginLeft="4" marginRight="6" entries="不做|正序订阅(若已去限制--表示遍历搜索‘强国号’，较费时)|只订阅年度上新(若已去限制--表示只看‘上新或2023年上线’)" />
                                 </vertical> 
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="pushplus_token(微信推送)开关" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="选推送，需要勾选并填写下方token" />
+                                </vertical>
+                                <checkbox id="ttxs_pro_kaiguan" marginLeft="4" marginRight="6" checked="false" />
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
@@ -1380,6 +1389,7 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("slide_verify", ui.ttxs_pro_slide_verify.getText() + "");
     TTXS_PRO_CONFIG.put("fast_mode", ui.ttxs_pro_fast_mode.isChecked());
     TTXS_PRO_CONFIG.put("ddtong", ui.ttxs_pro_ddtong.isChecked());
+    TTXS_PRO_CONFIG.put("weixin_kaiguan", ui.ttxs_pro_kaiguan.isChecked());
     TTXS_PRO_CONFIG.put("is_exit", ui.ttxs_pro_is_exit.isChecked());
     TTXS_PRO_CONFIG.put("pinglun", ui.ttxs_pro_pinglun.isChecked());
     TTXS_PRO_CONFIG.put("shipin", ui.ttxs_pro_shipin.isChecked());
@@ -1416,6 +1426,8 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode"));
     TTXS_PRO_CONFIG.put("ddtong", false);
     ui.ttxs_pro_ddtong.setChecked(TTXS_PRO_CONFIG.get("ddtong"));
+    TTXS_PRO_CONFIG.put("weixin_kaiguan", false);
+    ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan"));
     TTXS_PRO_CONFIG.put("is_exit", true);
     ui.ttxs_pro_is_exit.setChecked(TTXS_PRO_CONFIG.get("is_exit"));
     TTXS_PRO_CONFIG.put("pinglun", true);
@@ -1567,6 +1579,7 @@ function Initialize() {
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode", false));
     ui.ttxs_pro_ddtong.setChecked(TTXS_PRO_CONFIG.get("ddtong", false));
+    ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan", false));
     ui.ttxs_pro_is_exit.setChecked(TTXS_PRO_CONFIG.get("is_exit", true));
     ui.ttxs_pro_pinglun.setChecked(TTXS_PRO_CONFIG.get("pinglun", true));
     ui.ttxs_pro_shipin.setChecked(TTXS_PRO_CONFIG.get("shipin", true));
