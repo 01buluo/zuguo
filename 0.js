@@ -1509,7 +1509,7 @@ function do_dingyue_0() {
         }
         t_1 += t_2;
     }
-    log("无可订阅项目");
+    if (total_click < 1) log("无新可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
