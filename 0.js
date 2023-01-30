@@ -49,6 +49,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
      images.save(img_small, path_xuexijifen_jpg);
     }
        sleep(1000);
+       if(files.exists(path_jpg_y))fInfo('找到点击参考');
         var path_jpg_x = 0;
        //requestScreenCapture();
           while (true && path_jpg_x != 2){
