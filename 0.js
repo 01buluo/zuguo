@@ -1525,8 +1525,8 @@ function do_dingyue() {
         }
         t_1 += t_2;
     }
-    if (total_click = 0) fInfo("无新可订阅项目");
-    if (total_click = 1) fInfo("此次仅发现1个可订阅项目");
+    if (total_click == 0) fInfo("无新可订阅项目");
+    if (total_click == 1) fInfo("此次仅发现1个可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
