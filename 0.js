@@ -1432,7 +1432,11 @@ function do_dingyue_0() {
   fSet("title", "订阅…");
   //fClear();
   fInfo("设置订阅");
-  
+  // console.hide();
+  // sleep(200);
+  // console.show();
+  // console.setPosition(200, device.height * 0.1);
+  // sleep(3000);
   // 上方标签
   //let tab_clt = descContains("Tab").untilFind();
     h = device_h; //屏幕高
@@ -2469,6 +2473,14 @@ function refind_jifen() {
   return a
 }
 
+function refind_jifen_0() {
+  className("android.webkit.WebView").scrollable().findOne().scrollForward();
+  var a = className("android.widget.ListView").filter(function (b) {
+    return 10 < b.rowCount()
+  }).findOne();
+  21 == a.depth() ? (jifen_flag = "old", console.info("检测为旧版界面")) : 23 == a.depth() && (jifen_flag = 0 < a.child(0).child(3).childCount() ? "new1" : "new2", console.info("检测为新版界面"));
+  return a
+}
 function entry_jifen_project(a) {
   var b = "old" == jifen_flag ? 3 : 4;
   jifen_list.findOne(textEndsWith(a)).parent().child(b).click()
@@ -2705,7 +2717,7 @@ ran_sleep();
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
   d = 1;
-  0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_0(), jifen_list = refind_jifen());
+  0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始"), d = do_dingyue_0(), jifen_list = refind_jifen_0());
   if (pushplus || token) {
     fInfo("推送前等待积分刷新5秒");
     sleep(5E3);
