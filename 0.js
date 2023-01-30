@@ -2773,7 +2773,7 @@ function xxqg(userinfo) {
   // press(245, 875, 1);  
   a_2 = text("积分规则").findOne(2000);
     if(a_2 == null){ 
-     pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, 85);
+     pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, 40);
   }
     }
   text("积分规则").waitFor();
