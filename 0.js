@@ -54,7 +54,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
        //requestScreenCapture();
           while (true && path_jpg_x != 2){
             fClear();
-            let img_small_t = images.read(path_jpg_y);t
+            let img_small_t = images.read(path_jpg_y);
             let img_big_t = captureScreen();
             let result_0 = images.matchTemplate(img_big_t, img_small_t, {
               max: 1
