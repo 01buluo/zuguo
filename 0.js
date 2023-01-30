@@ -1430,8 +1430,9 @@ function dacuo(renshu) {
 function do_dingyue_0() {
   entry_jifen_project("订阅");
   fSet("title", "订阅…");
-  fInfo("设置订阅");
   //fClear();
+  fInfo("设置订阅");
+  
   // 上方标签
   //let tab_clt = descContains("Tab").untilFind();
     h = device_h; //屏幕高
@@ -1442,7 +1443,7 @@ function do_dingyue_0() {
     let total_click = 0;
     if (dingyue_dao) {
      // fSet("title", "搜索‘上新/2023年上线’订阅…");
-      fClear();
+      //fClear();
       log("上新/2023年上线--搜索中……");
       var t_1 = 468;
       var t_2 = 1199;
@@ -1450,7 +1451,7 @@ function do_dingyue_0() {
       var arr = [1, 2];
        }else{
        // fSet("title", "搜索‘强国号’订阅…");
-        fClear();
+        //fClear();
         log("强国号’-- 搜索中………");
         var t_1 = 318;
         var t_2 = 150;
