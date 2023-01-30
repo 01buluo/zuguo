@@ -2803,7 +2803,7 @@ function main(userinfo) {
 
 /*******************主程序部分*******************/
 /********定义全局变量*********/
-var jifen_list, meizhou_dao, zhuanxiang_dao, dingyue_dao, storage_user, name, jinri, zongfen;
+var jifen_list, meizhou_dao, zhuanxiang_dao, dingyue_dao, storage_user, name, jinri, zongfen, total_click;
 var jifen_map = {
     "评论": 10,
     "视频": 2,
