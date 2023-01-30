@@ -57,16 +57,19 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
             let img_small_t = images.read(path_jpg_y);
             let img_big_t = captureScreen();
             let result_0 = images.matchTemplate(img_big_t, img_small_t, {
-              threshold: 0.6,
+              threshold: 0.8,
               region:[400, 1100, 100, 550],
               max: 2
             });
             fInfo(result_0);
             sleep(2000);
-            var pic_0 = findImage(img_big_t, img_small_t, {
-              region: [400, 1100, 100, 550],
-              threshold: 0.6
-                 });
+            var pic_0 = images.findMultiColors(img_big_t, "#ffa837a", [[11, 20, "#ffff978f"], [10, 36, "#fffffff"], [1, -42, "#fffffff"], [-2, 109, "#fffffff"], [-42, 96, "#fffffff"], [-58, 15, "#ffe73426"], [-18, 13, "#fff57066"]], {
+              region: [0, 960, 1080, 960]
+          });
+            // var pic_0 = findImage(img_big_t, img_small_t, {
+            //   region: [400, 1100, 100, 550],
+            //   threshold: 0.8
+            //      });
             sleep(2000);
             if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
