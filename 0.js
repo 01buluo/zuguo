@@ -1498,7 +1498,7 @@ function do_dingyue() {
             fInfo("找到一个订阅");
             sleep(random(800, 1500)); 
             // let is_click = dingyue.click();
-            toastLog("点击：订阅");
+            fInfo("点击：订阅");
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
             sleep(random(800, 1500)); 
             click(pot.x, pot.y+5);
@@ -1525,7 +1525,7 @@ function do_dingyue() {
         t_1 += t_2;
     }
     if (total_click = 0) fInfo("无新可订阅项目");
-    if (total_click = 1) fInfo("仅发现1个可订阅项目");
+    if (total_click = 1) fInfo("此次仅发现1个可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
