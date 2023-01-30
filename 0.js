@@ -1428,7 +1428,7 @@ function dacuo(renshu) {
 
 /********订阅*********/
 function do_dingyue_0() {
-  entry_jfen_project("订阅");
+  entry_jifen_project("订阅");
   //fSet("title", "订阅…");
   fClear();
   // 上方标签
