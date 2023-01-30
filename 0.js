@@ -1430,6 +1430,7 @@ function dacuo(renshu) {
 function do_dingyue_0() {
   entry_jifen_project("订阅");
   fSet("title", "订阅…");
+  fInfo("设置订阅");
   //fClear();
   // 上方标签
   //let tab_clt = descContains("Tab").untilFind();
@@ -1442,7 +1443,7 @@ function do_dingyue_0() {
     if (dingyue_dao) {
      // fSet("title", "搜索‘上新/2023年上线’订阅…");
       fClear();
-      fInfo("上新/2023年上线--搜索中……");
+      log("上新/2023年上线--搜索中……");
       var t_1 = 468;
       var t_2 = 1199;
      // var dingyue_shu = 2;
@@ -1450,7 +1451,7 @@ function do_dingyue_0() {
        }else{
        // fSet("title", "搜索‘强国号’订阅…");
         fClear();
-        fInfo("强国号’-- 搜索中………");
+        log("强国号’-- 搜索中………");
         var t_1 = 318;
         var t_2 = 150;
       //var dingyue_shu = 10;
@@ -1474,10 +1475,10 @@ function do_dingyue_0() {
           }
           
           if (pot) {
-            fInfo("找到一个订阅");
+            log("找到一个订阅");
             sleep(random(800, 1500)); 
             // let is_click = dingyue.click();
-             fInfo("点击：订阅");
+            log("点击：订阅");
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
             sleep(random(800, 1500)); 
             click(pot.x, pot.y+5);
@@ -1485,7 +1486,7 @@ function do_dingyue_0() {
           }
           if (total_click >= 2) {
             img.recycle();
-            fInfo("订阅已完成,准备返回");
+            log("订阅已完成,准备返回");
             back();
             text("登录").waitFor();
             ran_sleep();
@@ -1502,7 +1503,7 @@ function do_dingyue_0() {
         }
         t_1 += t_2;
     }
-    fInfo("无可订阅项目");
+    log("无可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
