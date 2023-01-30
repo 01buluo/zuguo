@@ -59,7 +59,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
             let result_0 = images.matchTemplate(img_big_t, img_small_t, {
               threshold: 0.6,
               region:[400, 1100, 100, 550],
-              max: 5
+              max: 2
             });
             fInfo(result_0);
             sleep(2000);
@@ -76,6 +76,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
                   path_jpg_x = 2;
                   break;
               } else {
+                img_big_t.recycle();
                  path_jpg_x = 0;
                   fInfo("继续尝试点击--‘学习积分’");
                   sleep(random(700, 1100));
