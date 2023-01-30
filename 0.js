@@ -1,5 +1,6 @@
 auto.waitFor(); //mode = "fast"
 var delay_time = 3000;
+var total_click = 0;
 device.wakeUpIfNeeded();
 
 // 读取自定义配置
