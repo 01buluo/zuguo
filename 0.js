@@ -58,13 +58,14 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
             var pic_0 = findImage(captureScreen(), img_small);
              if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
-                  press(pic_0.x+x_1, pic_0.y+x_2 ,100);//点击坐标
-                  click(pic_0.x+x_1, pic_0.y+x_2);
+                  press(pic_0.x + x_1, pic_0.y + x_2 ,100);//点击坐标
+                  click(pic_0.x + x_1, pic_0.y + x_2);
                   path_jpg_x = 2;
                   break;
               } else {
                  path_jpg_x = 0;
                   fInfo("继续尝试点击--‘学习积分’");
+                  sleep(random(700, 1100));
                 } 
            }
 
@@ -2751,7 +2752,7 @@ function xxqg(userinfo) {
   // press(245, 875, 1);  
   a_2 = text("积分规则").findOne(2000);
     if(a_2 == null){ 
-     pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, 90);
+     pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 30, 50);
   }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
