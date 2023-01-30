@@ -39,7 +39,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
 // var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
 // var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
 
-  function pic_click(path_jpg_y,url_jpg_y){
+  function pic_click(path_jpg_y,url_jpg_y,x_1,x_2){
     if(!files.exists(path_jpg_y)) {
       fClear();
      fInfo('重要点击参数不存在,准备下载，若此次报错无法运行，不要勾选订阅重新运行脚本');
@@ -58,7 +58,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
             var pic_0 = findImage(captureScreen(), img_small);
              if (pic_0) {
                   fInfo("'学习积分'---找到了，坐标：" + pic_0.x+"----" + pic_0.y);
-                  press(pic_0.x+50, pic_0.y+50 ,100);//点击坐标
+                  press(pic_0.x+x_1, pic_0.y+x_2 ,100);//点击坐标
                   path_jpg_x = 2;
                   break;
               } else {
@@ -2750,7 +2750,7 @@ function xxqg(userinfo) {
   // press(245, 875, 1);  
   a_2 = text("积分规则").findOne(2000);
     if(a_2 == null){ 
-     pic_click(path_xuexijifen_jpg,url_xuexijifen_jpg);
+     pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, 90);
   }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
