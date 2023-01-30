@@ -2675,7 +2675,8 @@ function xxqg(userinfo) {
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版‘我的’界面");
     setScreenMetrics(1080, 1920);
-    if(text("学习积分").findOne(3000)) text("学习积分").findOne().click();
+    a_a = text("学习积分").findOne(3000);
+    if(a_a) {press(964, 330, 100); var name = id("tv_item_content").findOne().text();}
     else {sleep(1000); press(964, 330, 100); click(994, 330);  name = id("tv_item_content").findOne().text();}
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
