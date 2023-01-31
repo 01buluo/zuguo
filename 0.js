@@ -64,7 +64,9 @@ function version1GreaterVersion2(version1, version2, equal) {
 }
 //（找）图片点击
 var url_xuexijifen_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_jpg.jpg'
+var url_xuexijifen_1_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_1_jpg.jpg'
 var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
+var path_xuexijifen_1_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
 // var path_jpg_2 = '/sdcard/2022_shangxian.jpg'; //2022上线--图片位置
 // var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
 // var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
@@ -83,7 +85,8 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
        if(files.exists(path_jpg_y)) fInfo('找到点击参考');
         var path_jpg_x = 0;
        //requestScreenCapture();
-          while (true && path_jpg_x != 2){
+        //  while (true && path_jpg_x != 2){
+          for(let i = 0; i < 6; i++){
             fClear();
             setScreenMetrics(1080, 1920);
            let img_small_t = images.read(path_jpg_y);
@@ -113,6 +116,7 @@ var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标
                   break;
               } else {
                 img_big_t.recycle();
+                if(textContains("学习积分").exists()) break;
                  path_jpg_x = 0;
                   fInfo("继续尝试点击--‘学习积分’");
                   sleep(random(700, 1100));
@@ -2844,13 +2848,13 @@ function xxqg(userinfo) {
         a_2 = text("积分规则").findOne(3000);
        if(a_2 == null)  {
         fInfo("等待点击‘学习积分---’");
-        pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
+        pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 50, 40);
        }
        a_3 = text("积分规则").findOne(3000);
        if(a_3 == null)  {
         fInfo("等待点击‘学习积分---’");
         pic_click(path_xuexijifen_1_jpg, url_xuexijifen_1_jpg, 70, -40);
-       }
+       }else fInfo("多种点击'学习积分'均未成功，请手动点击或退出并更换qg版本");
     }  
   //   {
   //     fInfo("等待点击‘学习积分--’");
