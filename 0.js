@@ -37,9 +37,6 @@ var isPrivateMode_1 = isPrivateModes-2380;
 
 var privateModeStartVersion = "2.39.0";
 var isPrivateMode = version1GreaterVersion2(getVersion("cn.xuexi.android"), privateModeStartVersion);
-   fError('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
-   if(isPrivateMode_1 > 0 || isPrivateMode) console.error('需要去除截图权限四人/双人赛等才可以用ocr');
-
 function getVersion(package_name) {
     // 该函数来源：https://blog.csdn.net/aa490791706/article/details/122863666
     let pkgs = context.getPackageManager().getInstalledPackages(0).toArray();
@@ -230,6 +227,8 @@ var w = fInit();
 // console.setTitle("学习测试四合一");
 // console.show();
 fInfo("学习测试四合一Pro" + newest_version + "\n……脚本初始化……");
+fError('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
+  if(isPrivateMode_1 > 0 || isPrivateMode) fError('需要去除截图权限四人/双人赛等才可以用ocr');  
 // 初始化宽高
 var [device_w, device_h] = init_wh();
 // log("fina:", device_w, device_h);
