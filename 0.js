@@ -38,8 +38,9 @@ var isPrivateMode_1 = isPrivateModes-2380;
 var privateModeStartVersion = "2.39.0";
 var isPrivateMode = version1GreaterVersion2(getVersion("cn.xuexi.android"), privateModeStartVersion);
     console.error('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
-   if(isPrivateMode_1 > 0 || isPrivateMode){ console.error('需要去除截图权限四人/双人赛等才可以用ocr');}
-   function getVersion(package_name) {
+   if(isPrivateMode_1 > 0 || isPrivateMode) console.error('需要去除截图权限四人/双人赛等才可以用ocr');
+
+function getVersion(package_name) {
     // 该函数来源：https://blog.csdn.net/aa490791706/article/details/122863666
     let pkgs = context.getPackageManager().getInstalledPackages(0).toArray();
     for (let i in pkgs) {
