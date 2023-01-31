@@ -2730,10 +2730,10 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  fInfo("检测‘我的’界面……?新?旧，耐心等待……")
+  fInfo("检测界面……?新?旧，耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
-  if(a == null){fInfo("检测到新版‘我的’界面");
+  if(a == null){fInfo("检测到新版界面");
     setScreenMetrics(1080, 1920);
     a_a = text("学习积分").findOne(3000);
     if(a_a) {press(964, 330, 100); var name = id("tv_item_content").findOne().text();}
@@ -2759,26 +2759,26 @@ function xxqg(userinfo) {
     dingyue_dao = true;
   }
   a_0 = id("comm_head_xuexi_score").findOne(5000);
-  if(a_0 == null){fInfo("检测到新版‘账号’界面");
+  if(a_0 == null){fInfo("新版界面");
        setScreenMetrics(1080, 1920);
      a_a = text("学习积分").findOne(3000);
      if(textContains("学习积分").exists()||a_a) {
-      click(208, 958);press(208, 958, 100);
+      click(188, 1008);press(188, 1008, 100);
       fInfo("等待点击‘学习积分’");
     }else {
       sleep(800); 
-      click(218, 958); press(218, 918, 100); 
+      click(228, 855); press(228, 855, 100); 
       sleep(800); 
-      a_1 = text("积分规则").findOne(1500);
-      if(a_1 == null){ 
-        click(254, 775); press(254, 775, 100);
+      // a_1 = text("积分规则").findOne(1500);
+      // if(a_1 == null){ 
+      //   click(254, 775); press(254, 775, 100);
         }
-      fInfo("等待点击‘学习积分’");}
+      fInfo("等待点击‘学习积分’");//}
     }else id("comm_head_xuexi_score").findOne().click();
-   sleep(1000);
+  // sleep(1000);
   // click(245, 875);
   // press(245, 875, 1);  
-  a_2 = text("积分规则").findOne(1500);
+  a_2 = text("积分规则").findOne(5000);
     if(a_2 == null){ 
       click(254, 775); press(254, 775, 100);
       a_3 = text("积分规则").findOne(1500);
