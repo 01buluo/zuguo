@@ -65,8 +65,8 @@ function version1GreaterVersion2(version1, version2, equal) {
 //（找）图片点击
 var url_xuexijifen_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_jpg.jpg'
 var url_xuexijifen_1_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_1_jpg.jpg'
-var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
-var path_xuexijifen_1_jpg = '/sdcard/xuexijifen_1_jpg.jpg';  //学习积分---图标位置
+var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---qg2.39图标位置
+var path_xuexijifen_1_jpg = '/sdcard/xuexijifen_1_jpg.jpg';  //学习积分---qg2.43/2.44图标位置
 // var path_jpg_2 = '/sdcard/2022_shangxian.jpg'; //2022上线--图片位置
 // var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
 // var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
@@ -82,7 +82,7 @@ var path_xuexijifen_1_jpg = '/sdcard/xuexijifen_1_jpg.jpg';  //学习积分---�
     }
       setScreenMetrics(1080, 1920);
        sleep(1000);
-       if(files.exists(path_jpg_y)) fInfo('找到点击参考');
+       if(files.exists(path_jpg_y)) fInfo('找到本地文文本点击参考');
         var path_jpg_x = 0;
        //requestScreenCapture();
         //  while (true && path_jpg_x != 2){
@@ -232,7 +232,7 @@ var w = fInit();
 // console.show();
 fInfo("学习测试四合一Pro" + newest_version + "\n……脚本初始化……");
 fError('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
-  if(isPrivateMode_1 > 0 || isPrivateMode) fError('需要去除截图权限四人/双人赛等才可以用ocr');  
+  if(isPrivateMode_1 > 0 || isPrivateMode) fTips('需要去除截图权限四人/双人赛等才可以用ocr');  
 // 初始化宽高
 var [device_w, device_h] = init_wh();
 // log("fina:", device_w, device_h);
@@ -1622,7 +1622,7 @@ function do_dingyue() {
         t_1 += t_2;
     }
     if (total_click == 0) fError("无新可订阅项目");
-    if (total_click == 1) fInfo("此次仅发现1个可订阅项目");
+    if (total_click == 1) fTips("此次仅发现1个可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
