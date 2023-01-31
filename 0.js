@@ -32,6 +32,14 @@ var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
 var yinliang = TTXS_PRO_CONFIG.get("yinliang", "0");
 var zhanghao = TTXS_PRO_CONFIG.get("zhanghao", "");
 
+var isPrivateModes = getVersion("cn.xuexi.android").match(/[0-9][0-9]*/g).join('');
+var isPrivateMode_1 = isPrivateModes-2380;
+
+var privateModeStartVersion = "2.39.0";
+var isPrivateMode = version1GreaterVersion2(getVersion("cn.xuexi.android"), privateModeStartVersion);
+    console.error('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
+   if(isPrivateMode_1 > 0 || isPrivateMode){ console.error('需要去除截图权限四人/双人赛等才可以用ocr');}
+
 //（找）图片点击
 var url_xuexijifen_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_jpg.jpg'
 var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
