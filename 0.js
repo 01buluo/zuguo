@@ -2795,8 +2795,8 @@ function xxqg(userinfo) {
        setScreenMetrics(1080, 1920);
      a_a = text("学习积分").findOne(3000);
      if(textContains("学习积分").exists()||a_a) {
-      click(188, 1008);press(188, 1008, 100);
-      fInfo("等待点击‘学习积分’");
+      click(186, 1009);press(186, 1009, 100);
+      fInfo("等待点击‘学习积分--’");
     }else {
       sleep(800); 
       click(228, 855); press(228, 855, 100); 
@@ -2805,7 +2805,7 @@ function xxqg(userinfo) {
       // if(a_1 == null){ 
       //   click(254, 775); press(254, 775, 100);
         }
-      fInfo("等待点击‘学习积分’");//}
+      fInfo("等待点击‘学习积分---’");//}
     }else id("comm_head_xuexi_score").findOne().click();
   // sleep(1000);
   // click(245, 875);
