@@ -2649,6 +2649,38 @@ function displayProp(obj) {
   }
   log(names);
 }
+/**
+ * 模拟点击不可以点击元素
+ * @param {UiObject / string} target 控件或者是控件文本
+ */
+function my_click_non_clickable(target) {
+  if (typeof target == "string") {
+      text(target).waitFor();
+      var tmp = text(target).findOne().bounds();
+  } else {
+      var tmp = target.bounds();
+  }
+  var randomX = random(tmp.left, tmp.right);
+  var randomY = random(tmp.top, tmp.bottom);
+  click(randomX, randomY);
+}
+
+// 模拟点击可点击元素
+// function my_click_clickable(target) {
+//     text(target).waitFor();
+//     防止点到页面中其他有包含本地城市名称"adress"的控件，比如搜索栏
+//     if (target == adress) {
+//         log("点击:" + "depth(17)");
+//         className("android.weige.TextView").depth(17).findOne(2000).click();
+//     } else {
+//         click(target);
+//     }
+// }
+   function my_click_clickable(target) {
+  text(target).waitFor();
+  //console.info('点击进入--');
+  click(target);
+  }
 
 /*******************悬浮窗*******************/
 function fInit() {
@@ -2792,30 +2824,46 @@ function xxqg(userinfo) {
   }
   a_0 = id("comm_head_xuexi_score").findOne(5000);
   if(a_0 == null){fInfo("新版界面");
+     //qg2.39版本界面判断
+     if(textContains("学习积分").exists()) {
+      fInfo("等待点击‘学习积分-’");
+        my_click_clickable("学习积分");
+        sleep(1500);
        setScreenMetrics(1080, 1920);
-     a_a = text("学习积分").findOne(3000);
-     if(textContains("学习积分").exists()||a_a) {
-      click(186, 1009);press(186, 1009, 100);
-      fInfo("等待点击‘学习积分--’");
-    }else {
-      sleep(800); 
-      click(228, 855); press(228, 855, 100); 
-      sleep(800); 
-      // a_1 = text("积分规则").findOne(1500);
-      // if(a_1 == null){ 
-      //   click(254, 775); press(254, 775, 100);
-        }
-      fInfo("等待点击‘学习积分---’");//}
+       if(!textContains("积分规则").exists()) click(186, 1009);press(186, 1009, 100);
+      } 
     }else id("comm_head_xuexi_score").findOne().click();
-  // sleep(1000);
-  // click(245, 875);
-  // press(245, 875, 1);  
-  a_2 = text("积分规则").findOne(5000);
-    if(a_2 == null){ 
-      click(254, 775); press(254, 775, 100);
-      a_3 = text("积分规则").findOne(1500);
-     if(a_3 == null)pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
-  }  
+   // sleep(1500);
+      a_2 = text("积分规则").findOne(3000);
+      if(a_2 == null){ 
+        fInfo("等待点击‘学习积分--’");
+        click(228, 855); press(228, 855, 100); 
+        a_3 = text("积分规则").findOne(3000);
+       if(a_3 == null)  {
+        fInfo("等待点击‘学习积分--’");
+        pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
+       }
+    }  
+  //   {
+  //     fInfo("等待点击‘学习积分--’");
+  //     sleep(800); 
+  //     click(228, 855); press(228, 855, 100); 
+  //     sleep(800); 
+  //     // a_1 = text("积分规则").findOne(1500);
+  //     // if(a_1 == null){ 
+  //     //   click(254, 775); press(254, 775, 100);
+  //       }
+  //     fInfo("等待点击‘学习积分---’");//}
+  //   }else 
+  // // sleep(1000);
+  // // click(245, 875);
+  // // press(245, 875, 1);  
+  // a_2 = text("积分规则").findOne(5000);
+  //   if(a_2 == null){ 
+  //     click(254, 775); press(254, 775, 100);
+  //     a_3 = text("积分规则").findOne(1500);
+  //    if(a_3 == null)pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
+  // }  
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
