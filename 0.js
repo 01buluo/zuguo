@@ -2845,16 +2845,20 @@ function xxqg(userinfo) {
       if(a_1 == null){ 
         fInfo("等待点击‘学习积分--’");
         click(228, 855); press(228, 855, 100); 
-        a_2 = text("积分规则").findOne(3000);
+        a_2 = text("积分规则").findOne(4000);
        if(a_2 == null)  {
         fInfo("等待点击‘学习积分---’");
         pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 50, 40);
        }
-       a_3 = text("积分规则").findOne(3000);
+       a_3 = text("积分规则").findOne(4000);
        if(a_3 == null)  {
         fInfo("等待点击‘学习积分---’");
         pic_click(path_xuexijifen_1_jpg, url_xuexijifen_1_jpg, 70, -40);
-       }else fInfo("多种点击'学习积分'均未成功，请手动点击或退出并更换qg版本");
+       }
+       my_click_clickable("学习积分");
+       a_4 = text("积分规则").findOne(4000);
+       if(a_4 == null){click(186, 1009); press(186, 1009, 100);
+         fInfo("多种点击'学习积分'均未成功，请手动点击或退出并更换qg版本");}
     }  
   //   {
   //     fInfo("等待点击‘学习积分--’");
