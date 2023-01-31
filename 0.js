@@ -2831,7 +2831,7 @@ function xxqg(userinfo) {
   if(a_0 == null){fInfo("新版界面");
        sleep(1500);
   //qg2.38版本界面判断
-     if(text("学习积分").exists()) {
+     if(text("学习积分").exists()||textContains("积分").exists()||textContains("学习积分").exists()||textContains("收藏").exists()||textContains("学签到服务").exists()) {
       fInfo("等待点击‘学习积分-’");
         my_click_clickable("学习积分");
         sleep(1500);
