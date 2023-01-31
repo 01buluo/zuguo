@@ -66,7 +66,7 @@ function version1GreaterVersion2(version1, version2, equal) {
 var url_xuexijifen_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_jpg.jpg'
 var url_xuexijifen_1_jpg = 'https://ghproxy.com/https://github.com/01buluo/zuguo/blob/main/xuexijifen_1_jpg.jpg'
 var path_xuexijifen_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
-var path_xuexijifen_1_jpg = '/sdcard/xuexijifen_jpg.jpg';  //学习积分---图标位置
+var path_xuexijifen_1_jpg = '/sdcard/xuexijifen_1_jpg.jpg';  //学习积分---图标位置
 // var path_jpg_2 = '/sdcard/2022_shangxian.jpg'; //2022上线--图片位置
 // var path_jpg_3 = '/sdcard/2022_shangxian_end.jpg';//2022上线最新更新图标位置
 // var path_jpg_4 = '/sdcard/shangxin_1.jpg';//最近上线--图片位置
