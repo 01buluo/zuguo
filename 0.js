@@ -2822,9 +2822,11 @@ function xxqg(userinfo) {
   } else if (dingyue == 2) {
     dingyue_dao = true;
   }
-  a_0 = id("comm_head_xuexi_score").findOne(5000);
+  if(textContains("学习积分").exists()) my_click_clickable("学习积分");
+  else {a_0 = id("comm_head_xuexi_score").findOne(5000);
   if(a_0 == null){fInfo("新版界面");
-     //qg2.39版本界面判断
+       sleep(1500);
+  //qg2.38版本界面判断
      if(textContains("学习积分").exists()) {
       fInfo("等待点击‘学习积分-’");
         my_click_clickable("学习积分");
@@ -2833,14 +2835,15 @@ function xxqg(userinfo) {
        if(!textContains("积分规则").exists()) click(186, 1009);press(186, 1009, 100);
       } 
     }else id("comm_head_xuexi_score").findOne().click();
+  }
    // sleep(1500);
-      a_2 = text("积分规则").findOne(3000);
+      a_2 = text("积分规则").findOne(4000);
       if(a_2 == null){ 
         fInfo("等待点击‘学习积分--’");
         click(228, 855); press(228, 855, 100); 
         a_3 = text("积分规则").findOne(3000);
        if(a_3 == null)  {
-        fInfo("等待点击‘学习积分--’");
+        fInfo("等待点击‘学习积分---’");
         pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
        }
     }  
