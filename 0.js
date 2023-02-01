@@ -2804,7 +2804,7 @@ function xxqg(userinfo) {
   if(a == null){fInfo("检测到新版界面");
     setScreenMetrics(1080, 1920);
     a_a = text("学习积分").findOne(3000);
-    if(a_a) {press(964, 330, 100); var name = id("tv_item_content").findOne().text();}
+    if(a_a) {press(964, 330, 100);  name = id("tv_item_content").findOne().text();}
     else {sleep(1000); press(964, 330, 100); click(994, 330);  name = id("tv_item_content").findOne().text();}
     }else  name = a.text();
   storage_user = storages.create('songgedodo:' + name);
