@@ -2850,13 +2850,11 @@ function getScores(i) {
           text("积分").findOnce().parent().child(1).click();
       }
       sleep(3000);
-    //sleep(3000);
     sleep(random(700, 1500));
     className("android.view.View").depth(22).findOnce(2).child(0).click();
   }
   while (!text('登录').exists()) {
     sleep(random(700, 1500));
-     // delay(1);
     sleep(1500);
   }
   let err = false;
@@ -2881,10 +2879,11 @@ function getScores(i) {
       }
   }
   if(i==3){
+     if(myScores["每周答题"]== null||myScores["每周答题"] == undefined) myScores["每周答题"] = 0;
       //var score = textContains("今日已累积").findOne().text();
       score = '每周答题:' + myScores["每周答题"] + '分';
       //score += '； ---成长总积分:' +  textContains("成长总积分").findOne().parent().child(1).text() + '分  ';
-      log(score);
+      fInfo(score);
       back();
       return score;
   }
@@ -3022,7 +3021,7 @@ function xxqg(userinfo) {
   nolocate_thread.isAlive() && (nolocate_thread.interrupt(), fInfo("终止位置权限弹窗检测"));
   noupdate_thread.isAlive() && (noupdate_thread.interrupt(), fInfo("终止更新弹窗检测"));
   nonotice_thread.isAlive() && (nonotice_thread.interrupt(), fInfo("终止消息通知检测"));
-  true == pinglun && ("old" == jifen_flag && "0" == jifenlist.child(jifen_map["评论"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["评论"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["评论"]).child(3).text().match(/\d+/)[0]) && (toastLog("开始评论"), do_pinglun(), jifen_list = refind_jifen());
+  true == pinglun && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["评论"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["评论"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["评论"]).child(3).text().match(/\d+/)[0]) && (toastLog("开始评论"), do_pinglun(), jifen_list = refind_jifen());
   true == shipin && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["视频"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["视频"]).child(4).text()) && (console.verbose("无障碍服务：" + auto.service), toastLog("开始视听次数"), do_shipin(), jifen_list = refind_jifen());
   true == wenzhang && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["文章"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["文章"]).child(4).text()) && (console.verbose("无障碍服务：" + auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list = refind_jifen());
   true == meiri && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["每日"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["每日"]).child(4).text()) && (toastLog("每日答题开始"), do_meiri(), jifen_list = refind_jifen());
