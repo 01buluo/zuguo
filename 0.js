@@ -2897,7 +2897,7 @@ function getScores(i) {
   // if (meizhou_txt == true)
   //     console.log('每周答题：\t' + meizhou.toString());
   sleep(random(700, 1500));
-  back();
+ // back();
   sleep(random(700, 1500));
 }
 
