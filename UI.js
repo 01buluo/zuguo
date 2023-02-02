@@ -773,7 +773,8 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题(新版已弃，新版选不做)" />
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="每周答题(新版已弃，若已做完选不做)" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="若有每周题目未做，可选" />
                                     <spinner id="ttxs_pro_meizhou" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
                                 </vertical> 
                             </horizontal>
