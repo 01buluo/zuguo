@@ -2933,7 +2933,6 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  getScores(3);
   fInfo("检测界面……?新?旧，耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
@@ -2996,6 +2995,7 @@ function xxqg(userinfo) {
        if(a_4 == null){click(186, 1009); press(186, 1009, 100);
          fInfo("多种点击'学习积分'均未成功，请手动点击或退出并更换qg版本");}
     }  
+    getScores(3);
   //   {
   //     fInfo("等待点击‘学习积分--’");
   //     sleep(800); 
