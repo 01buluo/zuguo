@@ -231,8 +231,8 @@ var w = fInit();
 // console.setTitle("学习测试四合一");
 // console.show();
 fInfo("学习测试四合一Pro" + newest_version + "\n……脚本初始化……");
-fError('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
-  if(isPrivateMode_1 > 0 || isPrivateMode) fTips('需要去除截图权限四人/双人赛等才可以用ocr');  
+fTips('当前强国版本为' + getVersion("cn.xuexi.android") + '(' + isPrivateModes + ')');
+  if(isPrivateMode_1 > 0 || isPrivateMode) fError('须去除截图限制权限，四人/双人赛等才可用ocr自动答题');  
 // 初始化宽高
 var [device_w, device_h] = init_wh();
 // log("fina:", device_w, device_h);
