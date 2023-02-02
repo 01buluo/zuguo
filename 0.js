@@ -1621,13 +1621,71 @@ function do_dingyue() {
         }
         t_1 += t_2;
     }
+      if(total_click <2){
+      fClear();
+         fInfo("继续地方-上新/2023年上线-搜索……");
+         press(670,167,100) ;
+         sleep(random(600, 1000));
+         var t_1 = 468;
+         var t_2 = 449;
+         var arr = [1, 2];
+         for (let i = 0; i < arr.length + 1; i++) {
+          var asub_1 = parseInt(arr[i]);
+          sleep(random(400, 800)); 
+          press(136,t_1,100) ;
+          sleep(random(800, 1500));
+              for (let ii = 0; ii < asub_1; ii++) {
+                while (total_click < 2 && asub_1 != 0) {
+                let img = captureScreen();
+                sleep(random(800, 1500));
+                try {
+                  var pot = findColorInRegion(img, "#E42417", 1000, 100,
+                  device.width - 1000, device.height - 200, 30);
+                } catch (e) {
+                  console.error('继续搜寻');
+                  continue;
+                }
+                if (pot) {
+                  fInfo("找到一个订阅");
+                  sleep(random(800, 1500)); 
+                  // let is_click = dingyue.click();
+                  fInfo("点击：订阅");
+                  //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
+                  sleep(random(800, 1500)); 
+                  click(pot.x, pot.y+5);
+                  total_click += 1;
+                }
+                if (total_click >= 2) {
+                  img.recycle();
+                 // w = fInit();
+                  fInfo("订阅已完成,准备返回");
+                  back();
+                  text("登录").waitFor();
+                  ran_sleep();
+                  return true;
+                  } else { 
+                 //   img.recycle();
+                    swipe(x, h1, x, h2, random(800, 1200)); // 下滑动
+                    toastLog("下滑搜索中……");
+                    asub_1--;
+                sleep(random(800, 1500)); 
+                         }
+              }
+              //img.recycle();
+              sleep(500);
+              }
+              t_1 += t_2;
+          }
+      }
+
+
     if (total_click == 0) fError("无新可订阅项目");
     if (total_click == 1) fTips("此次仅发现1个可订阅项目");
     back();
     text("登录").waitFor();
     ran_sleep();
     return true;
-  }
+   }
 
 /********订阅*********/
 function do_dingyue_0() {
@@ -2709,7 +2767,7 @@ function fInit() {
     //w.title.setFocusable(true);
     w.version.setText("学习测试四合一pro+" + newest_version);
   });
-  w.setSize(720, -2);
+  w.setSize(665, -2);
   w.setPosition(10, 10);
   w.setTouchable(false);
   return w;
