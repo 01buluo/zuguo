@@ -764,8 +764,8 @@ function do_meizhou() {
   sleep(1000);
   back();
  // text("每周答题").waitFor();
- // sleep(1000);
- // back();
+  sleep(1000);
+  back();
   //text("我要答题").waitFor();
   sleep(1000);
   back();
