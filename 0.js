@@ -2839,7 +2839,7 @@ function fRefocus() {
 }
 //获取积分明细
 function getScores(i) {
-  while (!desc("工作").exists()); //等待加载出主页
+  //while (!desc("工作").exists()); //等待加载出主页
   fInfo("正在查询积分...");
   sleep(random(700, 1100));
   sleep(2000);
