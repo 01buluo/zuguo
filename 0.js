@@ -2517,6 +2517,7 @@ function send_pushplus(token, sign_list) {
 .item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}\
 .item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>';
   let content_str = "<h6>" + jinri + " 总积分:" + zongfen + "</h6><div>";
+  if(2 != meizhou) content_str += "<h6>"  + " 每周答题:" + meizhou_score + "</h6><div>";
   jinri.match(/\d+/g) || (content_str += "由于网络原因，未识别出总分，请自行查看");
   for (let sign of sign_list) {
     if (sign == "ocr_false") {
@@ -2536,12 +2537,12 @@ function send_pushplus(token, sign_list) {
     let detail = title + ": " + score + "/" + total;
     content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
   }
-  if(2 != meizhou){
-    let percent_0 = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
-    let detail_0 = "每周答题" + ": " + meizhou_score + "/" + 5;
-  content_str += '<div class="item"><div class="bar"><div style="width: ' + percent_0 + ';"></div></div><span>' + detail_0 + '</span></div>';
+  // if(2 != meizhou){
+  //   let percent_0 = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
+  //   let detail_0 = "每周答题" + ": " + meizhou_score + "/" + 5;
+  // content_str += '<div class="item"><div class="bar"><div style="width: ' + percent_0 + ';"></div></div><span>' + detail_0 + '</span></div>';
 
-  }
+  // }
   content_str += '</div>' + style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
@@ -2949,7 +2950,8 @@ function xxqg(userinfo) {
   } else if (dingyue == 2) {
     dingyue_dao = true;
   }
-  if(textContains("学习积分").exists()) my_click_clickable("学习积分");
+  if(text("积分").findOnce().parent().child(1)) {text("积分").findOnce().parent().child(1).click(); text("积分规则").waitFor();}
+  else if(textContains("学习积分").exists()) my_click_clickable("学习积分");
   else {a_0 = id("comm_head_xuexi_score").findOne(5000);
   if(a_0 == null){fInfo("新版界面");
        sleep(1500);
