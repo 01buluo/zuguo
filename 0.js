@@ -2989,6 +2989,7 @@ function xxqg(userinfo) {
   b = 1;
   if (2 != meizhou) {
     toastLog("每周答题开始");
+    fClear();
     mz_0 = text("我的").findOne(2000);
    if(mz_0 == null) back(),sleep(1000),text("我的").findOne().click();
    else mz_0.click();
