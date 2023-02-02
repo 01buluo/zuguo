@@ -773,6 +773,8 @@ function do_meizhou() {
   text("我的").waitFor();
   ran_sleep();
   getScores(3);
+  sleep(800);
+  back();
   return true;
 }
 
@@ -2517,7 +2519,7 @@ function send_pushplus(token, sign_list) {
 .item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}\
 .item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>';
   let content_str = "<h6>" + jinri + " 总积分:" + zongfen + "</h6><div>";
-  if(2 != meizhou) content_str += "<h6>"  + " 每周答题:" + meizhou_score + "</h6><div>";
+  if(2 != meizhou) content_str += "<h6>"  + " 每周答题:" + meizhou_score + "分" + "</h6><div>";
   jinri.match(/\d+/g) || (content_str += "由于网络原因，未识别出总分，请自行查看");
   for (let sign of sign_list) {
     if (sign == "ocr_false") {
@@ -2841,7 +2843,7 @@ function fRefocus() {
 //获取积分明细
 function getScores(i) {
   //while (!desc("工作").exists()); //等待加载出主页
-  fInfo("正在查询积分...");
+  fInfo("脚本勾选'每周答题'，正在查询答题情况...");
   sleep(random(700, 1100));
   sleep(2000);
   while (!text("积分明细").exists()) {
