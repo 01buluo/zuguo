@@ -2537,9 +2537,9 @@ function send_pushplus(token, sign_list) {
     content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
   }
   if(2 != meizhou){
-    let percent = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
-    let detail = "每周答题" + ": " + meizhou_score + "/" + 5;
-  content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
+    let percent_0 = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
+    let detail_0 = "每周答题" + ": " + meizhou_score + "/" + 5;
+  content_str += '<div class="item"><div class="bar"><div style="width: ' + percent_0 + ';"></div></div><span>' + detail_0 + '</span></div>';
 
   }
   content_str += '</div>' + style_str;
@@ -2878,12 +2878,12 @@ function getScores(i) {
    //  log(meizhousores);
       lCount = Number(meizhousores['每周答题']);
    // 点点通['挑战答题'] = Math.max(0,3-Math.floor((点点通['挑战答题']*1)/3));
-console.info(lCount);
-if (lCount == 0) {meizhou = 0;console.info("每周答题将放最后部分完成");}
+   //fInfo(lCount);
+if (lCount == 0) {meizhou = 0;fInfo("每周答题将放最后部分完成");}
   else{ 
     meizhou_score = lCount;
     meizhou = 2; 
-    console.info("勾选的‘每周答题’今日任务已完成");
+    fInfo("勾选的‘每周答题’今日任务已完成");
   }
   sleep(random(700, 1500));
   back();
