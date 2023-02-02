@@ -2519,7 +2519,7 @@ function send_pushplus(token, sign_list) {
 .item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}\
 .item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>';
   let content_str = "<h6>" + jinri + " 总积分:" + zongfen + "</h6><div>";
-  if(2 != meizhou) content_str += "<h6>"  + "      (其中含每周答题:" + meizhou_score + "分)" + "</h6><div>";
+  if(2 != meizhou) content_str += "<h6>"  + " (含仅计入总积分的每周答题:" + meizhou_score + "分)" + "</h6><div>";
   jinri.match(/\d+/g) || (content_str += "由于网络原因，未识别出总分，请自行查看");
   for (let sign of sign_list) {
     if (sign == "ocr_false") {
