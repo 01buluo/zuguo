@@ -2988,14 +2988,14 @@ function xxqg(userinfo) {
   back();
   b = 1;
   if (2 != meizhou) {
-    toastLog("每周答题开始");
     fClear();
+    toastLog("每周答题开始");
     mz_0 = text("我的").findOne(2000);
    if(mz_0 == null) back(),sleep(1000),text("我的").findOne().click();
    else mz_0.click();
     sleep(1000);
     mz_1 = text("我要答题").findOne(3000);
-    if(mz_1== null){ click(522,870); Press(522,870,150);}
+    if(mz_1 == null){ click(522,870); press(522,870,150);}
     else mz_1.parent().click();
     sleep(1000);
     for (b = do_meizhou(); !b;) b = do_meizhou();
