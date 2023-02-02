@@ -2539,12 +2539,12 @@ function send_pushplus(token, sign_list) {
     let detail = title + ": " + score + "/" + total;
     content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
   }
-  // if(2 != meizhou){
-  //   let percent_0 = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
-  //   let detail_0 = "每周答题" + ": " + meizhou_score + "/" + 5;
-  // content_str += '<div class="item"><div class="bar"><div style="width: ' + percent_0 + ';"></div></div><span>' + detail_0 + '</span></div>';
+  if(2 != meizhou){
+    let percent_0 = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
+    let detail_0 = "每周答题" + ": " + meizhou_score + "/" + 5;
+  content_str += '<div class="item"><div class="bar"><div style="width: ' + percent_0 + ';"></div></div><span>' + detail_0 + '</span></div>';
 
-  // }
+  }
   content_str += '</div>' + style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
@@ -2884,7 +2884,7 @@ function getScores(i) {
 if (lCount == 0) {meizhou = 0;fInfo("每周答题将放最后部分完成");}
   else{ 
     meizhou_score = lCount;
-    meizhou = 2; 
+    meizhou_0 = 2; 
     fInfo("勾选的‘每周答题’今日任务已完成");
   }
   sleep(random(700, 1500));
@@ -3031,7 +3031,7 @@ function xxqg(userinfo) {
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
 
   b = 1;
-  if (2 != meizhou) {
+  if (2 != meizhou && 2 != meizhou_0) {
     back();
     fClear();
     toastLog("每周答题开始");
