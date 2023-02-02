@@ -2857,6 +2857,7 @@ function getScores(i) {
     sleep(random(700, 1500));
     sleep(1500);
   }
+  text("积分明细").findOnce().click();
   let err = false;
   while (!err) {
       try {
@@ -2887,7 +2888,7 @@ function getScores(i) {
       back();
       return score;
   }
-  if (myScores["每周答题"] == 0) meizhou = 0;
+  if (myScores["每周答题"] == 0) {meizhou = 0;fInfo("每周答题将放最后部分完成");}
   else{ 
     meizhou_score = myScores["每周答题"];
     meizhou = 2; 
