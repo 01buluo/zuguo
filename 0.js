@@ -772,9 +772,9 @@ function do_meizhou() {
   back();
   text("我的").waitFor();
   ran_sleep();
-  getScores(3);
-  sleep(800);
-  back();
+  // getScores(3);
+  // sleep(800);
+  // back();
   return true;
 }
 
@@ -2991,26 +2991,6 @@ function xxqg(userinfo) {
          fInfo("多种点击'学习积分'均未成功，请手动点击或退出并更换qg版本");}
     }  
     getScores(3);
-  //   {
-  //     fInfo("等待点击‘学习积分--’");
-  //     sleep(800); 
-  //     click(228, 855); press(228, 855, 100); 
-  //     sleep(800); 
-  //     // a_1 = text("积分规则").findOne(1500);
-  //     // if(a_1 == null){ 
-  //     //   click(254, 775); press(254, 775, 100);
-  //       }
-  //     fInfo("等待点击‘学习积分---’");//}
-  //   }else 
-  // // sleep(1000);
-  // // click(245, 875);
-  // // press(245, 875, 1);  
-  // a_2 = text("积分规则").findOne(5000);
-  //   if(a_2 == null){ 
-  //     click(254, 775); press(254, 775, 100);
-  //     a_3 = text("积分规则").findOne(1500);
-  //    if(a_3 == null)pic_click(path_xuexijifen_jpg, url_xuexijifen_jpg, 70, -40);
-  // }  
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
@@ -3044,16 +3024,7 @@ function xxqg(userinfo) {
   // // 2 == dingyue && ("old" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(3).text() || "new" == jifen_flag && "已完成" == jifen_list.child(jifen_map["订阅"]).child(4).text()) && (toastLog("订阅开始--遍历整个‘强国号’"), d = do_dingyue(), jifen_list = refind_jifen());
   // if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
-  if (weixin_kaiguan && (pushplus || token)) {
-    fInfo("推送前等待积分刷新5秒");
-    sleep(5E3);
-    token || (token = pushplus);
-    try {
-      send_pushplus(token, sign_list)
-    } catch (h) {
-      fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
-    }
-  }
+
   back();
   b = 1;
   if (2 != meizhou) {
@@ -3072,6 +3043,23 @@ function xxqg(userinfo) {
     b || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答")
   }
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
+  if (2 != meizhou) {
+    getScores(3);
+    sleep(1000);back();
+    sleep(1000);
+    }
+  //微信推送
+  if (weixin_kaiguan && (pushplus || token)) {
+    fInfo("推送前等待积分刷新5秒");
+    sleep(5E3);
+    token || (token = pushplus);
+    try {
+      send_pushplus(token, sign_list)
+    } catch (h) {
+      fError(h + ":push+推送失败，请尝试切换流量运行或者设置114DNS")
+    }
+  }
+
   if (!zhanghao) return !0;
   text("我的").findOne().click();
   log("等待设置按钮");
