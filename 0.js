@@ -2843,7 +2843,6 @@ function fRefocus() {
 //获取积分明细
 function getScores(i) {
   //while (!desc("工作").exists()); //等待加载出主页
-  fInfo("脚本勾选'每周答题'，正在查询答题情况...");
   sleep(random(700, 1100));
   sleep(2000);
   while (!text("积分明细").exists()) {
@@ -2889,8 +2888,8 @@ if (lCount == 0) {meizhou = 0;fInfo("每周答题将放最后部分完成");}
     fInfo("勾选的‘每周答题’今日任务已完成");
   }
   sleep(random(700, 1500));
-  back();
-  sleep(random(700, 1500));
+  // back();
+  // sleep(random(700, 1500));
 }
 
 
@@ -2990,7 +2989,13 @@ function xxqg(userinfo) {
        if(a_4 == null){click(186, 1009); press(186, 1009, 100);
          fInfo("多种点击'学习积分'均未成功，请手动点击或退出并更换qg版本");}
     }  
-    getScores(3);
+    //每周答题勾选后检测是否已完成
+   if(2 != meizhou) {
+    fInfo("脚本已勾选'每周答题'，正在查询答题情况...");
+    getScores(3); 
+     back();
+    sleep(random(700, 1500));
+     }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
   jifen_list = refind_jifen();
@@ -3025,9 +3030,9 @@ function xxqg(userinfo) {
   // if(1 == dingyue) {toastLog("订阅开始--遍历上新/2023年上线"); d = do_dingyue_1();};
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
 
-  back();
   b = 1;
   if (2 != meizhou) {
+    back();
     fClear();
     toastLog("每周答题开始");
     mz_0 = text("我的").findOne(2000);
@@ -3045,7 +3050,8 @@ function xxqg(userinfo) {
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
   if (2 != meizhou) {
     getScores(3);
-    sleep(1000);back();
+    sleep(1000);
+    back();
     sleep(1000);
     }
   //微信推送
