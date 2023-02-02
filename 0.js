@@ -2858,47 +2858,35 @@ function getScores(i) {
     sleep(1500);
   }
   text("积分明细").findOnce().click();
-  let err = false;
-  while (!err) {
-      try {
-          className("android.widget.ListView").findOnce().children().forEach(item => {
-              var name;
-              try {
-                  name = item.child(0).child(0).text();
-              } catch (e) {
-                  name = item.child(0).text();
-              }
-              let str = item.child(3).child(0).text().substring(0,5).split("/");
-             //let score = str[0].match(/[0-9][0-9]*/g);
-              let score = str[0].match(/[0-9][0-9]*/g);
-            //log("分值"+score)
-              myScores[name] = score;
-          });
-          err = true;
-      } catch (e) {
-          console.log(e);
-      }
-  }
-  if(i==3){
-     if(myScores["每周答题"]== null||myScores["每周答题"] == undefined) myScores["每周答题"] = 0;
-      //var score = textContains("今日已累积").findOne().text();
-      score = '每周答题:' + myScores["每周答题"] + '分';
-      //score += '； ---成长总积分:' +  textContains("成长总积分").findOne().parent().child(1).text() + '分  ';
-      fInfo(score);
-      back();
-      return score;
-  }
-  if (myScores["每周答题"] == 0) {meizhou = 0;fInfo("每周答题将放最后部分完成");}
+  textContains('+').findOne(5000);
+   var meizhousores = {
+    '每周答题':0
+     };
+    meizhousores['每周答题'] = 0; 
+    try{
+        textContains('+').findOne(5000).parent().parent().children().forEach(item => {
+            try{
+                let name = item.child(2).text();         
+               let score = item.child(4).text().substring(0,5).match(/[0-9][0-9]*/g);
+            //  log(score);
+             // if(score == null || score == undefined){ let score = item.child(3).text().substring(0,5).match(/[0-9][0-9]*/g);}
+                meizhousores[name] = score;
+               // log(name + ' ' +score);
+            }catch(e){}
+        });
+    }catch(e){};
+   //  log(meizhousores);
+      lCount = Number(meizhousores['每周答题']);
+   // 点点通['挑战答题'] = Math.max(0,3-Math.floor((点点通['挑战答题']*1)/3));
+console.info(lCount);
+if (lCount == 0) {meizhou = 0;console.info("每周答题将放最后部分完成");}
   else{ 
-    meizhou_score = myScores["每周答题"];
+    meizhou_score = lCount;
     meizhou = 2; 
-    fInfo("每周答题今日已完成");
+    console.info("每周答题今日已完成");
   }
-  // console.log('------待未完成列表------')
-  // if (meizhou_txt == true)
-  //     console.log('每周答题：\t' + meizhou.toString());
   sleep(random(700, 1500));
- // back();
+  back();
   sleep(random(700, 1500));
 }
 
