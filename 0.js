@@ -771,6 +771,7 @@ function do_meizhou() {
   back();
   text("我的").waitFor();
   ran_sleep();
+  getScores(3);
   return true;
 }
 
@@ -2534,6 +2535,12 @@ function send_pushplus(token, sign_list) {
     let detail = title + ": " + score + "/" + total;
     content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
   }
+  if(2 != meizhou){
+    let percent = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
+  let detail = title + ": " + score + "/" + 5;
+  content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
+
+  }
   content_str += '</div>' + style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
@@ -2829,6 +2836,71 @@ function fRefocus() {
   });
   sleep(500);
 }
+//获取积分明细
+function getScores(i) {
+  while (!desc("工作").exists()); //等待加载出主页
+  fInfo("正在查询积分...");
+  sleep(random(700, 1100));
+  sleep(2000);
+  while (!text("积分明细").exists()) {
+      if (id("comm_head_xuexi_score").exists()) {
+          id("comm_head_xuexi_score").findOnce().click();
+      } else if (text("积分").exists()) {
+          text("积分").findOnce().parent().child(1).click();
+      }
+      sleep(3000);
+    //sleep(3000);
+    sleep(random(700, 1500));
+    className("android.view.View").depth(22).findOnce(2).child(0).click();
+  }
+  while (!text('登录').exists()) {
+    sleep(random(700, 1500));
+     // delay(1);
+    sleep(1500);
+  }
+  let err = false;
+  while (!err) {
+      try {
+          className("android.widget.ListView").findOnce().children().forEach(item => {
+              var name;
+              try {
+                  name = item.child(0).child(0).text();
+              } catch (e) {
+                  name = item.child(0).text();
+              }
+              let str = item.child(3).child(0).text().substring(0,5).split("/");
+             //let score = str[0].match(/[0-9][0-9]*/g);
+              let score = str[0].match(/[0-9][0-9]*/g);
+            //log("分值"+score)
+              myScores[name] = score;
+          });
+          err = true;
+      } catch (e) {
+          console.log(e);
+      }
+  }
+  if(i==3){
+      //var score = textContains("今日已累积").findOne().text();
+      score = '每周答题:' + myScores["每周答题"] + '分';
+      //score += '； ---成长总积分:' +  textContains("成长总积分").findOne().parent().child(1).text() + '分  ';
+      log(score);
+      back();
+      return score;
+  }
+  if (myScores["每周答题"] == 0) meizhou = 0;
+  else{ 
+    meizhou_score = myScores["每周答题"];
+    meizhou = 2; 
+    fInfo("每周答题今日已完成");
+  }
+  // console.log('------待未完成列表------')
+  // if (meizhou_txt == true)
+  //     console.log('每周答题：\t' + meizhou.toString());
+  sleep(random(700, 1500));
+  back();
+  sleep(random(700, 1500));
+}
+
 
 function xxqg(userinfo) {
   var sign_list = [];
@@ -2860,6 +2932,7 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
+  getScores(3);
   fInfo("检测界面……?新?旧，耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
