@@ -1590,14 +1590,15 @@ function do_dingyue() {
             continue;
           }
           if (pot) {
-            fInfo("找到一个订阅");
+            //fInfo("找到新订阅");
             sleep(random(800, 1500)); 
             // let is_click = dingyue.click();
-            fInfo("点击：订阅");
+            fInfo("找到并准备点击：订阅");
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
             sleep(random(800, 1500)); 
             click(pot.x, pot.y+5);
             total_click += 1;
+            fInfo("完成第 " + total_click + " 订阅");
           }
           if (total_click >= 2) {
             img.recycle();
@@ -1646,14 +1647,15 @@ function do_dingyue() {
                   continue;
                 }
                 if (pot) {
-                  fInfo("找到一个订阅");
+                 // fInfo("找到一个订阅");
                   sleep(random(800, 1500)); 
                   // let is_click = dingyue.click();
-                  fInfo("点击：订阅");
+                  fInfo("找到并准备点击：订阅");
                   //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
                   sleep(random(800, 1500)); 
                   click(pot.x, pot.y+5);
                   total_click += 1;
+                  fInfo("完成第 " + total_click + " 订阅");
                 }
                 if (total_click >= 2) {
                   img.recycle();
@@ -1964,6 +1966,7 @@ function do_exec(type) {
   }
   /******************多选题*******************/
   else if (textStartsWith("多选题").exists()) {
+    sleep(500);
     // 获取题目
     // let que_txt = className("android.view.View").depth(23).findOnce(1).text();
     // 上面被专项答题影响了22、23层的元素数，只能通过其他层定位
@@ -1978,6 +1981,7 @@ function do_exec(type) {
     // 如果全选
     if (res.length == collect.length) {
       ans = "全选";
+      sleep(500);
       for (let n of collect) {
         // 直接点击会点不上全部
         n.parent().click();
