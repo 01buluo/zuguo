@@ -2538,7 +2538,7 @@ function send_pushplus(token, sign_list) {
   }
   if(2 != meizhou){
     let percent = (Number(meizhou_score) / 5 * 100).toFixed() + '%';
-  let detail = title + ": " + score + "/" + 5;
+    let detail = "每周答题" + ": " + meizhou_score + "/" + 5;
   content_str += '<div class="item"><div class="bar"><div style="width: ' + percent + ';"></div></div><span>' + detail + '</span></div>';
 
   }
@@ -2883,7 +2883,7 @@ if (lCount == 0) {meizhou = 0;console.info("每周答题将放最后部分完成
   else{ 
     meizhou_score = lCount;
     meizhou = 2; 
-    console.info("每周答题今日已完成");
+    console.info("勾选的‘每周答题’今日任务已完成");
   }
   sleep(random(700, 1500));
   back();
