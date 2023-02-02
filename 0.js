@@ -2993,7 +2993,7 @@ function xxqg(userinfo) {
    if(mz_0 == null) back(),sleep(1000),text("我的").findOne().click();
    else mz_0.click();
     sleep(1000);
-    mz_1 = text("我要答题").findOne(3000).parent();
+    mz_1 = text("我要答题").findOne(3000);
     if(mz_1== null) click(522,870),Press(522,870,150)
     else mz_1.click();
     sleep(1000);
