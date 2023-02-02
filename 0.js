@@ -2995,8 +2995,8 @@ function xxqg(userinfo) {
    else mz_0.click();
     sleep(1000);
     mz_1 = text("我要答题").findOne(3000);
-    if(mz_1== null) click(522,870),Press(522,870,150)
-    else mz_1.click();
+    if(mz_1== null){ click(522,870); Press(522,870,150);}
+    else mz_1.parent().click();
     sleep(1000);
     for (b = do_meizhou(); !b;) b = do_meizhou();
     text("我的").waitFor();
