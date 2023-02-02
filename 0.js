@@ -2950,6 +2950,8 @@ function xxqg(userinfo) {
   } else if (dingyue == 2) {
     dingyue_dao = true;
   }
+  back();
+  sleep(1000);
   if(text("积分").findOnce().parent().child(1)) {text("积分").findOnce().parent().child(1).click(); text("积分规则").waitFor();}
   else if(textContains("学习积分").exists()) my_click_clickable("学习积分");
   else {a_0 = id("comm_head_xuexi_score").findOne(5000);
