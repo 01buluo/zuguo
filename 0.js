@@ -763,10 +763,10 @@ function do_meizhou() {
   text("返回").findOne().click();
   sleep(1000);
   back();
-  text("每周答题").waitFor();
-  sleep(1000);
-  back();
-  text("我要答题").waitFor();
+ // text("每周答题").waitFor();
+ // sleep(1000);
+ // back();
+  //text("我要答题").waitFor();
   sleep(1000);
   back();
   text("我的").waitFor();
@@ -2995,7 +2995,7 @@ function xxqg(userinfo) {
    else mz_0.click();
     sleep(1000);
     mz_1 = text("我要答题").findOne(3000);
-    if(mz_1 == null){ click(522,870); press(522,870,150);}
+    if(mz_1 == null){ click(522,855); press(522,855,150);}
     else mz_1.parent().click();
     sleep(1000);
     for (b = do_meizhou(); !b;) b = do_meizhou();
