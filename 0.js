@@ -2881,15 +2881,17 @@ function getScores(i) {
       lCount = Number(meizhousores['每周答题']);
    // 点点通['挑战答题'] = Math.max(0,3-Math.floor((点点通['挑战答题']*1)/3));
    //fInfo(lCount);
-if (lCount == 0) {meizhou = 0;fInfo("每周答题将放最后部分完成");}
+if (lCount == 0) { meizhou = 0;
+  fInfo("每周答题将放最后部分完成"); 
+  meizhou_0 = false;}
   else{ 
     meizhou_score = lCount;
-    meizhou_0 = 2; 
+    meizhou_0 = true; 
     fInfo("勾选的‘每周答题’今日任务已完成");
   }
   sleep(random(700, 1500));
-  // back();
-  // sleep(random(700, 1500));
+  back();
+  sleep(random(700, 1500));
 }
 
 
@@ -2993,8 +2995,8 @@ function xxqg(userinfo) {
    if(2 != meizhou) {
     fInfo("脚本已勾选'每周答题'，正在查询答题情况...");
     getScores(3); 
-     back();
-    sleep(random(700, 1500));
+    //  back();
+    // sleep(random(700, 1500));
      }
   text("积分规则").waitFor();
   fInfo("找到积分规则");
@@ -3031,7 +3033,7 @@ function xxqg(userinfo) {
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
 
   b = 1;
-  if (2 != meizhou && 2 != meizhou_0) {
+  if (2 != meizhou && false == meizhou_0) {
     back();
     fClear();
     toastLog("每周答题开始");
@@ -3045,15 +3047,13 @@ function xxqg(userinfo) {
     sleep(1000);
     for (b = do_meizhou(); !b;) b = do_meizhou();
     text("我的").waitFor();
+    getScores(3);
+    // sleep(1000);
+    // back();
     b || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答")
   }
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
-  if (2 != meizhou) {
-    getScores(3);
-    sleep(1000);
-    back();
-    sleep(1000);
-    }
+
   //微信推送
   if (weixin_kaiguan && (pushplus || token)) {
     fInfo("推送前等待积分刷新5秒");
