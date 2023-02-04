@@ -682,7 +682,7 @@ function do_meiri() {
 
 /********每周答题*********/
 function do_meizhou() {
- let meizhou_dao = text("每周答题").findOne(3000).parent();
+ let meizhou_dao = text("每周答题").findOne(4000).parent();
 if(meizhou_dao != null) meizhou_dao.click()
   else{var textOrder = text("排行榜").findOnce().parent();
     while (text("排行榜").exists()) {
@@ -3045,7 +3045,7 @@ function xxqg(userinfo) {
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
 
   b = 1;
-  if (2 != meizhou && false == meizhou_0) {
+  if (2 != meizhou || false == meizhou_0) {
     back();
     fClear();
     toastLog("每周答题开始");
