@@ -3067,8 +3067,10 @@ function xxqg(userinfo) {
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
 
   //微信推送
+  sleep(random(700, 1500));
   if (weixin_kaiguan && (pushplus || token)) {
     fInfo("推送前等待积分刷新5秒");
+    sleep(random(700, 1500));
     sleep(5E3);
     token || (token = pushplus);
     try {
