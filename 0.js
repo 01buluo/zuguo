@@ -682,7 +682,19 @@ function do_meiri() {
 
 /********每周答题*********/
 function do_meizhou() {
-  text("每周答题").findOne().parent().click();
+ let meizhou_dao = text("每周答题").findOne(3000).parent();
+if(meizhou_dao != null) meizhou_dao.click()
+  else{var textOrder = text("排行榜").findOnce().parent();
+    while (text("排行榜").exists()) {
+        console.info("点击每周答题");
+      
+        textOrder.child(4).click();
+    
+      sleep(random(0.7, 1.5)); 
+       sleep(1000);
+    }
+  }
+  //text("每周答题").findOne().parent().click();
   fSet("title", "每周答题…");
   fClear();
   // 等待加载
