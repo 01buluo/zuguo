@@ -3045,7 +3045,7 @@ function xxqg(userinfo) {
   // if(2 == dingyue) {toastLog("订阅开始--遍历整个‘强国号’"); d = do_dingyue();};
 
   b = 1;
-  if (2 != meizhou || false == meizhou_0) {
+  if (2 != meizhou && false == meizhou_0) {
     back();
     fClear();
     toastLog("每周答题开始");
