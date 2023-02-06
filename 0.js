@@ -1845,15 +1845,15 @@ while(!id("sport_step")){
   back();
   entry_jifen_project("强国运动");
  }
- let dong_0 = className("android.widget.TextView").id("sport_step").findOne().texe();
+ let dong_0 = className("android.widget.TextView").id("sport_step").findOne().text();
   id("sport_step").findOne().click();
   sleep(1000);
   back();
   sleep(1000);
-   let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(5000).texe();
+   let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(5000).text();
   if(dong_3) fInfo("非组织用户暂不支持排名");
-   else {let dong_name = className("android.widget.TextView").id("sport_name").findOne(3000).texe();
- let dong_rank = className("android.widget.TextView").id("sport_self_rank_info").findOne(3000).texe();
+   else {let dong_name = className("android.widget.TextView").id("sport_name").findOne(3000).text();
+ let dong_rank = className("android.widget.TextView").id("sport_self_rank_info").findOne(3000).text();
  if(dong_rank == "暂无排名信息") fInfo("暂无排名信息");
  else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
      }
@@ -2983,7 +2983,7 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  fInfo("检测界面……?新?旧，耐心等待……")
+  fInfo("检测界面……?新?旧，\n   耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版界面");
