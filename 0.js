@@ -1846,7 +1846,9 @@ function do_exec(type) {
   // 随机延迟、等待提示
   ran_sleep();
   // 等待加载
-  text("提示").waitFor();
+  let tishi_0 = text("提示").findOne(5000);
+  if (!tishi_0) text("查看提示").findOne().click();
+   text("提示").waitFor();
 
   // 判断题型
   /******************单选题*******************/
