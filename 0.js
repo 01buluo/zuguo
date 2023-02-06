@@ -1842,16 +1842,16 @@ function do_yundong() {
   fClear();
   sleep(1000);
 while(!id("sport_step")){
-  sleep(2000);
+  sleep(random(3000, delay_time))
   fInfo("尝试查询");
   back();
   entry_jifen_project("强国运动");
  }
- let dong_0 = className("android.widget.TextView").id("sport_step").findOne().text();
+//  let dong_0 = className("android.widget.TextView").id("sport_step").findOne().text();
  className("android.widget.TextView").id("sport_step").findOnce(0).click();
-  sleep(2000);
-  //back();
-   sleep(2000);
+  //sleep(2000);
+  // back();
+  //  sleep(2000);
 //    let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(3000);
 //   if(dong_3) fInfo("非组织用户暂不支持排名");
 //    else {let dong_name = className("android.widget.TextView").id("sport_name").findOnce(0).text();
@@ -1859,8 +1859,8 @@ while(!id("sport_step")){
 //  if(dong_rank == "暂无排名信息") fInfo("暂无排名信息");
 //  else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
 //      }
-   sleep(1500);
- // back();
+sleep(random(700, delay_time))
+  back();
   // ran_sleep();
   // jifen_init();
   text("登录").waitFor();
