@@ -1840,15 +1840,17 @@ function do_yundong() {
   entry_jifen_project("强国运动");
   fSet("title", "运动…");
   fClear();
+  sleep(1000);
 while(!id("sport_step")){
   sleep(2000);
+  fInfo("尝试查询");
   back();
   entry_jifen_project("强国运动");
  }
  let dong_0 = className("android.widget.TextView").id("sport_step").findOne().text();
  className("android.widget.TextView").id("sport_step").findOnce(0).click();
   sleep(2000);
-  back();
+  //back();
    sleep(2000);
 //    let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(3000);
 //   if(dong_3) fInfo("非组织用户暂不支持排名");
