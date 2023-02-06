@@ -3062,8 +3062,9 @@ function xxqg(userinfo) {
     for (b = do_meizhou(); !b;) b = do_meizhou();
     text("我的").waitFor();
     getScores(3);
-     sleep(1000);
+    sleep(random(900, 1500));
      if(!(textContains("学习积分").exists()||textContains("登录").exists())) back();
+     sleep(random(900, 1700));
      if(textContains("我的").exists()||textContains("积分").exists()) {text("积分").findOnce().parent().child(1).click(); text("积分规则").waitFor();}
     b || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答")
   }
