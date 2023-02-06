@@ -1849,8 +1849,8 @@ while(!id("sport_step")){
  }
 //  let dong_0 = className("android.widget.TextView").id("sport_step").findOne().text();
  className("android.widget.TextView").id("sport_step").findOnce(0).click();
-  //sleep(2000);
-  // back();
+ sleep(random(700, delay_time))
+   back();
   //  sleep(2000);
 //    let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(3000);
 //   if(dong_3) fInfo("非组织用户暂不支持排名");
