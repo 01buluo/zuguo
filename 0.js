@@ -1858,7 +1858,7 @@ while(!id("sport_step")){
 //  else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
 //      }
    sleep(1500);
-  back();
+ // back();
   // ran_sleep();
   // jifen_init();
   text("登录").waitFor();
