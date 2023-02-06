@@ -27,6 +27,7 @@ var siren = TTXS_PRO_CONFIG.get("siren", true);
 var dacuo_num = TTXS_PRO_CONFIG.get("dacuo_num", "2");
 var shuangren = TTXS_PRO_CONFIG.get("shuangren", true);
 var bendi = TTXS_PRO_CONFIG.get("bendi", true);
+var yundong = TTXS_PRO_CONFIG.get("yundong", true);
 var dingyue = TTXS_PRO_CONFIG.get("dingyue", 0);
 var pushplus = TTXS_PRO_CONFIG.get("pushplus", "");
 var yl_on = TTXS_PRO_CONFIG.get("yl_on", true);
@@ -1832,6 +1833,37 @@ function do_bendi() {
   ran_sleep();
   return true;
 }
+
+
+/*********运动*********/
+function do_yundong() {
+  entry_jifen_project("强国运动");
+  fSet("title", "运动…");
+  fClear();
+ let dong_0 = id().findOne(3000).texe()
+while(!dong_0){
+  sleep(2000);
+  back();
+  entry_jifen_project("强国运动");
+}
+ fInfo("运动排名第：" + dong_0 +"名");
+  // text("切换地区").findOne(5000);
+  // if (text("立即切换").exists()) {
+  //   text("取消").findOne(3000).click();
+  // }
+  // //let banner = className("android.support.v7.widget.RecyclerView").findOne();
+  // let banner = classNameContains("RecyclerView").findOne();
+  // let txt = banner.child(0).child(1).text();
+  // banner.child(0).click();
+  // className("android.widget.TextView").depth(11).text(txt).waitFor();
+   sleep(1500);
+  back();
+  // ran_sleep();
+  // jifen_init();
+  text("登录").waitFor();
+  ran_sleep();
+  return true;
+}
 /**************************************上方为执行各项目函数*********************************************/
 
 
@@ -3040,6 +3072,7 @@ function xxqg(userinfo) {
     true == shuangren && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["双人"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["双人"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["双人"]).child(3).text().match(/\d+/)[0]) && (toastLog("双人对战开始"), do_duizhan1(2), jifen_list = refind_jifen())
   } else true == siren && true == shuangren && sign_list.push("ocr_false");
   true == bendi && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["本地"]).child(4).text()) && (toastLog("本地开始"), do_bendi(), jifen_list = refind_jifen());
+  true == yundong && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["运动"]).child(3).text() || "old" != jifen_flag && "已完成" != jifen_list.child(jifen_map["运动"]).child(4).text()) && (toastLog("强国运动"), do_yundong(), jifen_list = refind_jifen());
   d = 1;
   //1 == dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始--遍历上新/2023年上线"), d = do_dingyue_1(), jifen_list = refind_jifen());
   0 != dingyue && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(2).text().match(/\d+/)[0] || "new1" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).child(0).text() || "new2" == jifen_flag && "0" == jifen_list.child(jifen_map["订阅"]).child(3).text().match(/\d+/)[0]) && (toastLog("订阅开始--"), d = do_dingyue(), jifen_list = refind_jifen());

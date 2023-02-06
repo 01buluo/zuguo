@@ -862,6 +862,14 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="运动" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="查看让运动计入本周总分，首次需要手动查看" />
+                                </vertical>
+                                <checkbox id="ttxs_pro_yundong" marginLeft="4" marginRight="6" checked="true" />
+                            </horizontal>
+                            <horizontal  gravity="center_vertical" padding="5 5" >
+                                <View bg="#00BFFF" h="*" w="10"  ></View>
+                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="订阅" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="若已root或虚拟机等去除截图限制的参照()内容选择，QG旧版的忽略()内容" />
                                     <spinner id="ttxs_pro_dingyue" marginLeft="4" marginRight="6" entries="不做|正序订阅(若已去限制--表示遍历搜索‘强国号’，较费时)|只订阅年度上新(若已去限制--表示只看‘上新或2023年上线’)" />
@@ -1408,6 +1416,7 @@ ui.ttxs_pro_save.click(function () {
     TTXS_PRO_CONFIG.put("dacuo_num", ui.ttxs_pro_dacuo_num.getText() + "");
     TTXS_PRO_CONFIG.put("shuangren", ui.ttxs_pro_shuangren.isChecked());
     TTXS_PRO_CONFIG.put("bendi", ui.ttxs_pro_bendi.isChecked());
+    TTXS_PRO_CONFIG.put("yundong", ui.ttxs_pro_yundong.isChecked());
     TTXS_PRO_CONFIG.put("dingyue", ui.ttxs_pro_dingyue.getSelectedItemPosition());
     TTXS_PRO_CONFIG.put("pushplus", ui.ttxs_pro_pushplus.getText() + "");
     TTXS_PRO_CONFIG.put("yl_on", ui.ttxs_pro_yl_on.isChecked());
@@ -1463,6 +1472,8 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_shuangren.setChecked(TTXS_PRO_CONFIG.get("shuangren"));
     TTXS_PRO_CONFIG.put("bendi", true);
     ui.ttxs_pro_bendi.setChecked(TTXS_PRO_CONFIG.get("bendi"));
+    TTXS_PRO_CONFIG.put("yundong", true);
+    ui.ttxs_pro_yundong.setChecked(TTXS_PRO_CONFIG.get("yundong"));
     TTXS_PRO_CONFIG.put("dingyue", 0);
     ui.ttxs_pro_dingyue.setSelection(TTXS_PRO_CONFIG.get("dingyue"));
     TTXS_PRO_CONFIG.put("pushplus", "");
@@ -1598,6 +1609,7 @@ function Initialize() {
     ui.ttxs_pro_dacuo_num.setText(TTXS_PRO_CONFIG.get("dacuo_num", "2"));
     ui.ttxs_pro_shuangren.setChecked(TTXS_PRO_CONFIG.get("shuangren", true));
     ui.ttxs_pro_bendi.setChecked(TTXS_PRO_CONFIG.get("bendi", true));
+    ui.ttxs_pro_yundong.setChecked(TTXS_PRO_CONFIG.get("yundong", true));
     ui.ttxs_pro_dingyue.setSelection(TTXS_PRO_CONFIG.get("dingyue", 0));
     ui.ttxs_pro_pushplus.setText(TTXS_PRO_CONFIG.get("pushplus", ""));
     ui.ttxs_pro_yl_on.setChecked(TTXS_PRO_CONFIG.get("yl_on", true));
