@@ -1847,8 +1847,8 @@ while(!id("sport_step")){
   back();
   entry_jifen_project("强国运动");
  }
-//  let dong_0 = className("android.widget.TextView").id("sport_step").findOne().text();
- className("android.widget.TextView").id("sport_step").findOnce(0).click();
+  let dong_0 = className("android.widget.TextView").id("sport_step").findOne();
+   dong_0.click();
  sleep(random(700, delay_time))
    back();
   //  sleep(2000);
