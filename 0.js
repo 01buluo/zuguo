@@ -1596,7 +1596,8 @@ function do_dingyue() {
    
         for (let ii = 0; ii < asub_1; ii++) {
           while (total_click < 2 && asub_1 != 0) {
-          let img = captureScreen();
+          while(total_click < 2){
+            let img = captureScreen();
           sleep(random(800, 1500));
           try {
             var pot = findColorInRegion(img, "#E42417", 1000, 100,
@@ -1605,7 +1606,7 @@ function do_dingyue() {
             console.error('继续搜寻');
             continue;
           }
-          if (pot) {
+        if(pot) {
             //fInfo("找到新订阅");
             sleep(random(800, 1500)); 
             // let is_click = dingyue.click();
@@ -1615,7 +1616,8 @@ function do_dingyue() {
             click(pot.x, pot.y+5);
             total_click += 1;
             fInfo("完成第 " + total_click + " 订阅");
-          }
+          }else break;
+        }
           if (total_click >= 2) {
             img.recycle();
            // w = fInit();
@@ -3060,8 +3062,9 @@ function xxqg(userinfo) {
     for (b = do_meizhou(); !b;) b = do_meizhou();
     text("我的").waitFor();
     getScores(3);
-    // sleep(1000);
-    // back();
+     sleep(1000);
+     if(!(textContains("学习积分").exists()||textContains("登录").exists())) back();
+     if(textContains("我的").exists()||textContains("积分").exists()) {text("积分").findOnce().parent().child(1).click(); text("积分规则").waitFor();}
     b || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答")
   }
   0 == dingyue || d || fError("未能识别出订阅界面，订阅不支持学习强国V2.33.0以上版本");
