@@ -1840,13 +1840,23 @@ function do_yundong() {
   entry_jifen_project("强国运动");
   fSet("title", "运动…");
   fClear();
- let dong_0 = id().findOne(3000).texe()
+ let dong_0 = id("sport_step").findOne(3000).texe();
 while(!dong_0){
   sleep(2000);
   back();
   entry_jifen_project("强国运动");
-}
- fInfo("运动排名第：" + dong_0 +"名");
+ }
+  id("sport_step").findOne(3000).click();
+  sleep(1000);
+  back();
+  sleep(1000);
+   let dong_3 = id("empty_rank_describe").findOne(5000).texe();
+  if(dong_3) fInfo("非组织用户暂不支持排名");
+   else {let dong_name = id("sport_name").findOne(3000).texe();
+ let dong_rank = id("sport_self_rank_info").findOne(3000).texe();
+ if(dong_rank == "暂无排名信息") fInfo("暂无排名信息");
+ else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
+     }
   // text("切换地区").findOne(5000);
   // if (text("立即切换").exists()) {
   //   text("取消").findOne(3000).click();
