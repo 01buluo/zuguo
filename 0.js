@@ -2983,7 +2983,7 @@ function xxqg(userinfo) {
   }
   /********获取用户姓名并读取本地数据*********/
   text("我的").findOne().click();
-  fInfo("检测界面……?新?旧，\n   耐心等待……")
+  fInfo("检测界面……?新?旧，" + "\n   耐心等待……")
   // name = id("my_display_name").findOne().text();
   a = id("tv_item_content").findOne(5000);
   if(a == null){fInfo("检测到新版界面");
