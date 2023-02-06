@@ -1849,7 +1849,7 @@ while(!id("sport_step")){
  }
   let dong_0 = className("android.widget.TextView").id("sport_step").findOne();
    dong_0.click();
- sleep(random(700, delay_time))
+ sleep(random(700, 1500))
    back();
   //  sleep(2000);
 //    let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(3000);
@@ -1859,8 +1859,8 @@ while(!id("sport_step")){
 //  if(dong_rank == "暂无排名信息") fInfo("暂无排名信息");
 //  else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
 //      }
-sleep(random(700, delay_time))
-  back();
+sleep(random(700, 1500))
+ // back();
   // ran_sleep();
   // jifen_init();
   text("登录").waitFor();
