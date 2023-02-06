@@ -863,7 +863,7 @@ ui.layout(
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="运动" />
-                                    <text w="auto" textColor="#999999" textSize="12sp" text="查看让运动计入本周总分，首次需要手动查看" />
+                                    <text w="auto" textColor="#999999" textSize="12sp" text="选填，没问题不用选仅为不自动点击查看不计运动步数而设，自动查看让运动计入本周总分，首次需要手动查看" />
                                 </vertical>
                                 <checkbox id="ttxs_pro_yundong" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>

@@ -1849,23 +1849,14 @@ while(!id("sport_step")){
  className("android.widget.TextView").id("sport_step").findOnce(0).click();
   sleep(2000);
   back();
-  sleep(2000);
-   let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(3000);
-  if(dong_3) fInfo("非组织用户暂不支持排名");
-   else {let dong_name = className("android.widget.TextView").id("sport_name").findOnce(0).text();
- let dong_rank = className("android.widget.TextView").id("sport_self_rank_info").findOnce(0).text();
- if(dong_rank == "暂无排名信息") fInfo("暂无排名信息");
- else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
-     }
-  // text("切换地区").findOne(5000);
-  // if (text("立即切换").exists()) {
-  //   text("取消").findOne(3000).click();
-  // }
-  // //let banner = className("android.support.v7.widget.RecyclerView").findOne();
-  // let banner = classNameContains("RecyclerView").findOne();
-  // let txt = banner.child(0).child(1).text();
-  // banner.child(0).click();
-  // className("android.widget.TextView").depth(11).text(txt).waitFor();
+   sleep(2000);
+//    let dong_3 = className("android.widget.TextView").id("empty_rank_describe").findOne(3000);
+//   if(dong_3) fInfo("非组织用户暂不支持排名");
+//    else {let dong_name = className("android.widget.TextView").id("sport_name").findOnce(0).text();
+//  let dong_rank = className("android.widget.TextView").id("sport_self_rank_info").findOnce(0).text();
+//  if(dong_rank == "暂无排名信息") fInfo("暂无排名信息");
+//  else fInfo(dong_name + dong_rank +"运动步数" + dong_0 +"步");
+//      }
    sleep(1500);
   back();
   // ran_sleep();
