@@ -10,7 +10,7 @@ console.clear();
 ui.主题颜色 = "#FFC0CB";
 ui.标题 = "学习四合一测试版pro(从疫情中走出，专心于工作)";
 ui.副标题 = "让各位从疫情走出来专心于工作";
-ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.群里找最新版本：学习减压4+1pro.apk下载，卸载老版本后重新安卓！\n3.试用期过后，请赞助获取卡密（Q群3：758116397，加群获得最新apk和资料）。\n4.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等。\n5.全面调整脚本地址，点击右上角三个点---下拉菜单---最新版下载---输入密码：ex28\n或请复制新连接下载更新" + "https://gitee.com/djh010/xuexiqiangguo---xxqg/blob/master/%E5%AD%A6%E4%B9%A0%E5%87%8F%E5%8E%8B4+1pro_2.3.0_sign.apk";
+ui.公告 = "1.仅供个人测试使用（四合一）pro全新上线\n2.群里找最新版本：学习减压4+1pro.apk下载，卸载老版本后重新安卓！\n3.试用期过后，请赞助获取卡密（Q群3：758116397，加群获得最新apk和资料）。\n4.root去除截图权限版适合最新版，适用于手机root或虚拟机或模拟器通过模块去除截图限制等。\n5.全面调整脚本地址，点击右上角三个点---下拉菜单---最新版下载---输入密码：ex28，若无法跳转复制日志或下方地址到浏览器中\n或请复制新连接下载更新" + "https://wwc.lanzouo.com/ikILs001d0wh";
 
 var vip = 1;//VIP权限自由开关
 var color = "#FF4FB3FF";
@@ -68,8 +68,8 @@ if (GLOBAL_CONFIG.get("NO_UPDATE", 0) && (app.versionName != latest_version)) {
 ui.emitter.on("create_options_menu", menu => {
     menu.add("日志");
     menu.add("关于");
-    menu.add("Github");
-    menu.add("V2.33.0下载");
+    menu.add("最新版下载（密码：ex28）");
+    menu.add("QGV2.33.0下载");
 });
 
 // 监听选项菜单点击
