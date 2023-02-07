@@ -1615,8 +1615,8 @@ function do_dingyue() {
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
             sleep(random(800, 1500)); 
             click(pot.x, pot.y+5);
+            fInfo("完成第 " + (total_click + 1) + " 订阅");
             total_click += 1;
-            fInfo("完成第 " + total_click + " 订阅");
              img.recycle();
           }else {
              img.recycle();
@@ -1645,7 +1645,7 @@ function do_dingyue() {
         }
         t_1 += t_2;
     }
-      if(total_click <2){
+      if(total_click <2 && dingyue_dao){
       fClear();
          fInfo("继续地方-上新/2023年上线-搜索……");
          press(670,167,100) ;
@@ -1678,8 +1678,8 @@ function do_dingyue() {
                   //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
                   sleep(random(800, 1500)); 
                   click(pot.x, pot.y+5);
+                  fInfo("完成第 " + (total_click + 1) + " 订阅");
                   total_click += 1;
-                  fInfo("完成第 " + total_click + " 订阅");
                    img.recycle();
                 }else{
                   img.recycle();
@@ -1737,7 +1737,7 @@ function do_dingyue_0() {
   }
   // 上方标签
   let tab_clt = descContains("Tab").untilFind();
-  let total_click = 0;
+  var total_click = 0;
   for (let tab of tab_clt) {
     tab.click();
     sleep(500);
