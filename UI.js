@@ -51,7 +51,6 @@ var STUDY_CONFIG = storages.create("STUDY_CONFIG");
 var BAIDUAPI = storages.create("BAIDUAPI");
 var execution = "";
 var thread = null;
-
 // 版本更新检查
 var apkurl = "https://gitee.com/djh010/xuexiqiangguo---xxqg/blob/master/%E5%AD%A6%E4%B9%A0%E5%87%8F%E5%8E%8B4+1pro_2.3.0_sign.apk";
 var latest_version = "2.2.0";
