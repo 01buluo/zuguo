@@ -881,7 +881,7 @@ ui.layout(
                                     <text w="auto" textColor="#222222" textSize="15sp" text="pushplus_token(微信推送)开关" />
                                     <text w="auto" textColor="#999999" textSize="12sp" text="选推送，需要勾选并填写下方token" />
                                 </vertical>
-                                <checkbox id="ttxs_pro_kaiguan" marginLeft="4" marginRight="6" checked="false" />
+                                <checkbox id="ttxs_pro_kaiguan" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <View bg="#00BFFF" h="*" w="10"  ></View>
@@ -1436,7 +1436,7 @@ ui.ttxs_pro_reset.click(function () {
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode"));
     TTXS_PRO_CONFIG.put("ddtong", false);
     ui.ttxs_pro_ddtong.setChecked(TTXS_PRO_CONFIG.get("ddtong"));
-    TTXS_PRO_CONFIG.put("weixin_kaiguan", false);
+    TTXS_PRO_CONFIG.put("weixin_kaiguan", true);
     ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan"));
     TTXS_PRO_CONFIG.put("is_exit", true);
     ui.ttxs_pro_is_exit.setChecked(TTXS_PRO_CONFIG.get("is_exit"));
@@ -1591,7 +1591,7 @@ function Initialize() {
     ui.ttxs_pro_slide_verify.setText(TTXS_PRO_CONFIG.get("slide_verify", "300"));
     ui.ttxs_pro_fast_mode.setChecked(TTXS_PRO_CONFIG.get("fast_mode", false));
     ui.ttxs_pro_ddtong.setChecked(TTXS_PRO_CONFIG.get("ddtong", false));
-    ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan", false));
+    ui.ttxs_pro_kaiguan.setChecked(TTXS_PRO_CONFIG.get("weixin_kaiguan", true));
     ui.ttxs_pro_is_exit.setChecked(TTXS_PRO_CONFIG.get("is_exit", true));
     ui.ttxs_pro_pinglun.setChecked(TTXS_PRO_CONFIG.get("pinglun", true));
     ui.ttxs_pro_shipin.setChecked(TTXS_PRO_CONFIG.get("shipin", true));
