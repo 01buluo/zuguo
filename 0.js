@@ -1617,10 +1617,14 @@ function do_dingyue() {
             click(pot.x, pot.y+5);
             total_click += 1;
             fInfo("完成第 " + total_click + " 订阅");
-          }else break;
+             img.recycle();
+          }else {
+             img.recycle();
+            break;
+              }
         }
           if (total_click >= 2) {
-            img.recycle();
+           
            // w = fInit();
             fInfo("订阅已完成,准备返回");
             back();
@@ -1656,6 +1660,7 @@ function do_dingyue() {
           sleep(random(800, 1500));
               for (let ii = 0; ii < asub_1; ii++) {
                 while (total_click < 2 && asub_1 != 0) {
+                  while(total_click < 2){
                 let img = captureScreen();
                 sleep(random(800, 1500));
                 try {
@@ -1675,9 +1680,14 @@ function do_dingyue() {
                   click(pot.x, pot.y+5);
                   total_click += 1;
                   fInfo("完成第 " + total_click + " 订阅");
+                   img.recycle();
+                }else{
+                  img.recycle();
+                  break;
+                }
                 }
                 if (total_click >= 2) {
-                  img.recycle();
+                 // img.recycle();
                  // w = fInit();
                   fInfo("订阅已完成,准备返回");
                   back();
