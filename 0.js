@@ -1624,7 +1624,7 @@ function do_dingyue() {
             break;
               }
         }
-          if (total_click > 2) {
+          if (total_click == 2) {
            
            // w = fInit();
             fInfo("订阅已完成,准备返回");
@@ -1689,7 +1689,7 @@ function do_dingyue() {
                   break;
                 }
                 }
-                if (total_click >= 2) {
+                if (total_click == 2) {
                  // img.recycle();
                  // w = fInit();
                   fInfo("订阅已完成,准备返回");
