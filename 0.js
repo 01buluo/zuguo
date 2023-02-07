@@ -1618,12 +1618,13 @@ function do_dingyue() {
             fInfo("完成第 " + (total_click + 1) + " 订阅");
             total_click += 1;
              img.recycle();
+             sleep(random(800, 1500));
           }else {
              img.recycle();
             break;
               }
         }
-          if (total_click >= 2) {
+          if (total_click > 2) {
            
            // w = fInit();
             fInfo("订阅已完成,准备返回");
@@ -1645,7 +1646,7 @@ function do_dingyue() {
         }
         t_1 += t_2;
     }
-      if(total_click <2 && dingyue_dao){
+      if(total_click < 2 && dingyue_dao){
       fClear();
          fInfo("继续地方-上新/2023年上线-搜索……");
          press(670,167,100) ;
@@ -1680,7 +1681,9 @@ function do_dingyue() {
                   click(pot.x, pot.y+5);
                   fInfo("完成第 " + (total_click + 1) + " 订阅");
                   total_click += 1;
+                 // sleep(random(800, 1500));
                    img.recycle();
+                   sleep(random(800, 1500));
                 }else{
                   img.recycle();
                   break;
